@@ -9,6 +9,7 @@ public class UnionFindArray {
 
 		for (int i = 0; i < N; i++) {
 			uf[i] = i;
+			sz[i] = 1;
 		}
 
 	}
