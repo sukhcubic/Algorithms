@@ -2,7 +2,7 @@
 public class NumberOfIslandUnionFind {
 	private int[] sz;
 	private int[] id;
-	private int N, M;
+	private int row, column;
 
 	public int findRoot(int entry) {
 
@@ -32,5 +32,18 @@ public class NumberOfIslandUnionFind {
 			// bigger become root now
 			id[ry] = id[rx];
 		}
+	}
+
+	private boolean isValid(int x, int y) {
+		return (x >= 0 && y >= 0 && x < row && y < column);
+	}
+
+	public int numberOfIslands(int[][] matrix) {
+		if (matrix == null || matrix.length == 0)
+			return 0;
+
+		int islands = 0, i = 0;
+
+		return islands;
 	}
 }
