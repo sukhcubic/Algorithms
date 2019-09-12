@@ -37,8 +37,10 @@ public class UnionFindArray {
 	private int findRoot(int a) {
 
 		while (a != uf[a]) {
-			uf[a] = uf[uf[a]];
-			a = uf[a];
+			// uf[a] = uf[uf[a]];
+			// a = uf[a];
+			a = uf[uf[a]];
+			uf[a] = a;
 		}
 		return a;
 
