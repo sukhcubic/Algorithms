@@ -1,33 +1,5 @@
 public class ShellSort {
 
-	// public static int[] shellSort(int[] a) {
-	//
-	// int N = a.length;
-	// int w = 1;
-	// while (w < N / 3) {
-	// // System.out.print(w + "\n");
-	// w = 3 * w + 1;
-	// }
-	//
-	// while (w >= 1) {
-	// System.out.print(w + "ccc");
-	// for (int x = w; x < N; x++) {
-	// System.out.print(x + "a");
-	// int x1 = a[x];
-	// int y = 0;
-	// for (y = x; y > w - 1; y = y - w) {
-	// System.out.print("b");
-	// a[y] = a[y - w];
-	//
-	// }
-	//
-	// a[y] = x;
-	// }
-	// w = w / 3;
-	// }
-	// return a;
-	// }
-
 	public static int[] shellSort(int[] numbers) {
 		System.out.println("bbbb1b");
 
