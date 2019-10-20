@@ -2,10 +2,7 @@ public class ShellSort {
 
 	public static int[] shellSort(int[] numbers) {
 		System.out.println("bbbb1b");
-
 		for (int gap = numbers.length / 2; gap > 0; gap /= 2) {
-			// System.out.println(gap + "bbb2bb " + numbers.length);
-
 			for (int i = gap; i < numbers.length; i++) {
 				System.out.println(i + " bb3bbb " + gap);
 
@@ -40,6 +37,5 @@ public class ShellSort {
 			// s += String.valueOf(i);
 		}
 		System.out.println(s);
-
 	}
 }
