@@ -22,6 +22,8 @@ public class InsertionSort {
 		// insertionSort(a);
 		for (int i : insertionSort(a)) {
 			System.out.println(i);
+			System.out.println(i);
+
 		}
 	}
 }
