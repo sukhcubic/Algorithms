@@ -1,17 +1,33 @@
 public class ShellSort {
 
 	public static int[] shellSort(int[] numbers) {
-		int j;
-		for (int gap = numbers.length / 2; gap > 0; gap /= 2) {
-			// System.out.println(gap + "bbb2bb " + numbers.length);
+		//System.out.println("bbbb1b");
+		 int N = numbers.length;
+		 int j;
+		 int gap = 1;
+		 while (gap < N/3) gap = 3*gap + 1; // 1, 4, 13, 40, 121, 364, ...
+		 while (gap >= 1)
+		 { 
+			
 			for (int i = gap; i < numbers.length; i++) {
 				int temp = numbers[i];
 				for (j = i; j >= gap && numbers[j - gap] > temp; j -= gap) {
 					numbers[j] = numbers[j - gap];
 				}
 				numbers[j] = temp;
-			}
+				}
+			gap = gap/3;
 		}
+//			for (int gap = numbers.length / 2; gap > 0; gap /= 2) {
+//				// System.out.println(gap + "bbb2bb " + numbers.length);
+//				for (int i = gap; i < numbers.length; i++) {
+//					int temp = numbers[i];
+//					for (j = i; j >= gap && numbers[j - gap] > temp; j -= gap) {
+//						numbers[j] = numbers[j - gap];
+//					}
+//					numbers[j] = temp;
+//				}
+//			}
 
 		return numbers;
 	}
