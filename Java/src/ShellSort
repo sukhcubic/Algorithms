@@ -11,9 +11,15 @@ public class ShellSort {
 			
 			for (int i = gap; i < numbers.length; i++) {
 				int temp = numbers[i];
+				// holding temp value
 				for (j = i; j >= gap && numbers[j - gap] > temp; j -= gap) {
+				// shifting value based on size. For example, we have gap of 3 and at index 12 we have 13 which is temp
+				//value and at  index 9 which is j-gap we have 14 this will assign 14 at index 12 which is j and outside 
+				// for loop, we have updated index 9 (j -=gap) will be assigned with 13 th temp value. This is how exchange
+				// of value is happening.
 					numbers[j] = numbers[j - gap];
 				}
+				// assigning temp value
 				numbers[j] = temp;
 				}
 			gap = gap/3;
