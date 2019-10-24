@@ -33,10 +33,11 @@ public class ShellSort {
 			gap = 3 * gap + 1; // 1, 4, 13, 40, 121, 364, ...
 		while (gap >= 1) {
 			for (int i = gap; i < numbers.length; i++) {
-				int temp = numbers[i];
-				for (j = i; j >= gap && numbers[j - gap] > temp; j -= gap) {
+			// validate if  numbers[j - gap] > numbers[j] then swap
+				for (j = i; j >= gap && numbers[j - gap] > numbers[j]; j -= gap) {
+					int swap = numbers[j]; 
 					numbers[j] = numbers[j - gap];
-					numbers[j - gap] = temp;
+					numbers[j-gap] = swap; 
 				}
 			}
 			gap = gap / 3;
