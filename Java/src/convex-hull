@@ -1,1 +1,11 @@
 
+public class ConvexHull {
+	public static int[] cHull(int[] numbers) {
+		
+	}
+
+
+	public static void main(String[] args) {
+
+	}
+}
