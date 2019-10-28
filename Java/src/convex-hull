@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+//inspired by
+//https://rosettacode.org/wiki/Convex_hull#Java
+//http://fpl.cs.depaul.edu/jriely/ds2/code/doc-public/src-html/algs9/GrahamScan.html
 public class ConvexHull {
 	private static class Point implements Comparable<Point> {
 		private int x, y;
