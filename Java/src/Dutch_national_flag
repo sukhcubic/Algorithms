@@ -15,8 +15,8 @@ public class DutchFlag {
 	public static int[] sort (int [] array) {
 		int low = 0, mid = 0, high = array.length -1;
 		int num = 0;
-		while(mid <= high) {
-			num++;
+		while(mid < high) {
+//			num++;
 //			if(array[mid] == 0) {
 //				swap(array, low, mid);
 //				low++;
@@ -30,7 +30,7 @@ public class DutchFlag {
 //				swap(array, high, mid);
 //				high--;	
 //			}
-			
+     
 			if(array[mid] == 0) {
 				swap(array, low, mid);
 				low++;
@@ -45,6 +45,14 @@ public class DutchFlag {
 			}
 	
 		}
+//	       for (int i = 0; i <= high; i++)
+//           {
+//               if (array[i] == 0)
+//                   swap(array, low++, i--);
+//
+//               if (array[i] == 2)
+//                   swap(array, i--, high--);
+//           }
 		
 		System.out.println(num);
 
@@ -58,7 +66,7 @@ public class DutchFlag {
 	}
 	
 	public static void main(String[] args) {
-		int[] a = new int[] {1, 2, 0, 1, 0, 2, 0, 0, 0, 1, 1, 0, 2, 1,  2, 0, 1, 2 };
+		int[] a = new int[] {1, 2, 0, 0, 0, 0, 1, 1, 0 };
 		for (int i : sort(a)) {
 			System.out.println(i);
 		}
