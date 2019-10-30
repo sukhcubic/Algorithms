@@ -1,9 +1,9 @@
+import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
-//inspired by
-//https://rosettacode.org/wiki/Convex_hull#Java
-//http://fpl.cs.depaul.edu/jriely/ds2/code/doc-public/src-html/algs9/GrahamScan.html
+// Partially correct, not fully implemented. Sort by ploar angle is pending.
 public class ConvexHull {
 	private static class Point implements Comparable<Point> {
 		private int x, y;
@@ -22,6 +22,28 @@ public class ConvexHull {
 		public String toString() {
 			return String.format("(%d, %d)", x, y);
 		}
+		
+	    private class Atan2Order implements Comparator<Point> {
+	        public int compare(Point q1, Point q2) {
+	            double angle1 = angleTo(q1);
+	            double angle2 = angleTo(q2);
+	            if      (angle1 < angle2) return -1;
+	            else if (angle1 > angle2) return +1;
+	            else                      return  0;
+	        }
+	    }
+	    
+	    public double distanceTo(final Point p) {
+	        double dx = this.x - p.x;
+	        double dy = this.y - p.y;
+	        return Math.sqrt(dx*dx + dy*dy);
+	    }
+	    
+	    private double angleTo(final Point p) {
+	        double dx = p.x - this.x;
+	        double dy = p.y - this.y;
+	        return Math.atan2(dy, dx);
+	    }
 	}
 
 	private static List<Point> convexHull(List<Point> points) {
@@ -33,30 +55,30 @@ public class ConvexHull {
 
 		points.sort(Point::compareTo);
 		
-		// if (p.isEmpty()) return emptyList();
-		// p.sort(Point::compareTo);
-		//
-		// // lower hull
-		// for (Point pt : p) {
-		// while (h.size() >= 2 && !ccw(h.get(h.size() - 2), h.get(h.size() -
-		// 1), pt)) {
-		// h.remove(h.size() - 1);
-		// }
-		// h.add(pt);
-		// }
-		//
-		// // upper hull
-		// int t = h.size() + 1;
-		// for (int i = p.size() - 1; i >= 0; i--) {
-		// Point pt = p.get(i);
-		// while (h.size() >= t && !ccw(h.get(h.size() - 2), h.get(h.size() -
-		// 1), pt)) {
-		// h.remove(h.size() - 1);
-		// }
-		// h.add(pt);
-		// }
-		//
-		// h.remove(h.size() - 1);
+		//ToDo: sort points based on angle between them.
+		//Arrays.Sort(points, points.get(0).Atan2Order());
+		
+		//Adding first two points
+		convex.add(points.get(0));
+		convex.add(points.get(1));
+		convex.add(points.get(2));
+		//strating it from third point
+		for(int i = 3 ; i< points.size(); i++) {
+			int sz = convex.size();
+			//System.out.printf("Convex Hull:" + sz+ " i " + i + );
+//			System.out.printf("Convex Hull:" + convex.get(convex.size()-2));
+//			System.out.printf("Convex Hull:" + convex.get(convex.size()-1));
+//			System.out.printf("Convex Hull:" + points.get(i));
+//			System.out.printf("Convex Hull:" +ccw(convex.get(convex.size()-2), convex.get(convex.size()-1), points.get(i)));
+
+			while(convex.size()> 2 && !ccw(convex.get(convex.size()-3), convex.get(convex.size()-2), convex.get(convex.size()-1))) {
+				System.out.printf("Convex Hull:" + sz);
+
+				convex.remove(convex.size()-1);
+			}	
+			convex.add(points.get(i));
+		}
+	
 		return convex;
 	}
 
@@ -67,14 +89,10 @@ public class ConvexHull {
 	}
 
 	public static void main(String[] args) {
-		List<Point> points = Arrays.asList(new Point(16, 3), new Point(12, 17), new Point(0, 6), new Point(-4, -6),
-				new Point(16, 6),
+		List<Point> points = Arrays.asList(new Point(16, 3), new Point(12, 17), new Point(0, 6), 
+				new Point(16, 6),new Point(5, 19),new Point(3, 16), new Point(12, 13),  new Point(17, 5),
 
-				new Point(16, -7), new Point(16, -3), new Point(17, -4), new Point(5, 19), new Point(19, -8),
-
-				new Point(3, 16), new Point(12, 13), new Point(3, -4), new Point(17, 5), new Point(-3, 15),
-
-				new Point(-3, -9), new Point(0, 11), new Point(-9, -3), new Point(-4, -2), new Point(12, 10));
+				new Point(0, 11), new Point(12, 10));
 
 		List<Point> hull = convexHull(points);
 		System.out.printf("Convex Hull: %s\n", hull);
