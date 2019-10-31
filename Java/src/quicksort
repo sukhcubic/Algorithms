@@ -1,1 +1,21 @@
 
+public class QuickSort {
+	public static int[] sort(int[] numbers) {
+
+		return numbers;
+	}
+
+	private static void exch(int[] a, int i, int j){
+		
+		int swap = a[i]; 
+		a[i] = a[j];
+		a[j] = swap; 
+		
+	  }
+	public static void main(String[] args) {
+		int[] a = new int[] {1000, 4, 2, 1, 7, 5, 3, 55, 67, 7, 10, 9, 4, 78, 95, 15, 3, 56, 86, 99, 20 };
+		for (int i : sort(a)) {
+			System.out.println(i);
+		}
+	}
+}
