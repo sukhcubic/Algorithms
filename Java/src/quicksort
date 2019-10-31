@@ -1,11 +1,9 @@
 
 public class QuickSort {
 	private static void sort(int[] a, int i, int j){
-	
 		if(i >= j) {
 			return;
 		}
-		
 		int part = partition(a, i, j);
 		sort(a, i, part-1);
 	    sort(a, part , j);	
@@ -27,16 +25,16 @@ public class QuickSort {
 			}
 			
 			while(a[high] > pivot) {
-				high ++;
+				high --;
 			}
+			
 			if(low <= high) {
 			 swap(a, low, high);
 			 low++;
 			 high--;
 			}
-			
 		}
-		return index;
+		return low;
 	}
 	
 	private static int getPivotIndex(int low, int high) {
