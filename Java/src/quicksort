@@ -1,12 +1,12 @@
 
 public class QuickSort {
-	private static void sort(int[] a, int i, int j){
-		if(i >= j) {
+	private static void sort(int[] a, int lo, int hi){
+		if(lo >= hi) {
 			return;
 		}
-		int part = partition(a, i, j);
-		sort(a, i, part-1);
-	    sort(a, part , j);	
+		int part = partition(a, lo, hi);
+		sort(a, lo, part-1);
+	        sort(a, part , hi);	
 	}
 
 	private static void swap(int[] a, int i, int j){
