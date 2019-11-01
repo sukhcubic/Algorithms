@@ -1,0 +1,52 @@
+
+public class ThreeWayQuickSort {
+
+		private static void sort(Character[] a, int lo, int hi){
+			if(hi <= lo) {
+				return;
+			}
+			
+			int lt = lo, gt = hi;
+			
+			for(int i = lo; i<hi; i++) {
+				if(a[i]< a[lt]) {
+					swap(a, lt, i);
+					lt++;
+					i++;
+				}
+				if(a[i] > a[gt]) {
+					swap(a, i, gt);
+					gt--;
+				}
+			}
+			
+			
+//			while(i <= gt){
+//				else if(a[i] > a[gt]) {
+//					swap(a, i, gt);
+//					gt--;
+//				}else {
+//					i++;
+//				}
+//			}
+			sort(a, lo, lt-1);
+			sort(a, gt, hi);
+		}
+
+		private static void swap(Character[] a, int i, int j){
+			char swap = a[i]; 
+			a[i] = a[j];
+			a[j] = swap; 
+		  }
+		
+
+		
+		public static void main(String[] args) {
+			Character[] a = new Character[] {'p', 'c','a', 'p', 'p', 'c', 'c', 'x'};
+			sort(a, 0, a.length-1);
+			for (char i : a) {
+				System.out.println(i);
+			}
+		}
+
+}
