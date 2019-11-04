@@ -16,24 +16,35 @@ public class QuickSort {
 	  }
 	
 	private static int partition(int[] a, int low, int high) {
-		int index = getPivotIndex(low, high);
-		int pivot = a[index];
+	//	int index = getPivotIndex(low, high);
+	//	int pivot = a[index];
+	//	
+	//	while(low <= high) {
+	//		while(a[low] < pivot) {
+	//			low ++;
+	//		}
+	//		
+	//		while(a[high] > pivot) {
+	//			high --;
+	//		}
+	//		
+	//		if(low <= high) {
+	//		 swap(a, low, high);
+	//		 low++;
+	//		 high--;
+	//		}
+	//	}
+	//	return low;
 		
-		while(low <= high) {
-			while(a[low] < pivot) {
-				low ++;
-			}
-			
-			while(a[high] > pivot) {
-				high --;
-			}
-			
-			if(low <= high) {
-			 swap(a, low, high);
-			 low++;
-			 high--;
+	// .    Second version
+	        int pivot = a[high];
+		for(int i = low; i < high; i++) {
+			if(a[i] < pivot) {
+				swap(a, low, i);
+				low++;
 			}
 		}
+		swap(a, low, high);
 		return low;
 	}
 	
