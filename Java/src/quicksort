@@ -1,5 +1,6 @@
 
 public class QuickSort {
+// Explanation if quick sort https://www.youtube.com/watch?v=ZHVk2blR45Q
 	private static void sort(int[] a, int lo, int hi){
 		if(lo >= hi) {
 			return;
