@@ -7,7 +7,8 @@ public class QuickSort {
 		}
 		int part = partition(a, lo, hi);
 		sort(a, lo, part-1);
-	        sort(a, part , hi);	
+//	        sort(a, part , hi);	
+                sort(a, part+1 , hi);
 	}
 
 	private static void swap(int[] a, int i, int j){
