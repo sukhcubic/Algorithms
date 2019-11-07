@@ -11,7 +11,7 @@ public class FindFixedPoint {
 	}
 
 	public static void main(String[] args) {
-		int[] a = new int[] { 77, 10, 9, 4, 78, 95, 15, 15,  3};
+		int[] a = new int[] { -5, 1, 3, 4};
 
 	}
 	
