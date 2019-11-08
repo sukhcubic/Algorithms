@@ -29,3 +29,7 @@
 		a[i] = a[j];
 		a[j] = swap; 
 	  }
+
+       	private static void heapify(){
+	
+	  }
