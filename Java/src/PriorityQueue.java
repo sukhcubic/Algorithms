@@ -4,34 +4,31 @@
 //https://www.coursera.org/learn/algorithms-part1/lecture/Uzwy6/binary-heaps
 public class PriorityQueue {
 	
-	static int[] a = new int[9];
+		static int[] a = new int[9];
 	static int lastIndex = 0;
 	
 	public static void insert(int element) {
 		a[lastIndex] =  element;
 		swim(lastIndex);
-		lastIndex++;
 	}
 	
 	public static void delete() {
+		System.out.println(" delete last index   "+lastIndex);
 		a[0] =  a[lastIndex-1];	
 		sink(0);
-		lastIndex--;
+		for (int i = 0; i < lastIndex; i++) {
+			System.out.println(a[i]);
+		}
 	}
 	
 	private static void swim(int x) {
-		int parent = (x-1)/2;
-		System.out.println("sss");
-
-		while(x >0 && a[x] < a[parent]) {
-
-			swap(parent, x);
-			x = parent;
-			parent = (x-1)/2;
+		while(x > 0 && a[x] > a[(x-1)/2]) {
+			swap((x-1)/2, x);
+			x = (x-1)/2;
  		}
-		
-		for (int i : a) {
-			System.out.println(i);
+		lastIndex++;
+		for (int i = 0; i < lastIndex; i++) {
+			System.out.println(" ss s s ss s s   "+a[i]);
 		}
 	}
 	
@@ -43,22 +40,20 @@ public class PriorityQueue {
 			int left = 2*x+1;
 			int right = 2*x+2;
 			int selected = left;
-			if(right< a.length && left>right) {
+			if(right< a.length && a[left]<a[right]) {
 				selected = right;
 			}
 			
-			if(left >= a.length|| left < x) {
+			if(left < lastIndex && a[left]> a[x]) {
+				swap(x, selected);
+				x = selected;
+			}else {
 				break;
 			}
-			swap(x, selected);
-			
-			x = selected;
-
 		}
+		lastIndex--;
 		System.out.println("dddd");
-		for (int i : a) {
-			System.out.println(i);
-		}
+
 	}
 	
 	private static void swap(int i, int j){
@@ -66,17 +61,22 @@ public class PriorityQueue {
 		a[i] = a[j];
 		a[j] = swap; 
 	  }
-	
+
 	
 	public static void main(String[] args) {
 		int[] a = new int[] { 77, 10, 9, 4, 78, 95, 15, 15,  3};
-	//	sort(a, 0, a.length-1);
 		for (int i : a) {
+			System.out.println("  insert   " + i);
 			insert(i);
 		}
+		
+		delete();
+		delete();
+		delete();
+		delete();
+		delete();
 		delete();
 	}
-
 }
 
 
