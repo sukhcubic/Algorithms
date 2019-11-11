@@ -56,6 +56,22 @@ public class PriorityQueue {
 
 	}
 	
+	private static void delete(int num) {
+		int foundIndex = -1;
+		for(int i = 0; i<lastIndex; i++) {
+			if(a[i]== num) {
+				foundIndex = i;
+				break;
+			}
+		}
+		a[foundIndex] = a[lastIndex-1];
+		sink(foundIndex);
+		
+		for (int i = 0; i < lastIndex; i++) {
+			System.out.println(a[i]);
+		}
+	}
+	
 	private static void swap(int i, int j){
 		int swap = a[i]; 
 		a[i] = a[j];
