@@ -1,13 +1,13 @@
 
 public class HeapSort {
 
-	static int[] a = new int[] { 77, 10, 9, 4, 78, 95, 15};
+		static int[] a = new int[] { 77, 10, 9, 4, 78, 95, 15};
 	static int L = a.length;
 	
 	private static void maxHeap() {
 		int s = L/2 -1;
 		for(int i = s; i >= 0; i--) {
-			System.out.print(" maxHeapSink = " + i);
+			System.out.print(" maxHeapSink = " + i + " s "+ s);
 			sink(i);
 		}
 	}
@@ -26,16 +26,14 @@ public class HeapSort {
 			swap((x-1)/2, x);
 			x = (x-1)/2;
  		}
-		for (int i = 0; i < L; i++) {
-			System.out.println(" ss s s ss s s   "+a[i]);
-		}
+//		for (int i = 0; i < L; i++) {
+//			System.out.println(" ss s s ss s s   "+a[i]);
+//		}
 	}
 	
 	private static void sink(int x) {
 
-		while(x < L) {
-			System.out.println("dccc"+L  + "  xxx  "  + x);
-
+		while(x <= L) {
 			int left = 2*x+1;
 			int right = 2*x+2;
 			int selected = left;
