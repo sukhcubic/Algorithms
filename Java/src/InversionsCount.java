@@ -1,5 +1,8 @@
+//https://www.geeksforgeeks.org/counting-inversions/
+//https://www.geeksforgeeks.org/count-inversions-of-size-k-in-a-given-array/
+//https://www.geeksforgeeks.org/count-inversions-array-set-3-using-bit/
 public class InversionsCount{
-	public static void main(String[] args) {
+public static void main(String[] args) {
 		int[] a = new int[] {1, 2, 3,0,0};
 		count(a);
 		for (int i : a) {
