@@ -45,6 +45,23 @@ public class MergeSort {
 				a[i] = aux[low++];
 			}
 		}
+		
+// 		while(l <=  mid && m <= hi ) {
+// 			if(aux[l] > aux[m] ) {
+// 				a[i] = aux[m++];
+// 			}else {
+// 				a[i] = aux[l++];
+// 			}
+// 			i++;
+// 		}
+		
+// 		while(m <= hi) {
+// 			a[i++] = aux[m++];
+			
+// 		}
+// 		while(l <= mid) {
+// 			a[i++] = aux[l++];	
+// 		}
 	}
 	
 	public static void main(String[] args) {
