@@ -6,9 +6,9 @@ public class InversionsCount{
 	public static void main(String[] args) {
 		int[] a = new int[] {1, 20, 6, 4, 5};
 		count(a);
-//		for (int i : a) {
-//			System.out.println(i);
-//		}
+		for (int i : a) {
+			System.out.println(i);
+		}
 	}
 
 	private static void count(int[] a) {
@@ -24,7 +24,7 @@ public class InversionsCount{
 		if(lo>=hi) {
 			return 0;
 		}
-		int m = (lo + hi) / 2;
+		int m = lo + (hi - lo) / 2;
 		
 		return mSort(a, aux, lo, m) +  mSort(a, aux, m+1, hi) +   merge(a, aux, lo, m, hi);
 	}
@@ -41,11 +41,11 @@ public class InversionsCount{
 		int i = lo;
 		
 		while(l <=  mid && m <= hi ) {
-			if(aux[l] > aux[m] ) {
-				a[i++] = aux[m++];
-				value += mid-l; 
-			}else {
+			if(aux[l] < aux[m] ) {
 				a[i++] = aux[l++];
+				value += mid+1-l; 
+			}else {
+				a[i++] = aux[m++];
 			}
 		}
 		
