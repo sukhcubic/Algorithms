@@ -3,13 +3,12 @@
 //https://www.geeksforgeeks.org/count-inversions-of-size-k-in-a-given-array/
 //https://www.geeksforgeeks.org/count-inversions-array-set-3-using-bit/
 public class InversionsCount{
-
 	public static void main(String[] args) {
 		int[] a = new int[] {1, 20, 6, 4, 5};
 		count(a);
-		for (int i : a) {
-			System.out.println(i);
-		}
+//		for (int i : a) {
+//			System.out.println(i);
+//		}
 	}
 
 	private static void count(int[] a) {
@@ -25,7 +24,7 @@ public class InversionsCount{
 		if(lo>=hi) {
 			return 0;
 		}
-		int m = lo + (hi - lo) / 2;
+		int m = (lo + hi) / 2;
 		
 		return mSort(a, aux, lo, m) +  mSort(a, aux, m+1, hi) +   merge(a, aux, lo, m, hi);
 	}
@@ -42,17 +41,21 @@ public class InversionsCount{
 		int i = lo;
 		
 		while(l <=  mid && m <= hi ) {
-			if(aux[l] < aux[m] ) {
-				a[i++] = aux[l++];
-				value += mid+1-l; 
-			}else {
+			if(aux[l] > aux[m] ) {
 				a[i++] = aux[m++];
+				//https://github.com/guibin/Knowledge/blob/master/libs/lib.algorithm/src/main/java/guibin/zhang/onlinecourse/CountingInversions.java
+	             //This is the most important part to count the inversions.
+                //If aux[i] > aux[j], then following items in left part are all > aux[j].
+                //So for aux[j], there are totally (mid - i + 1) reversed items: aux[i], aux[i + 1], ..., aux[mid] > aux[j],
+                //since at this stage, sub-array [lo, mid], [mid + 1, hi] are sorted repectively.
+				value += mid-l+1; // +1 because its zero based
+			}else {
+				a[i++] = aux[l++];
 			}
 		}
 		
 		while(m <= hi) {
 			a[i++] = aux[m++];
-			value++;
 		}
 		
 		while(l <= mid) {
