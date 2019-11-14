@@ -45,7 +45,7 @@ public class MergeSort {
 				a[i] = aux[low++];
 			}
 		}
-		
+	// Also see inversion count algorithm	
 // 		while(l <=  mid && m <= hi ) {
 // 			if(aux[l] > aux[m] ) {
 // 				a[i] = aux[m++];
