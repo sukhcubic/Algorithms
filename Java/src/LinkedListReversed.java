@@ -56,6 +56,19 @@ Lnode node;
 	 System.out.print(node.next.next.next.next.next.next.next.data + "\n ");
 
  }
+	
+	 public static void reverseRecursively(Lnode head) {
+	 //Todo: Recursively
+	 //https://www.programcreek.com/2014/05/leetcode-reverse-linked-list-java/
+	 
+	 if(head == null) {
+		return; 
+	 }
+	 reverseRecursively(head.next);
+	 Lnode nxt = head.next;
+	 nxt.next = head;
+	 head.next = null;
+ }
 
 	public static void main(String[] args) {
 		ReverseLinkedList ll = new ReverseLinkedList();
