@@ -2,7 +2,7 @@
 public class MaxElementOfEachSubarray {
 	
 	public static void main(String[] args) {
-		int[] a = new int[] {3, 3, 2,2,4,4,4,3,3 };
+		int[] a = new int[] {9,6,11,8,10,5,14,13,93,14};
 		System.out.println(find(a, 4));
 	
 	}
@@ -18,18 +18,17 @@ public class MaxElementOfEachSubarray {
 					max = a[i];
 				}
 				if(i == 3) {
-				  s += Integer.toString(max);	
+				  s += Integer.toString(max) + " ";	
 				}
 			}else {
 				if(a[i] > max) {
 					max = a[i];
-					 s += Integer.toString(max);	
+					 s += Integer.toString(max) + " ";	
 				}else {
-					 s += Integer.toString(max);	
+					 s += Integer.toString(max) + " ";	
 				}
 			}
 		}
 		return s;
 	}
-
 }
