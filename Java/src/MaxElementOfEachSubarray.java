@@ -17,7 +17,7 @@ public class MaxElementOfEachSubarray {
 				if(a[i] > max) {
 					max = a[i];
 				}
-				if(i == 3) {
+				if(i == subArraySize-1) {
 				  s += Integer.toString(max) + " ";	
 				}
 			}else {
