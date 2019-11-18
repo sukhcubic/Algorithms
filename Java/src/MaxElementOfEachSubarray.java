@@ -8,6 +8,9 @@ public class MaxElementOfEachSubarray {
 	}
 
 	private static String find(int[] a, int subArraySize) {
+		if(subArraySize <= 1){
+			return "same array";
+		}
 		String s = "";
 		int max = a[0];
 		for(int i = 0; i<a.length; i++) {
