@@ -35,6 +35,7 @@ class LinkedListSumUsingStack{
 	    		int z1 = s1.isEmpty() ? 0: s1.pop();
 	    		int z2 = s2.isEmpty() ? 0: s2.pop();
                 addition = (z1+z2+carry)%10;
+			// Carry and previous carry if any.1 + 2 + 1(priovisly carried or 0)
                 carry = (z1+z2+carry)/10;
 	    		s3.push(addition);
 	 	    }else {
