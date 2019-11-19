@@ -40,6 +40,21 @@ public class LinkedList {
 	 }
  }
 
+		public Node getMiddle() {
+		// Move second pointer twice as much get get middle in N/2 time complexity
+		Node last = node;
+		Node first = node;
+		while (last != null) {
+			if (last.next != null && last.next.next != null) {
+				last = last.next.next;
+				first = first.next;
+			} else {
+				last = null;
+			}
+		}
+		return first;
+	}
+	
 	 public void removeMiddle() {
 	 Lnode current = node;
 	 Lnode previous = null;
