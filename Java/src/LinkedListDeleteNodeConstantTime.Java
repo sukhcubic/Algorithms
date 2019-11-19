@@ -17,7 +17,8 @@ class DeleteNode{
  }
  
  public void removeMiddle() {
-  // In Single linked list we cannot go back. The trick is copy data of next node into current node and delete next node
+  // In Single linked list we cannot go back. The trick is copy data of next node into 
+  //current node and delete next node and joint link to next node
 
  }
  
