@@ -39,7 +39,24 @@ public class LinkedList {
 		 previous.next = null;
 	 }
  }
-	
+
+	 public void removeMiddle() {
+	 Lnode current = node;
+	 Lnode previous = null;
+	 Lnode first = node;
+	 while(current != null) {
+		 if(current.next != null && current.next.next!= null) {
+		   current = current.next.next;
+		   previous = first;
+		   first = first.next;
+		 }else {
+		   current = null;
+		 }
+	 }
+	 
+	 previous.next = first.next;
+ }
+ 
  
 	public static void main(String[] args) {
 		LinkedList ll = new LinkedList();
