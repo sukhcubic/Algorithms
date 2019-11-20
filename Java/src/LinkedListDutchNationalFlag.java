@@ -3,15 +3,7 @@
 //Hint: https://www.codelike.in/c/linked-list/sort-a-linked-list-of-0s-1s-and-2s
 
 public class LinkedListDutchNationalFlag {
-	private class Node{
-		   int data;
-		   Node next;
-		   Node(int data){
-		    this.data = data;
-		   }
-		}
-	
-	Node node;
+		Node node;
 
 	public void add(int value) {
 		Node current = node;
@@ -26,29 +18,37 @@ public class LinkedListDutchNationalFlag {
 	}
 
 	private void sort() {
-		//Create three node to hold 0s, 1s and 2s
+		// Create three node to hold 0s, 1s and 2s
 		Node zero = new Node(0);
-		Node one = new Node(1);
-		Node two = new Node(2);
+		Node one = new Node(0);
+		Node two = new Node(0);
 		Node current = node;
-		//Create three references which will point to head. We need all nodes but head
-		Node a = zero; 
+		// Create three references which will point to head. We need all nodes but head
+		Node a = zero;
 		Node b = one;
 		Node c = two;
 		// Assume we have elements in the list
-		while(current != null ) {
-			
-			if(current.data == 0) {
+		while (current != null) {
+
+			if (current.data == 0) {
 				a.next = current;
-			}else if(current.data == 1){
+				a = a.next;
+			} else if (current.data == 1) {
 				b.next = current;
-			}else {
+				b = b.next;
+			} else {
 				c.next = current;
+				c = c.next;
 			}
 			current = current.next;
 		}
 
-		// Append all node 
+		// Linking all node
+		a.next = one.next;
+		b.next = two.next;
+		// last node null to break look
+		c.next = null;
+		node = zero.next;
 	}
 
 	public static void main(String[] args) {
