@@ -1,6 +1,7 @@
 //Sort a linked list of 0s, 1s and 2s by changing links
 //Ref: https://www.geeksforgeeks.org/sort-linked-list-0s-1s-2s-changing-links/
 //Hint: https://www.codelike.in/c/linked-list/sort-a-linked-list-of-0s-1s-and-2s
+//https://medium.com/afteracademy/data-structures-and-algorithms-problem-solving-approach-e7cb8ae43b20
 
 public class LinkedListDutchNationalFlag {
 		Node node;
