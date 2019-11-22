@@ -24,7 +24,7 @@ public class LinkedList {
 		 node = node.next;
 		 return;
 	 }
-	 
+	 //https://www.youtube.com/watch?v=0ZEX_l0DFK0
 	 while(current.next != null) {
 		 if(current.next.data == value) {
 			 previous = current; 
