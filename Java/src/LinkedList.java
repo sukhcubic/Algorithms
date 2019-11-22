@@ -1,14 +1,22 @@
 
-
 public class LinkedList {
     Lnode node;
- 
+	
+    //Lnode current = node;
+
+
  public void add(int value) {
+	 //This has to be the local if make global pointer will always be pointing to last node. 
+	 //In order to traverse list from beginning either create new node and change references or use existing
+	 //which will reset reference each time.
 	 Lnode current = node;
+
 	 if(current == null) {
 		 node = new Lnode(value);
 		 return;
 	 }
+	 System.out.print("node"
+		 		+ current.data + "\n");
 	 while(current.next != null) {
         current = current.next;
 	 }
@@ -39,23 +47,8 @@ public class LinkedList {
 		 previous.next = null;
 	 }
  }
-
-		public Node getMiddle() {
-		// Move second pointer twice as much get get middle in N/2 time complexity
-		Node last = node;
-		Node first = node;
-		while (last != null) {
-			if (last.next != null && last.next.next != null) {
-				last = last.next.next;
-				first = first.next;
-			} else {
-				last = null;
-			}
-		}
-		return first;
-	}
-	
-	 public void removeMiddle() {
+ 
+ public void removeMiddle() {
 	 Lnode current = node;
 	 Lnode previous = null;
 	 Lnode first = node;
@@ -72,34 +65,40 @@ public class LinkedList {
 	 previous.next = first.next;
  }
  
+	
  
 	public static void main(String[] args) {
 		LinkedList ll = new LinkedList();
 
-		int[] a = new int[] {12, 34, 6, 7, 8, 45 , 78, 9809};
+		int[] a = new int[] {12, 34, 6, 7, 8, 45 , 78, 9809, 9};
 
 
 		for(int z :a) {
+		
 			ll.add(z);
+			 System.out.print("node"
+				 		+ ll.node.data + "\n");
 		}
 	
 		Lnode current = ll.node;
-		 System.out.print("  removing node "
-		 		+ "");
+		
 
 		while(current != null) {
+			System.out.print("node current"
+			 		+ ll.node.data + "\n");
 		 System.out.print(current.data + "\n");
 		 current = current.next;
 		}
 		
-		ll.remove(12);
-		 System.out.print("  removing node 78 \n"
-			 		+ "");
-		Lnode current1 = ll.node;
-		while(current1 != null) {
-		 System.out.print(current1.data + "\n");
-		 current1 = current1.next;
-		}
+//		//ll.remove(12);
+//		ll.removeMiddle();
+//		 System.out.print("  removing node 78 \n"
+//			 		+ "");
+//		Lnode current1 = ll.node;
+//		while(current1 != null) {
+//		 System.out.print(current1.data + "\n");
+//		 current1 = current1.next;
+//		}
 
 	}
 }
