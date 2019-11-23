@@ -1,3 +1,4 @@
+
 public class LinkedListOddEvenLeetcode328 {
 //https://leetcode.com/problems/odd-even-linked-list/
     Lnode node;
@@ -38,7 +39,21 @@ public class LinkedListOddEvenLeetcode328 {
 		 }
 	     even.next = odd1.next;
 	     odd.next = null;
-		 node = even1.next;
+	     node = even1.next;
+	}
+	
+	//https://leetcode.com/problems/odd-even-linked-list/solution/
+	private void sortLeet() {
+		 Lnode odd = node;
+		 Lnode even = node.next;
+		 Lnode evenHead = even;
+		 while(even != null && even.next != null) {	
+				 odd.next = even.next;
+				 odd = odd.next;
+				 even.next = odd.next;
+				 even = even.next;
+		 }
+		 odd.next = evenHead;
 	}
 	
 	public static void main(String[] args) {
@@ -56,8 +71,8 @@ public class LinkedListOddEvenLeetcode328 {
 
 	
 			
-			ll.sort();
-			
+			//ll.sort();
+			ll.sortLeet();
 			while(current != null) {
 				 System.out.print(current.data + ", ");
 				 current = current.next;
