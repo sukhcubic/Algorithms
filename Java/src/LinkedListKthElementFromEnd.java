@@ -2,6 +2,7 @@
 
 
 public class LinkedListKthElementFromEnd {
+	//https://www.programcreek.com/2014/05/leetcode-remove-nth-node-from-end-of-list-java/
 	// Ref: https://www.ideserve.co.in/learn/find-nth-node-from-the-end-of-linked-list
  Lnode node;
     
