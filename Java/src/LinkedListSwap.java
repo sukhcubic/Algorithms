@@ -24,10 +24,9 @@ public class LinkedListSwap {
 		    current = current.next.next;	
 		    //1,3,4,5
 		}
-		
+		//temp = 0,2,1,4,3,5
 		return temp.next;
-		
-
+		// temp.next = 2,1,4,3,5
 	}
 
 	public void add(int value) {
