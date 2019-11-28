@@ -14,10 +14,6 @@ public class LinkedListSort {
 		current.next = new Node(value);
 	}
 
-//	private static void sort(Node list, ) {
-//
-//	}
-
 	private void swap(Node first, Node second) {
 		// Taking int data type for now
 		int temp = first.data;
