@@ -9,6 +9,7 @@ public class LinkedListRemoveDuplicates {
     		//1 2 3 3 4 5
     		// Checking if current and next will stay same but current.next will point to next.next  and 
     		// shortened the list but removing current.next reference to current.next.next
+		// Keep in mind we are only updating current.next current will only update when there is no duplicate next.
     		if(current.data == current.next.data){
     			current.next = current.next.next;
     			//1 2 3 4 5
