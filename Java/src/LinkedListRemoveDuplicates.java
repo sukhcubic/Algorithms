@@ -23,7 +23,7 @@ public class LinkedListRemoveDuplicates {
     	return head;
     }
   
-  //
+  // Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.
   	private Lnode removeDupii(Lnode head) {
     	Lnode current = head;
     	while(current != null && current.next != null) {
