@@ -67,7 +67,8 @@ public class LinkedListRemoveDuplicates {
 				ll.add(z);
 			}
 			
-			Lnode current = ll.removeDup(ll.node);
+			//Lnode current = ll.removeDup(ll.node);
+			Lnode current = ll.removeDupii(ll.node);
 
 			while(current != null) {
 				 System.out.print(current.data + ", ");
