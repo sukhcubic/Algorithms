@@ -75,6 +75,6 @@ public class LinkedListMergeSort {
 			while(current != null) {
 				 System.out.print(current.data + ", ");
 				 current = current.next;
-				}
+			}
 	}
 }
