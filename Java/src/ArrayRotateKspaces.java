@@ -24,6 +24,9 @@ public class ArrayRotateKspaces {
 //		reverse(a, 0, a.length-1);
 //		reverse(a, 0, position-1);
 //		reverse(a, position, a.length-1);
+		// this is helpful when k is greater than size of array i.e. if lenght is 10 and k is 12 then %k will return 2 
+		// we donot have to rotate array multiple time when k is greater than lenght of array.
+		
 	    k %= nums.length;
         reverse(nums, 0, nums.length - 1);
         reverse(nums, 0, k - 1);
