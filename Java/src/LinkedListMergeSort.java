@@ -2,8 +2,6 @@
 public class LinkedListMergeSort {
 
     Lnode node;
-
-    
     private Lnode merge(Lnode one, Lnode two) {
     	Lnode node = new Lnode(0);
     	
