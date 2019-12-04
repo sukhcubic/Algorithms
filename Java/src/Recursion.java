@@ -68,14 +68,25 @@ public class Recursion {
 		}
 	}
 
-	public static void main(String[] args) {
-		Recursion rec = new Recursion();
-		// rec.printNums(5);
-		// System.out.println(rec.sum(5));
-		// System.out.println(rec.power(3, 3));
-		// System.out.println(rec.fact(3));
-		System.out.println(rec.add(32134445));
+		private int countNum(int num) {
+			int x = num % 10;
+			int y = num / 10;
 
-	}
+			if (num <= 9) {
+				return num == 5 ? 1:0;
+			}else {
+			   return x == 5 ?  1+countNum(y) : countNum(y) ;
+			}	
+		}
+
+		public static void main(String[] args) {
+			Recursion rec = new Recursion();
+			// rec.printNums(5);
+			// System.out.println(rec.sum(5));
+			// System.out.println(rec.power(3, 3));
+			// System.out.println(rec.fact(3));
+			//System.out.println(rec.add(32134445));
+			System.out.println(rec.countNum(33545445));
+		}
 }
 
