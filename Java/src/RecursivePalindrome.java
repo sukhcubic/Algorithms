@@ -17,6 +17,8 @@ public class RecursivePalindrome {
 	
 	public static void main(String[] args) {
 		RecursivePalindrome rec = new RecursivePalindrome();
-		System.out.println(rec.isPalindrome("abcba"));
+		//System.out.println(rec.isPalindrome("abcba"));
+		System.out.println(rec.isPalindrome("abccba"));
+
 	}
 }
