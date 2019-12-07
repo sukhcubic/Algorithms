@@ -88,10 +88,7 @@ public class PriorityQueue {
 		
 		delete();
 		delete();
-		delete();
-		delete();
-		delete();
-		delete();
+
 	}
 }
 
