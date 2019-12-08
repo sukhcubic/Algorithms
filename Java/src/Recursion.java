@@ -106,6 +106,7 @@ public class Recursion {
 			// System.out.println(rec.fact(3));
 			//System.out.println(rec.add(32134445));
 			System.out.println(rec.countNum(33545445));
+			rec.printBinary(-5);
 		}
 }
 
