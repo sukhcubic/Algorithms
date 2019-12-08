@@ -78,6 +78,25 @@ public class Recursion {
 			   return x == 5 ?  1+countNum(y) : countNum(y) ;
 			}	
 		}
+			
+	
+	         private void printBinary(int num) {
+			  if(num < 0) {
+				  System.out.print("-");
+				  printBinary(-num);
+			  }
+		     else if(num <= 1) {
+				System.out.print(num);
+				return ;
+			}else {
+				int x = num % 2;
+				int y = num / 2;
+			    printBinary(y);
+				//System.out.print(x);
+			   // or
+			    printBinary(x);
+			}
+		}
 
 		public static void main(String[] args) {
 			Recursion rec = new Recursion();
