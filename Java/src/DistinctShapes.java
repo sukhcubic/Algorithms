@@ -35,7 +35,6 @@ public class DistinctShapes {
 	}
 
 	public static void main(String args[]) {
-
 		int[][] matrix = { { 0, 1, 0, 0, 0 }, { 0, 1, 1, 1, 0 }, { 1, 1, 0, 0, 1 }, { 0, 1, 1, 1, 1 } };
 		System.out.print(DistinctShapes.numberOfIsland(matrix));
 	}
