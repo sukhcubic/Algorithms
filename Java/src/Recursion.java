@@ -117,9 +117,8 @@ public class Recursion {
                  }else {
                 	 result = left+right;
                  }
-                 
-                 return result;
-			}			
+                  return result;
+		 }			
 		}
 		
 		private int evaluate(String expression) {
