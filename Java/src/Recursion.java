@@ -93,31 +93,28 @@ public class Recursion {
 	
         // https://www.bilibili.com/video/av36351060?p=7 starting around 34:00
 	// https://www.bilibili.com/video/av21619854?p=9 starting around 20:00
-	private int evaluateHelper(String expression, int index) {
-		if (Character.isDigit(expression.charAt(index))) {
-			int result = expression.charAt(index++) - '0';
-			return result;
-		} else {
-			index++; // get next value
-
-			int left = evaluateHelper(expression, index);
-
-			char op = expression.charAt(index++);
-
-			int right = evaluateHelper(expression, index);
-			int result;
-			if (op == '*') {
-				result = left * right;
-			} else {
-				result = left + right;
-			}
-			return result;
+		private int evaluateHelper(String expression, int index) {
+			if(expression.charAt(index) == '(') {
+				index++;
+				int left = evaluateHelper(expression, index);
+				char op = expression.charAt(index++);
+				int right = evaluateHelper(expression, index);
+				index++;
+				int result;
+                 if(op == '*') {
+                	 result = left*right;
+                 }else {
+                	 result = left+right;
+                 }
+                 return result;
+			}else {
+				return expression.charAt(index++);
+			}	
 		}
-	}
-
-	private int evaluate(String expression) {
-		return evaluateHelper(expression, 0);
-	}
+		
+		private int evaluate(String expression) {
+			return evaluateHelper(expression, 0);			
+		}
 
 	public static void main(String[] args) {
 		Recursion rec = new Recursion();
