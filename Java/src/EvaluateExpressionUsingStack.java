@@ -1,9 +1,14 @@
 public class EvaluateExpressionUsingStack{
 
+	public int evaluate(String s){
+		int result;
+	        String [] val = s.split("");
+     	
+	     return result;
+	}
 	public static void main(String[] args) {
 		EvaluateExpressionUsingStack rec = new EvaluateExpressionUsingStack();
 		String exp = "(2+(3+4))";
-		String [] val = exp.split("");
-		System.out.println(rec.evaluate(val));
+		System.out.println(rec.evaluate(exp));
 	}
 }
