@@ -85,10 +85,8 @@ public class PriorityQueue {
 			System.out.println("  insert   " + i);
 			insert(i);
 		}
-		
 		delete();
 		delete();
-
 	}
 }
 
