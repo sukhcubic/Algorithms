@@ -4,7 +4,7 @@
 //https://www.coursera.org/learn/algorithms-part1/lecture/Uzwy6/binary-heaps
 public class PriorityQueue {
 	
-		static int[] a = new int[9];
+	static int[] a = new int[9];
 	static int lastIndex = 0;
 	
 	public static void insert(int element) {
