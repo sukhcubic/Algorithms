@@ -11,6 +11,11 @@ public class RecursionPrintBinary {
 			System.out.print(string + "\n");
 		}
 		else {
+			//			  0               1
+                        //			/   \            /  \
+                        //		       00     01        10    11
+                        //		      /  \   /  \      /  \   / \
+                        //	            000 001 010 011  100 101 110 111 
 			printBinaryHelper(digits -1, string + "0");
 			printBinaryHelper(digits -1, string + "1");
 		}
