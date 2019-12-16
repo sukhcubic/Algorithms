@@ -32,7 +32,6 @@ class Node{
 		 current.next = n;
 		 n.previous = current;
 	// }
-    
  }
  
  public void remove(int value) {
