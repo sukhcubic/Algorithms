@@ -6,7 +6,10 @@ public class RecursionPermuteString {
 			System.out.append(pre + "\n");
 		}else {
 			for(int i = 0; i <s.length(); i++) {
+				//pick a string which is going to be prefix
 				String sub = s.substring(i, i+1);
+				
+				// choose remaining string
 				String ss = s.substring(0, i) + s.substring(i+1);
 				permuteHelper(ss, pre+sub);
 			}
