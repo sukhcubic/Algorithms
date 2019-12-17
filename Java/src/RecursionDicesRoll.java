@@ -48,5 +48,7 @@ public class RecursionDicesRoll {
 	public static void main(String[] args) {
 		RecursionDicesRoll rec = new RecursionDicesRoll();
 		//rec.rollDices(3);
+	        rec.sum(2, 8);
+
 	}
 }
