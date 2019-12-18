@@ -61,10 +61,5 @@ public class RecursionSuperSet {
 		subsetHelper(names, 0, "");
 	}
 
-	public static void main(String[] args) {
-		RecursionSuperSet rec = new RecursionSuperSet();
-		rec.subset("ABCD");
-	}
-
 
 }
