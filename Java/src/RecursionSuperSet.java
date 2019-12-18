@@ -7,11 +7,10 @@ public class RecursionSuperSet {
 		if(s.size() == 0) {
 			System.out.print(s);
 		}else {
-
 		  //select one from list
 		  String nm = s.get(0);
 		
-		  //remove from list
+		  //choose from list
 		  s.remove(0);
 		
 		  //Include in decision tree
@@ -22,6 +21,9 @@ public class RecursionSuperSet {
 		
 		  chosen.remove(chosen.size() -1);
 		  subsetHelper(s, chosen);
+		  
+		  //unchoose
+		  s.add(0, nm);
 		}
 		
 	}
