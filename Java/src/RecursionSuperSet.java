@@ -46,7 +46,7 @@ public class RecursionSuperSet {
 	}
 	
 	//https://www.youtube.com/watch?v=RnlHPR0lyOE
-	
+	//https://github.com/williamfiset/Algorithms/blob/master/com/williamfiset/algorithms/other/PowerSet.java
 	private void subsetHelper(String s, int index, String chosen) {
 		// System.out.print(s.size());
 		int n = s.length();
