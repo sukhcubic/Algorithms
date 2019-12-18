@@ -44,5 +44,27 @@ public class RecursionSuperSet {
 		names.add("S");
 		rec.subset(names);
 	}
+	
+	private void subsetHelper(String s, int index, String chosen) {
+		// System.out.print(s.size());
+		int n = s.length();
+
+		if (index == n) {
+			System.out.print(chosen + "\n");
+		} else {
+			subsetHelper(s, index + 1, chosen + s.charAt(index));
+			subsetHelper(s, index + 1, chosen);
+		}
+	}
+
+	private void subset(String names) {
+		subsetHelper(names, 0, "");
+	}
+
+	public static void main(String[] args) {
+		RecursionSuperSet rec = new RecursionSuperSet();
+		rec.subset("ABCD");
+	}
+
 
 }
