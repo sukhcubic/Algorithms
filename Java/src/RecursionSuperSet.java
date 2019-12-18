@@ -45,6 +45,8 @@ public class RecursionSuperSet {
 		rec.subset(names);
 	}
 	
+	//https://www.youtube.com/watch?v=RnlHPR0lyOE
+	
 	private void subsetHelper(String s, int index, String chosen) {
 		// System.out.print(s.size());
 		int n = s.length();
