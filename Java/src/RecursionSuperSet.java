@@ -44,7 +44,7 @@ public class RecursionSuperSet {
 		names.add("S");
 		rec.subset(names);
 	}
-	
+	//https://www.youtube.com/watch?v=bGC2fNALbNU
 	//https://www.youtube.com/watch?v=RnlHPR0lyOE
 	//https://github.com/williamfiset/Algorithms/blob/master/com/williamfiset/algorithms/other/PowerSet.java
 	private void subsetHelper(String s, int index, String chosen) {
