@@ -20,6 +20,7 @@ public class RecursionDicesRoll {
 		rollDicesHelper(numberOfDices, list);
 	}
 	
+	//ToDo: Optimization
 	private void sumHelper(int num, int sum, ArrayList<Integer> s) {
 		// System.out.print(" dd d ");
 
