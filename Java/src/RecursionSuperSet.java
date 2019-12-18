@@ -28,8 +28,7 @@ public class RecursionSuperSet {
 
 			// unchoose
 			s.add(0, nm);
-		}
-
+		} 
 	}
 
 	private void subset(ArrayList<String> names) {
