@@ -54,8 +54,7 @@ Lnode node;
 	 System.out.print(node.next.next.next.next.next.next.data + "\n ");
 
 	 System.out.print(node.next.next.next.next.next.next.next.data + "\n ");
-
- }
+      }
 	
 	 public static void reverseRecursively(Lnode head) {
 	 //Todo: Recursively
@@ -68,7 +67,7 @@ Lnode node;
 	 Lnode nxt = head.next;
 	 nxt.next = head;
 	 head.next = null;
- }
+      }
 
 	public static void main(String[] args) {
 		ReverseLinkedList ll = new ReverseLinkedList();
