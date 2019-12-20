@@ -11,8 +11,7 @@ Lnode node;
 	 while(current.next != null) {
         current = current.next;
 	 }
-	 current.next = new Lnode(value);;
-    
+	 current.next = new Lnode(value);
  }
  
  public void reverse() {
