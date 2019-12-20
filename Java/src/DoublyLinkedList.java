@@ -71,6 +71,5 @@ class Node{
 		 }
 		 current = current.next;
 		}
-
 	}
 }
