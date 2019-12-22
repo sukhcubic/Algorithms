@@ -43,9 +43,7 @@ class RecursionNQueens{
 	  if(column == N) {
 		 return true; 
 	  }else {
-       for (int i = 0; i < N; i++) { 
-    	  
-       }
+
 	  }
 	  return false;
   }
