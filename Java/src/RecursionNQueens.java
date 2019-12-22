@@ -33,8 +33,6 @@ class RecursionNQueens{
   }
 
 
-
-
   
   void printSolution(int board[][]) 
   { 
@@ -55,16 +53,25 @@ class RecursionNQueens{
     };
 
 	findHelper(board, 0);
+	printSolution(board);
 	
   }
 
-  private boolean findHelper(int boars[][], int column) {
-	  if(column == N) {
+  private boolean findHelper(int board[][], int col) {
+	  if(col == N) {
 		 return true; 
 	  }else {
-
+       for (int i = 0; i < N; i++) { 
+    	  if(isValid(board, i, col)) {
+    	   board[i][col] = 1;
+    	   boolean val = findHelper(board, col +1);
+    	   if(val == true) {
+    		  return true;
+    	   }
+    	   board[i][col] = 0;  	  
+    	  }
+       }
 	  }
 	  return false;
   }
-
 }
