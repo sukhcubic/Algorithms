@@ -3,25 +3,24 @@
 //Ref: https://www.tutorialspoint.com/Subset-Sum-Problem
 public class RecursionFindSumSubset {
   //Todo: Fix me
-	
-int[] arr = new int[] { 1, 2, 3, 5, 7, 8, 9, 10 };
+	int[] arr = new int[] { 1, 2, 3, 5, 7, 8, 9, 10 };
 	int N = 5;
 
 	private void subSet() {
-		subSet(arr.length, 0);
+		subSet(0, 0, "");
 	}
 
-	private void subSet(int exp, int sum) {
+	private void subSet(int exp, int sum, String s) {
 		// System.out.print( " exp " + exp + " val "+ val + "\n");
 
 		if (sum == N) {
-			System.out.print(sum + "\n");
+			System.out.print(s + "\n");
 			return;
 		} else {
 
-			for (int i = 0; i < arr.length; i++) {
+			for (int i = exp; i < arr.length; i++) {
 				if (arr[i] < sum || sum < N) {
-					subSet(exp - 1, sum + arr[i]);
+					subSet(exp +1, sum + arr[i], s + String.valueOf(arr[i]) );
 				}
 			}
 		}
@@ -33,5 +32,4 @@ int[] arr = new int[] { 1, 2, 3, 5, 7, 8, 9, 10 };
 		rsum.subSet();
 
 	}
-
 }
