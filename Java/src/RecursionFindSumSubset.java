@@ -1,6 +1,10 @@
 
 //Ref: https://algorithms.tutorialhorizon.com/dynamic-programming-subset-sum-problem/
 //Ref: https://www.tutorialspoint.com/Subset-Sum-Problem
+//https://medium.com/@sourabreddy
+//https://medium.com/leetcode-patterns/leetcode-pattern-3-backtracking-5d9e5a03dc26
+//https://iq.opengenus.org/subset-sum-problem-backtracking/
+
 public class RecursionFindSumSubset {
   //Todo: Fix me
 	int[] arr = new int[] { 1, 2, 3, 5, 7, 8, 9, 10 };
