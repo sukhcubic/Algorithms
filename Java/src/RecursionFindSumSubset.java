@@ -14,21 +14,17 @@ public class RecursionFindSumSubset {
 		subSet(0, 0, "");
 	}
 
-	private void subSet(int exp, int sum, String s) {
-		// System.out.print( " exp " + exp + " val "+ val + "\n");
-
+	private void subSet(int start, int sum, String s) {
 		if (sum == N) {
 			System.out.print(s + "\n");
 			return;
 		} else {
-
-			for (int i = exp; i < arr.length; i++) {
-				if (arr[i] < sum || sum < N) {
-					subSet(exp +1, sum + arr[i], s + String.valueOf(arr[i]) );
-				}
-			}
-		}
+		  for (int i = start; i < arr.length; i++) {
+			subSet(i +1, sum + arr[i], s + String.valueOf(arr[i]) );
+		  }
+	       }
 	}
+
 
 	public static void main(String arg[]) {
 		RecursionFindSumSubset rsum = new RecursionFindSumSubset();
