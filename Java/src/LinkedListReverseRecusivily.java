@@ -1,7 +1,8 @@
 public class LinkedListReverseRecersivily {
 
-	//https://www.youtube.com/watch?v=O0By4Zq0OFc
-    Lnode node;
+	//Explanation: https://www.youtube.com/watch?v=S92RuTtt9EE
+		//https://www.youtube.com/watch?v=Ip4y7Inx7QY    
+	Lnode node;
 
 	public void add(int value) {
 		 //This has to be the local if make global pointer will always be pointing to last node. 
