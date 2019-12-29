@@ -41,17 +41,20 @@ public class LinkedListReverseRecersivily {
 		}
 	}
 	
-//	public static Lnode reverse(Lnode nd) {
-//		//Explanation: https://www.youtube.com/watch?v=S92RuTtt9EE
-//		if(nd == null || nd.next == null) {
-//			return nd;
-//		}
-//		
-//		Lnode head = reverse(nd.next);	
-//		
-//
-//		return head;
-//	}
+// 	public static Lnode reverse(Lnode nd) {
+// 		//Explanation: https://www.youtube.com/watch?v=S92RuTtt9EE
+// 		if(nd == null || nd.next == null) {
+// 			return nd;
+// 		}
+		
+// 		Lnode head = reverse(nd.next);	
+		
+// 		nd.next.next = nd;
+		
+// 		nd.next = null;
+		
+// 		return head;
+// 	}
 	 
 	public static void main(String[] args) {
 		LinkedListReverseRecersivily ll = new LinkedListReverseRecersivily();
