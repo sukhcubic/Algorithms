@@ -20,7 +20,6 @@ public class LinkedListReverseRecersivily {
 	 }
 	
 	public static Lnode reverse(Lnode nd) {
-		//Explanation: https://www.youtube.com/watch?v=S92RuTtt9EE
 		if(nd == null || nd.next == null) {
 			return nd;
 		}
