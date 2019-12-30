@@ -15,7 +15,7 @@ public class BinarySearchTree {
 	Node root;
 
 	void insert(int val) {
-		insertNode(root, val);
+	       root = insertNode(root, val);
 	};
 
 	Node insertNode(Node root, int val) {
