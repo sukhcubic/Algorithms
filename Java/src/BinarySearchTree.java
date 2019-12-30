@@ -62,6 +62,8 @@ public class BinarySearchTree {
 		bst.insert(9);
 		bst.insert(2);
 
-		bst.printAll(bst.root);
+		//bst.printAll(bst.root);
+		System.out.print(bst.find(bst.root, 5));
+
 	}
 }
