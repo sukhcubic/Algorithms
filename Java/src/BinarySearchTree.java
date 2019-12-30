@@ -30,9 +30,16 @@ public class BinarySearchTree {
 			root.left = insertNode(root.left, val);
 		}
 		return root;
-
 	}
-	
+
+	void printAll(Node root) {
+		if (root != null) {
+			printAll(root.left);
+			System.out.println(root.key);
+			printAll(root.right);
+		}
+	}
+
 	public static void main(String args[]) {
 		BinarySearchTree bst = new BinarySearchTree();
 		bst.insert(5);
@@ -41,5 +48,7 @@ public class BinarySearchTree {
 		bst.insert(8);
 		bst.insert(9);
 		bst.insert(2);
+
+		bst.printAll(bst.root);
 	}
 }
