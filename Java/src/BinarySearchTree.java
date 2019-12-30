@@ -52,6 +52,11 @@ public class BinarySearchTree {
 		}
 		return false;
 	}
+	
+	int floor(){
+	 //ToDo:
+		return 0;
+	}
 
 	public static void main(String args[]) {
 		BinarySearchTree bst = new BinarySearchTree();
