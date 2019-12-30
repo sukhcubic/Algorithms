@@ -39,6 +39,19 @@ public class BinarySearchTree {
 			printAll(root.right);
 		}
 	}
+	
+	boolean find(Node root, int val) {
+		if (root != null) {
+			if (root.key == val) {
+				return true;
+			} else if (val > root.key) {
+				find(root.right, val);
+			} else {
+				find(root.left, val);
+			}
+		}
+		return false;
+	}
 
 	public static void main(String args[]) {
 		BinarySearchTree bst = new BinarySearchTree();
