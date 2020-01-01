@@ -54,7 +54,6 @@ public class BinarySearchTree {
 	}
 	
 	int floor(){
-	 //ToDo:
 		return 0;
 	}
 
