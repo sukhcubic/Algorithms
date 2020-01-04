@@ -23,7 +23,6 @@ public class BinarySearchTree {
 			root = new Node(val);
 			return root;
 		}
-
 		if (val > root.key) {
 			root.right = insertNode(root.right, val);
 		} else {
