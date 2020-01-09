@@ -14,6 +14,10 @@ public class BinarySearchTree {
 
 	Node root;
 
+	void insert(int val) {
+	       root = insertNode(root, val);
+	};
+	
 	Node floor(Node x, int value){
 		if (x == null) {
 			return null;
@@ -73,10 +77,6 @@ public class BinarySearchTree {
 		return false;
 	}
 	
-	int floor(){
-		return 0;
-	}
-
 	public static void main(String args[]) {
 		BinarySearchTree bst = new BinarySearchTree();
 		bst.insert(5);
