@@ -38,6 +38,16 @@ public class BinarySearchTree {
         return (flr >= value) ? flr: x.key;
     }
 
+    int ceiling(Node root, int value){
+        if(root == null){
+            return -1;
+        }
+        
+        if(root.key == value ) {
+            return value;
+        }
+    }
+    
     Node insertNode(Node root, int val) {
         if (root == null) {
             root = new Node(val);
