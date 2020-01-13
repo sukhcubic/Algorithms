@@ -18,29 +18,7 @@ public class BinarySearchTree {
 	       root = insertNode(root, val);
 	};
 	
-	Node floor(Node x, int value){
-		if (x == null) {
-			return null;
-		}
-		
-		if(x.key == value) {
-			return x;
-		}
-		
-		if(x.key < value) {
-			
-			return floor(x.left, value);
-			
-		}
-		
-		Node flr = floor(x.right, value);
-		
-		if(flr != null) {
-			return flr;
-		}else {
-			return x;
-		}
-	}
+
 
 
 	Node insertNode(Node root, int val) {
