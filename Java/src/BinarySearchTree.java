@@ -19,6 +19,25 @@ public class BinarySearchTree {
 	};
 	
 
+	int floor(Node x, int value){
+		if (x == null) {
+			return -1;
+		}
+		
+		if(x.key == value) {
+			return x.key;
+		}
+		
+		if(x.key < value) {
+			
+			return floor(x.right, value);
+			
+		}
+		
+		int flr = floor(x.left, value);
+		
+		return (flr >= value) ? flr: x.key;
+	}
 
 
 	Node insertNode(Node root, int val) {
@@ -63,7 +82,6 @@ public class BinarySearchTree {
 		bst.insert(2);
 		//bst.printAll(bst.root);
 		//System.out.print(bst.find(bst.root, 5));
-                // ToDo: fix error
-		System.out.print(bst.floor(bst.root, 7).key);
+		System.out.print(bst.floor(bst.root, 7));
 	}
 }
