@@ -18,6 +18,7 @@ public class BinarySearchTree {
     };
 
 
+ 
     int floor(Node x, int value){
         if (x == null) {
             return -1;
@@ -27,7 +28,7 @@ public class BinarySearchTree {
             return x.key;
         }
 
-        if(x.key < value){
+        if(x.key > value){
             System.out.println( " aa  " + x.key);
             return floor(x.right, value);
         };
@@ -35,8 +36,9 @@ public class BinarySearchTree {
         System.out.println("  bbb "+ x.key);
         int flr = floor(x.left, value);
         System.out.println("  ccc  "+ flr);
-        return (flr >= value) ? flr: x.key;
+        return (flr <= value) ? flr: x.key;
     }
+
 
     int ceiling(Node x, int value){
         if (x == null) {
@@ -101,6 +103,8 @@ public class BinarySearchTree {
         bst.insert(20);
         //bst.printAll(bst.root);
         //System.out.print(bst.find(bst.root, 5));
-        System.out.print(bst.floor(bst.root, 15));
+        //System.out.print(bst.floor(bst.root, 15));
+        System.out.print(bst.ceiling(bst.root, 15));
+
     }
 }
