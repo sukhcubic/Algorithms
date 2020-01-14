@@ -115,7 +115,7 @@ public class BinarySearchTree {
         //bst.printAll(bst.root);
         //System.out.print(bst.find(bst.root, 5));
         //System.out.print(bst.floor(bst.root, 15));
-        System.out.print(bst.ceiling(bst.root, 15));
-
+        //System.out.print(bst.ceiling(bst.root, 15));
+        System.out.print(bst.delete(bst.root, 15));
     }
 }
