@@ -95,7 +95,7 @@ public class BinarySearchTree {
    Node delete(Node root, int value){
 
         if(root == null){
-            return null;
+            return root;
         }
 
         if(root ){
