@@ -91,6 +91,17 @@ public class BinarySearchTree {
         }
         return false;
     }
+    
+   Node delete(Node root, int value){
+
+        if(root == null){
+            return null;
+        }
+
+        if(root ){
+
+        }
+    }
 
     public static void main(String args[]) {
         BinarySearchTree bst = new BinarySearchTree();
