@@ -38,14 +38,22 @@ public class BinarySearchTree {
         return (flr >= value) ? flr: x.key;
     }
 
-    int ceiling(Node root, int value){
-        if(root == null){
+    int ceiling(Node x, int value){
+        if (x == null) {
             return -1;
         }
-        
-        if(root.key == value ) {
-            return value;
+
+        if(x.key == value) {
+            return x.key;
         }
+        
+        if(x.key < value) {
+        	return ceiling(x.right, value);
+        }
+        
+        int ceil = ceiling(x.left, value);
+        
+        return (ceil >= value) ? ceil: x.key;
     }
     
     Node insertNode(Node root, int val) {
