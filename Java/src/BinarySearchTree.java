@@ -92,17 +92,26 @@ public class BinarySearchTree {
         return false;
     }
     
-   Node delete(Node root, int value){
 
-        if(root == null){
-            return root;
-        }
-
-        if(root ){
-
-        }
+    Node delete(Node root, int val) {
+    	
+    	if(root == null) {
+    		return root;
+    	}
+    	int value = root.key;
+    	
+    	if(val > value) {
+    		return delete(root.right, val);		
+    	}else if(val < value){
+    		return delete(root.left, val);
+    	}else {
+    		if(root.left == null && root.right == null) {
+    			return 
+    		}
+    	}
+		return root;
     }
-
+    
     public static void main(String args[]) {
         BinarySearchTree bst = new BinarySearchTree();
         bst.insert(10);
