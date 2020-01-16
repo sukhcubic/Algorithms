@@ -111,11 +111,11 @@ public class BinarySearchTree {
     	}
 		return root;
       }
-    // return min from right subtree
-    Node findMin(Node subtree){
 	
-           return 
-      }
+    Node findMin(Node node){
+        if(node.left == null) return node;
+        return findMin(node.left);
+    }
     
     public static void main(String args[]) {
         BinarySearchTree bst = new BinarySearchTree();
