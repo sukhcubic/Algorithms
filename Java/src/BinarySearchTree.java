@@ -94,7 +94,6 @@ public class BinarySearchTree {
     
 
     Node delete(Node root, int val) {
-    	
     	if(root == null) {
     		return root;
     	}
@@ -106,10 +105,20 @@ public class BinarySearchTree {
     		return delete(root.left, val);
     	}else {
     		if(root.left == null && root.right == null) {
-    			return 
+    			return null;
+    		}
+    		
+    		if(root.left == null) {
+    			return root.right;
+    		}else if(root.right == null) {
+    			return root.left;
+    		}else {
+    			Node min = findMin(root.right);
+    			root.key = min.key;
+    			root.right = delete(root.right, min.key);
     		}
     	}
-		return root;
+	return root;
       }
 	
     Node findMin(Node node){
