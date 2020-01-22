@@ -2,9 +2,7 @@
 public class ThreeSum {
 
 	private static String sumOfThreeNumbers(int[] list, int desired) {
-
 		// For array which is already sorted
-
 		int x = 0;
 		int y = 0;
 
