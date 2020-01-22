@@ -29,9 +29,7 @@ public class ThreeSum {
 
 	public static void main(String[] args) {
 		int[] a = new int[] { 2, 4, 5, 6, 7, 8, 9 };
-
 		int desiredSum = 20;
-
 		System.out.println(sumOfThreeNumbers(a, desiredSum));
 	}
 
