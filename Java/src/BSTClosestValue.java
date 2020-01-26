@@ -28,29 +28,53 @@ class BSTClosestValue{
         }
         return root;
     }
-     private int findClosest(Node tree, int target) {
-        return helper(tree, target, -1);
-    }
+//    private int findClosest(Node tree, int target) {
+//        return helper(tree, target, -1);
+//    }
+//    
+//    private int helper(Node tree, int target, int prev) {
+//        if(tree == null){
+//            return -1;
+//        }
+//        int diff = Math.abs(target-tree.key); 
+//        
+//        if(prev > -1 && prev>diff) {
+//        	return prev;
+//        }
+//        
+//        if(tree.key == target){
+//            return tree.key;
+//        }else if(tree.key > target){
+//            return helper(tree.left, target, diff);
+//        }else if(tree.key < target){
+//            return helper(tree.right, target, diff);
+//        }
+//    	
+//    	return -1;	
+//    }
+
+    private int findClosest(Node tree, int target) {
+
+        return helper(tree, target, 1000);
+     }
     
-    private int helper(Node tree, int target, int prev) {
+    private int helper(Node tree, int target, double prev) {
+    
         if(tree == null){
-            return -1;
+            return (int) prev;
         }
-        int diff = Math.abs(target-tree.key); 
-        
-        if(prev > -1 && prev>diff) {
-        	return prev;
+        if(Math.abs(tree.key - target)>Math.abs(tree.key - prev)){
+        	prev = tree.key;
         }
         
-        if(tree.key == target){
-            return tree.key;
-        }else if(tree.key > target){
-            return helper(tree.left, target, diff);
+        if(tree.key > target) {
+            return helper(tree.left, target, prev);
         }else if(tree.key < target){
-            return helper(tree.right, target, diff);
+            return helper(tree.right, target, prev);
+        }else {
+        	return (int) prev;	
         }
     	
-    	return -1;	
     }
 
     public static void main(String args[]) {
