@@ -55,15 +55,15 @@ class BSTClosestValue{
 
     private int findClosest(Node tree, int target) {
 
-        return helper(tree, target, Intger.MAX_VALUE);
+        return helper(tree, target, Double.MAX_VALUE);
      }
-    1
-    private int helper(Node tree, int target, int4prev) {
+    
+    private int helper(Node tree, int target, double prev) {
     
         if(tree == null){
-            return prev;
+            return (int) prev;
         }
-        if(Math.abs(tree.key - target)>Math.abs(tree.key - prev)){
+        if(Math.abs(target - prev)>Math.abs(target - tree.key)){
         	prev = tree.key;
         }
         
@@ -72,8 +72,9 @@ class BSTClosestValue{
         }else if(tree.key < target){
             return helper(tree.right, target, prev);
         }else {
-        	return prev;	
+        	return (int) prev;	
         }
+    	
     }
 
     public static void main(String args[]) {
