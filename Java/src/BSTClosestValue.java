@@ -28,28 +28,29 @@ class BSTClosestValue{
         }
         return root;
     }
-
-    private int lastCloset;
-
-    public int findClosest( Node tree, int target) {
-
-       // lastCloset = tree.key;
-
+     private int findClosest(Node tree, int target) {
+        return helper(tree, target, -1);
+    }
+    
+    private int helper(Node tree, int target, int prev) {
         if(tree == null){
             return -1;
+        }
+        int diff = Math.abs(target-tree.key); 
+        
+        if(prev > -1 && prev>diff) {
+        	return prev;
         }
         
         if(tree.key == target){
             return tree.key;
         }else if(tree.key > target){
-            return findClosest(tree.left, target);
+            return helper(tree.left, target, diff);
         }else if(tree.key < target){
-            return findClosest(tree.right, target);
-        }else{
-
+            return helper(tree.right, target, diff);
         }
-
-        return -1;
+    	
+    	return -1;	
     }
 
     public static void main(String args[]) {
