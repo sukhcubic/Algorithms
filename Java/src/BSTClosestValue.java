@@ -74,7 +74,6 @@ class BSTClosestValue{
         }else {
         	return prev;	
         }
-    	
     }
 
     public static void main(String args[]) {
