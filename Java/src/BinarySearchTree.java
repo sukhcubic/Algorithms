@@ -123,6 +123,34 @@ public class BinarySearchTree {
 // 	return root;
 //       }
 	
+	
+    Node delete(Node root, int value){
+    
+	    if(root == null){
+	      return null;
+	    }
+	    
+	    if(root.value < value ){
+		root.right = delete(root.right, value);    
+	    }else if(root.value > value){
+	        root.left = delete(root.left, value);
+	    }else{
+	        if(root.left!= null){
+			root = root.left;
+		}else if(root.right != null){
+		        root = root.right;     
+		}else if(root.left != null && root.right != null){
+			root.value = getMin(root.right);
+			root.right = delete(root.right, root.value);
+		}else{
+		        root = null; 
+		} 
+	    }
+    
+	    return root;
+    }
+	
+	
     Node findMin(Node node){
         if(node.left == null) return node;
         return findMin(node.left);
