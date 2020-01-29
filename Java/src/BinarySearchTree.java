@@ -1,5 +1,6 @@
 //https://www.youtube.com/watch?v=UcOxGmj45AA
 //https://leetcode.com/problems/delete-node-in-a-bst/solution/
+//https://makeinjava.com/delete-remove-node-binary-search-tree-bst-java-dfs-example/
 public class BinarySearchTree {
 
     class Node {
@@ -94,33 +95,33 @@ public class BinarySearchTree {
     }
     
 
-    Node delete(Node root, int val) {
-    	if(root == null) {
-    		return root;
-    	}
-    	int value = root.key;
+//     Node delete(Node root, int val) {
+//     	if(root == null) {
+//     		return root;
+//     	}
+//     	int value = root.key;
     	
-    	if(val > value) {
-    		return delete(root.right, val);		
-    	}else if(val < value){
-    		return delete(root.left, val);
-    	}else {
-    		if(root.left == null && root.right == null) {
-    			return null;
-    		}
+//     	if(val > value) {
+//     		return delete(root.right, val);		
+//     	}else if(val < value){
+//     		return delete(root.left, val);
+//     	}else {
+//     		if(root.left == null && root.right == null) {
+//     			return null;
+//     		}
     		
-    		if(root.left == null) {
-    			return root.right;
-    		}else if(root.right == null) {
-    			return root.left;
-    		}else {
-    			Node min = findMin(root.right);
-    			root.key = min.key;
-    			root.right = delete(root.right, min.key);
-    		}
-    	}
-	return root;
-      }
+//     		if(root.left == null) {
+//     			return root.right;
+//     		}else if(root.right == null) {
+//     			return root.left;
+//     		}else {
+//     			Node min = findMin(root.right);
+//     			root.key = min.key;
+//     			root.right = delete(root.right, min.key);
+//     		}
+//     	}
+// 	return root;
+//       }
 	
     Node findMin(Node node){
         if(node.left == null) return node;
