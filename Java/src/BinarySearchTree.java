@@ -141,8 +141,15 @@ public class BinarySearchTree {
 		}else if(root.right != null){
 		        root = root.right;     
 		}else if(root.left != null && root.right != null){
-			root.value = getMin(root.right);
-			root.right = delete(root.right, root.value);
+			Node min = findMin(root.right);
+			root.value = min.value;
+			// This will delete the min.value and will return root
+			root.right = delete(root.right, min.value);
+// 			8                                                 10                                           10
+// 		        /\                                                 /\                                           /\13
+// 		       4 13   delete 8 =>  getMin() => 10 will become   4     13   delete(rt.right, 10) =>   13     => 4   \14
+//  			/   \                                                 /\                               \14
+// 	               10    14			                             10 14
 		}else{
 		        root = null; 
 		} 
