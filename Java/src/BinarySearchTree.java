@@ -1,6 +1,7 @@
 //https://www.youtube.com/watch?v=UcOxGmj45AA
 //https://leetcode.com/problems/delete-node-in-a-bst/solution/
 //https://makeinjava.com/delete-remove-node-binary-search-tree-bst-java-dfs-example/
+//http://java2novice.com/java-interview-programs/delete-node-binary-search-tree-bst/
 public class BinarySearchTree {
 
     class Node {
