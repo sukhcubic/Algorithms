@@ -1,3 +1,5 @@
+//https://www.youtube.com/watch?v=U9izQCtpVHc
+//https://www.youtube.com/watch?v=MILxfAbIhrE
 class BSTIsValid {
   public static boolean validateBst(BST tree) {
 
