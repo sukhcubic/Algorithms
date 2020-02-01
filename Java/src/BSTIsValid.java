@@ -9,13 +9,13 @@ class BSTIsValid {
     return isValid(tree, Integer.MIN_VALUE, Integer.MAX_VALUE);
   }
 	
-	public static boolean isValid(BST tree, int max, int min){
+	public static boolean isValid(BST tree, int min, int max){
 		
 		if(tree == null){
 			return true;
 		}
 		
-		if(tree.value < min || tree.value >= max){
+		if(tree.value <= min || tree.value > max){
 			return false;
 		}
 		return isValid(tree.left, min, tree.value ) && isValid(tree.right, tree.value, max);
