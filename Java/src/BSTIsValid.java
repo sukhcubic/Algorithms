@@ -20,6 +20,21 @@ class BSTIsValid {
 		}
 		return isValid(tree.left, min, tree.value ) && isValid(tree.right, tree.value, max);
 	}
+	
+//     public static boolean isValid(BST tree, int min, int max){
+		
+// 		if(tree.value < min || tree.value >= max){
+// 			return false;
+// 		}
+// 		if(tree.left!= null && !isValid(tree.left, min, tree.value) ) {
+// 			return false;
+// 		}
+// 	  if(tree.right  != null && !isValid(tree.right, tree.value, max)){
+// 			return false;
+// 		}
+			 
+// 		return true;
+// 	}
 
   static class BST {
     public int value;
