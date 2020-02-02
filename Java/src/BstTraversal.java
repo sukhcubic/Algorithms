@@ -16,18 +16,34 @@ class BstTraveral{
         inOrder(tree.left, list);urn list
      }
      list.add(tree.value);
-     inorder(tree.right, list);
+     if(tree.right != null){
+        inorder(tree.right, list);
+     }
     return list;
   }
   
   public List<int> preOrder(BST tree, List<int> list){
-  
-    return null;
+     list.add(tree.value);
+     if(tree.left != null){
+        preOrder(tree.left, list);urn list
+     }
+     if(tree.right != null){
+        preOrder(tree.right, list);
+     }
+    return list;
   }
   
   public List<int> postOrder(BST tree, List<int> list){
   
-    return null;
+     if(tree.left != null){
+        postOrder(tree.left, list);urn list
+     }
+     if(tree.right != null){
+        postOrder(tree.right, list);
+     }
+     list.add(tree.value);
+
+    return list;
   }
   
   public static void main(String arg[]){
