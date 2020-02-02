@@ -10,17 +10,22 @@ class BstTraveral{
     }
   }
   
-  public List<BST> inOrder(BST tree, List<BST> list){
+  public List<int> inOrder(BST tree, List<int> list){
+  
+     if(tree.left != null){
+        inOrder(tree.left, list);urn list
+     }
+     list.add(tree.value);
+     inorder(tree.right, list);
+    return list;
+  }
+  
+  public List<int> preOrder(BST tree, List<int> list){
   
     return null;
   }
   
-  public List<BST> preOrder(BST tree, List<BST> list){
-  
-    return null;
-  }
-  
-  public List<BST> postOrder(BST tree, List<BST> list){
+  public List<int> postOrder(BST tree, List<int> list){
   
     return null;
   }
