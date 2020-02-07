@@ -17,12 +17,12 @@ class BSTIsSame{
 	  
   public static boolean isSameBST(int[] a, int[] b){
   
-	  if(a.lenght ==0 && b.length == 0){
+	  if(a.length ==0 && b.length == 0){
 	    return true;
-	  }else if(){
+	  }else if(a.length != b.length){
+	    return false;
+	  }else{
 	  
 	  }
-	  
-  
   }
 }
