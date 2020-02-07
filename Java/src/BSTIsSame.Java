@@ -14,4 +14,15 @@ class BSTIsSame{
        return false;
       }
 
+	  
+  public static boolean isSameBST(int[] a, int[] b){
+  
+	  if(a.lenght ==0 && b.length == 0){
+	    return true;
+	  }else if(){
+	  
+	  }
+	  
+  
+  }
 }
