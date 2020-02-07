@@ -15,14 +15,20 @@ class BSTIsSame{
       }
 
 	  
-  public static boolean isSameBST(int[] a, int[] b){
+  public static boolean isSameBST(List<Integer> a, List<Integer> b){
   
-	  if(a.length ==0 && b.length == 0){
+	  return helper(a,b,0);
+
+  }
+	  
+  public static boolean helper(List<Integer> a, List<Integer> b, int index){
+  	  if(a.length ==0 && b.length == 0){
 	    return true;
 	  }else if(a.length != b.length){
 	    return false;
 	  }else{
 	  
-	  }
+	  }  
   }
+	  
 }
