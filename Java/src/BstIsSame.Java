@@ -27,9 +27,11 @@ class BstIsSame{
 	    return true;
 	  }else if(a.length != b.length){
 	    return false;
+	  }else if (a.get(0) != b.get(0)){
+	    return false;
 	  }else{
 	  
-	  }  
+	  }
   }
 	  
 }
