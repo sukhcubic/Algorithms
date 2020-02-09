@@ -1,6 +1,6 @@
 //https://www.youtube.com/watch?v=U9izQCtpVHc
 //https://www.youtube.com/watch?v=MILxfAbIhrE
-class BSTIsValid {
+class BstIsValid {
   public static boolean validateBst(BST tree) {
 
 		if(tree == null){
