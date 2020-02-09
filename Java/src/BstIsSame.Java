@@ -30,9 +30,14 @@ class BstIsSame{
           // if root not equal then return false		  
 	  }else if (a.get(0) != b.get(0)){
 	    return false;
-	  }else{
-	    
 	  }
+	  
+	  int left1 = getSmaller(a);
+	  int left2 = getSmaller(b);
+	  int right1 = getBigger(a);
+	  int right2 = getBigger(b);
+	  
+	  return helper(a, b)
   }
 	
 int getSamller(){
