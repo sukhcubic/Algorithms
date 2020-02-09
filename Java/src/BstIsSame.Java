@@ -27,11 +27,22 @@ class BstIsSame{
 	    return true;
 	  }else if(a.length != b.length){
 	    return false;
+          // if root not equal then return false		  
 	  }else if (a.get(0) != b.get(0)){
 	    return false;
 	  }else{
-	  
+	    
 	  }
   }
+	
+int getSamller(){
+
+	return -1;
+}
+
+int getBigger(){
+
+       return -1;
+} 
 	  
 }
