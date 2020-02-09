@@ -1,6 +1,6 @@
 // https://www.algoexpert.io/questions/Find%20Closest%20Value%20In%20BST
 //Find closest value assum there will be only one closest value.
-class BSTClosestValue{
+class BstClosestValue{
     class Node {
         int key;
         Node left, right;
