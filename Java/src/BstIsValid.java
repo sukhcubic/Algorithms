@@ -18,6 +18,7 @@ class BstIsValid {
 		if(tree.value <= min || tree.value > max){
 			return false;
 		}
+		// tree.value is root value. For left subtree it is -infinity and root value, for right subtree, it is root value and +infinity.
 		return isValid(tree.left, min, tree.value ) && isValid(tree.right, tree.value, max);
 	}
 	
