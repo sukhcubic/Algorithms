@@ -41,10 +41,6 @@ class BstInvert{
         
         while(queue.size() > 0){
             BstNode current = queue.pollFirst();
-            
-            if(current == null){
-                continue;
-            }
             BstNode temp = current.right;
             current.right = current.left;
             current.left = temp;
