@@ -17,5 +17,16 @@ class BstInvert{
         invert(root.right);
     }
 
+    // leetcode recursive
+    public BstNode invertTree(BstNode root) {
+      if (root == null) {
+        return null;
+       }
+       BstNode right = invertTree(root.right);
+       BstNode left = invertTree(root.left);
+       root.left = right;
+       root.right = left;
+       return root;
+     }
 
 }
