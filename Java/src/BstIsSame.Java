@@ -22,7 +22,7 @@ class BstIsSame{
 
   }
 	  
-  public static boolean helper(List<Integer> a, List<Integer> b, int rootA, int rootB, int max, int min){
+  public static boolean helper(List<Integer> a, List<Integer> b, int rootA, int rootB, int min, int max){
 	  //when no root index means we do not have any value in array to compare
 	  if(rootA == -1 | rootB == -1){
 		  return rootA == rootB;
@@ -41,11 +41,12 @@ class BstIsSame{
 	  }
 	  
 	  int left1 = getSmaller(a, rootA, min);
-	  int left2 = getSmaller(b, rootB, max);
-	  int right1 = getBigger(a, rootA, min);
+	  int left2 = getSmaller(b, rootB, min);
+	  int right1 = getBigger(a, rootA, max);
 	  int right2 = getBigger(b, rootB, max);
-	  
-	  return helper(a, b)
+	  // when on left subtree min val is -infinty and max value is value of root
+	  int currentVal = a.get(rootA)
+	  return helper(a, b, left1, left2, min, currentVal) && helper(a, b, right1, right2, currentVal, max);
   }
 	
 int getSamller(List<Integer> array, int start, int min){
