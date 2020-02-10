@@ -28,5 +28,37 @@ class BstInvert{
        root.right = left;
        return root;
      }
+    
+    public BstNode invertTree(BstNode root) {
+        
+        if(root == null){
+            return null;
+        }
+        
+        ArrayDeque<BstNode> queue = new ArrayDeque<BstNode>();
+        
+        queue.addLast(root);
+        
+        while(queue.size() > 0){
+            BstNode current = queue.pollFirst();
+            
+            if(current == null){
+                continue;
+            }
+            BstNode temp = current.right;
+            current.right = current.left;
+            current.left = temp;
+            
+            if(current.left != null){
+                queue.addLast(current.left);
+            }
+            if(current.right != null){
+                queue.addLast(current.right);
+            }
+            
+        }
+        
+        return root;
+    }
 
 }
