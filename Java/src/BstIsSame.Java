@@ -21,6 +21,8 @@ class BstIsSame{
 	  return helper(a,b,0, 0, Integer.MIN_VALUE, Integer.MAX_VALUE);
 
   }
+	
+	// Time Complexity =O(n)^2 space is O(d) d is depth of tree because we are doing recursive calls.
 	  
   public static boolean helper(List<Integer> a, List<Integer> b, int rootA, int rootB, int min, int max){
 	  //when no root index means we do not have any value in array to compare
