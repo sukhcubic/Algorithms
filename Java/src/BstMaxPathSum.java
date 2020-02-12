@@ -25,29 +25,26 @@ class BstMaxPathSum{
   
   // Leet code submitted
   
-   int sum = Integer.MIN_VALUE;
-    public int maxPathSum(TreeNode root) {
-        
-
+   
+  int sum = Integer.MIN_VALUE;
+  
+  public int maxPathSum(TreeNode root) {
         helper(root);
-        
-        
         return sum;
     }
     
-    public int helper(TreeNode root){
-        
+  public int helper(TreeNode root){
         if(root ==null){
             return 0;
         }
         
         int left = helper(root.left);
         int right = helper(root.right);
-        
+    //  If left is left+root or right+ root or root itself is larger
         int current =  Math.max(Math.max(left, right) + root.val, root.val);
-        
+    //  Handle triagle case or if sum is already larger
         sum = Math.max(sum, Math.max(current,  left+right+root.val));
-          
+        System.out.println("  current  "+ current + "  sum "+ sum + "  current node value " + root.data + " left " + left + " right " + right);
         return current;
     }
                     
