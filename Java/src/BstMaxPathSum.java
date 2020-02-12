@@ -10,9 +10,9 @@ class BstMaxPathSum{
      int leftSum = sum(root.left);
      int rightSum = sum(root.right);
      
-     int branchSum = Math.MAX(Math.MAX(leftSum, rightSum) + root.value, root.value);
+     int branchSum = Math.max(Math.max(leftSum, rightSum) + root.value, root.value);
      
-     int branchTop = Math.MAX(branchSum, leftSum+rightSum+branchSum );
+     int branchTop = Math.max(branchSum, leftSum+rightSum+branchSum );
      
     
    }
