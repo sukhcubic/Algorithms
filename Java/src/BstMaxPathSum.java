@@ -42,7 +42,7 @@ class BstMaxPathSum{
         int right = helper(root.right);
     //  If left is left+root or right+ root or root itself is larger
         int current =  Math.max(Math.max(left, right) + root.val, root.val);
-    //  Handle triagle case or if sum is already larger
+    //  Handle triangle case or if sum is already larger. In this case we are checking if subtree triangle is greater than branch sum or previous sum.
         sum = Math.max(sum, Math.max(current,  left+right+root.val));
         System.out.println("  current  "+ current + "  sum "+ sum + "  current node value " + root.data + " left " + left + " right " + right);
         return current;
