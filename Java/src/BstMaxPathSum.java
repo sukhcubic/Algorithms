@@ -47,5 +47,30 @@ class BstMaxPathSum{
         System.out.println("  current  "+ current + "  sum "+ sum + "  current node value " + root.data + " left " + left + " right " + right);
         return current;
     }
+  
+  //Todo: fix Stack overflow
+  
+    List<Integer> list = new ArrayList<>();
+
+    public void branchSum(BstNode node){
+
+
+        System.out.println("  aaaa   " + list.size());
+        if(root == null){
+            return;
+        }
+        list.add(node.data);
+        if(root.left != null) {
+            branchSum(root.left);
+        }
+        if(root.right != null) {
+            branchSum(root.right);
+        }
+        for (Integer val:list) {
+            System.out.println(val.intValue());
+        }
+        list.remove(list.size()-1);
+    }
+
                     
 }
