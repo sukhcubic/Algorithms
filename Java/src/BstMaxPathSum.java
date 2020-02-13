@@ -52,20 +52,17 @@ class BstMaxPathSum{
   //Print all k-sum paths in a binary tree 
     List<Integer> list = new ArrayList<>();
 
-    public void branchSum(BstNode node){
+    public void branchSum(BstNode root){
 
 
         System.out.println("  aaaa   " + list.size());
         if(root == null){
             return;
         }
-        list.add(node.data);
-        if(root.left != null) {
-            branchSum(root.left);
-        }
-        if(root.right != null) {
-            branchSum(root.right);
-        }
+        list.add(root.data);
+        branchSum(root.left);
+        branchSum(root.right);
+        
         for (Integer val:list) {
             System.out.println(val.intValue());
         }
