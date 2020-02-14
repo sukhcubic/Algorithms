@@ -25,8 +25,7 @@ public class ArrayRotateKspaces {
 //		reverse(a, 0, position-1);
 //		reverse(a, position, a.length-1);
 		// this is helpful when k is greater than size of array i.e. if lenght is 10 and k is 12 then %k will return 2 
-		// we donot have to rotate array multiple time when k is greater than lenght of array.
-		
+		// we do not have to rotate array multiple time when k is greater than length of array
 	    k %= nums.length;
         reverse(nums, 0, nums.length - 1);
         reverse(nums, 0, k - 1);
@@ -45,17 +44,26 @@ public class ArrayRotateKspaces {
 		}
 	}
 	
+       private static int[] rotate2( int[] nums, int k) {	
+		reverse2(nums, 0, nums.length-1);
+		reverse2(nums, 0, k-1);
+		reverse2(nums, k, nums.length-1);
+		return nums;
+	}
+
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public static void main(String[] args) {
+    private static void reverse2(int[] num, int start, int end ) {
+	// we do not have to rotate array multiple time when k is greater than length of array. To avoid out of bound num.length/k remainder. 
+	// if lenght is 10 and k is 12 then %k will return 2     
+	k %= nums.length;
+    	while(start < end) {
+    		int temp = num[start];
+    		num[start++] = num[end];
+    		num[end--] = temp;
+    	}    	
+    }
+
+    public static void main(String[] args) {
 		int[] a = new int[] {1,2,3,4,5,6,7,8,9,10};
 		for (int i : rotate(a, 8)) {
 			System.out.println(i);
