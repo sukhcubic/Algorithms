@@ -1,8 +1,16 @@
+import java.util.Stack;
+
 class BstIterative{
     //Reference:
-    //https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion/
+    //https://www.techiedelight.com/inorder-tree-traversal-iterative-recursive/
 
     public void iterate(Node root){
+        Stack<Node> stack = new Stack();
+        Node curr = root;
+        
+        while(){
+        
+        }
     
     
     }
