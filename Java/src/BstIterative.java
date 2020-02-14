@@ -8,11 +8,17 @@ class BstIterative{
         Stack<Node> stack = new Stack();
         Node curr = root;
         
-        while(){
-        
+        while(!stack.isEmpty() || curr != null){
+           
+            if(curr != null){
+               stack.push(root);
+               curr = curr.left;
+            }else{
+               curr = stack.pop();
+                //Print inorder traversal
+               System.out.print(curr.data);
+               curr = curr.right; 
+            }
         }
-    
-    
     }
-
 }
