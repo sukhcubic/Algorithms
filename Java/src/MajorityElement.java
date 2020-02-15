@@ -56,6 +56,9 @@ public class MajorityElement {
 		
 		
 		
+		
+//  If count is 0 add element. if element is same increase count otherwise decrease.		
+		
 		// Another approach
 // 		 int count = 0;
 // 		  Integer candidate = null;
