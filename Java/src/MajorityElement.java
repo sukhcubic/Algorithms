@@ -53,6 +53,22 @@ public class MajorityElement {
 //	        }
 //
 //	        return candidate;
+		
+		
+		
+		// Another approach
+// 		 int count = 0;
+// 		  Integer candidate = null;
+// 		  for(int x = 0; x < list.length; x++) {
+			  
+// 			  if(count == 0) {
+// 				  candidate = list[x];
+// 			  }
+// 				 count += (candidate == list[x]) ? count +1:-1;
+			  
+// 		  }
+
+// 	        return candidate;
 	}
 	
 	public static void main(String[] args) {
