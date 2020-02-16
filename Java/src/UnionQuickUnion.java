@@ -8,7 +8,21 @@ class UnionQuickUnion{
     qu[x] = x;
    }
   }
+ 
+ public int root(int element){
+ 
+  
+  
+ }
 
+ public boolean connected(int a, int b){
+   return root(a) ==root(b);
+ }
+ 
+ public void union(int a, int b){
+ 
+ }
+ 
 public static void main(String args[]){
  UnionQuickUnion qUnion = new UnionQuickUnion(10);
 
