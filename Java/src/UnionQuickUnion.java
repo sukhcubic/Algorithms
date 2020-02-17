@@ -40,7 +40,7 @@ class UnionQuickUnion{
 int root2(subset [] subsets , int i) 
 { 
 if (subsets[i].parent != i) 
-    subsets[i].parent = find(subsets,  
+    subsets[i].parent = root2(subsets,  
                              subsets[i].parent); 
     return subsets[i].parent; 
 } 
