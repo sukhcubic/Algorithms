@@ -2,6 +2,7 @@
 //https://github.com/bephrem1/backtobackswe/blob/master/Sorting%2C%20Searching%2C%20%26%20Heaps/ImplementABinaryHeap/ImplementABinaryHeap.java
 //https://www.youtube.com/watch?v=t0Cq6tVNRBA&list=PLI1t_8YX-Apv-UiRlnZwqqrRT8D1RhriX&index=10
 //https://www.coursera.org/learn/algorithms-part1/lecture/Uzwy6/binary-heaps
+//https://www.youtube.com/watch?v=wptevk0bshY&t=13s
 public class PriorityQueue {
 	
 	static int[] a = new int[9];
