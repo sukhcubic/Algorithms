@@ -49,6 +49,28 @@ if (subsets[i].parent != i)
    return root(a) ==root(b);
  }
  
+ // Implement Path compression
+ //https://www.youtube.com/watch?v=KbFlZYCpONw&list=PLDV1Zeh2NRsBI1C-mR6ZhHTyfoEJWlxvq&index=5
+  public int root3(int r){
+ 
+   int root = r;
+    while(root != qu[root]){
+         root = qu[root];
+    }
+   
+   // the purpose is point each elemt to root while visiting these elements
+  while(root != r){
+   // fint first element from tree
+   int next = qu[r];
+   //point that to root
+   qr[r] = root;
+   // update to point next elemnt to root
+   r = next;
+  }
+   
+  return root;
+  
+ }
  public void union(int a, int b){
   
   int rootA = root(a);
