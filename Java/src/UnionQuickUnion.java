@@ -21,7 +21,7 @@ class UnionQuickUnion{
   
  }
  
- // Path Comprassion
+ // Path Compression
   public int root1(int element){
  
     while(element != qu[element]){
