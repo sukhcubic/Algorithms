@@ -11,7 +11,11 @@ class UnionQuickUnion{
  
  public int root(int element){
  
+    while(element != qu[element]){
+         element = qu[element];
+    }
   
+  return element;
   
  }
 
@@ -20,12 +24,13 @@ class UnionQuickUnion{
  }
  
  public void union(int a, int b){
- 
+  
+  int rootA = root(a);
+  int rootB = root(b); 
+  uf[rootA] = rootB;
  }
  
 public static void main(String args[]){
  UnionQuickUnion qUnion = new UnionQuickUnion(10);
-
-
 }
 }
