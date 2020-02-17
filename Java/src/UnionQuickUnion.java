@@ -22,15 +22,28 @@ class UnionQuickUnion{
  }
  
  // Path Compression
+ //https://www.coursera.org/lecture/algorithms-part1/quick-union-improvements-RZW72 . Starting at 8:00
   public int root1(int element){
  
     while(element != qu[element]){
+         qu[element] = qu[qu[element]];
          element = qu[element];
     }
   
   return element;
   
  }
+ //https://www.geeksforgeeks.org/union-find-algorithm-set-2-union-by-rank/
+ // A utility function to find  
+// set of an element i (uses  
+// path compression technique) 
+int root2(subset [] subsets , int i) 
+{ 
+if (subsets[i].parent != i) 
+    subsets[i].parent = find(subsets,  
+                             subsets[i].parent); 
+    return subsets[i].parent; 
+} 
 
  public boolean connected(int a, int b){
    return root(a) ==root(b);
@@ -59,7 +72,6 @@ class UnionQuickUnion{
     qu[rootA] = rootB;
     sz[rootB] += sz[rootA]
    }
-   uf[rootA] = rootB;
    return true;
  }
  
