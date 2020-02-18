@@ -11,6 +11,7 @@ public class PriorityQueue {
 	public static void insert(int element) {
 		a[lastIndex] =  element;
 		swim(lastIndex);
+
 	}
 	
 	public static void delete() {
@@ -22,16 +23,30 @@ public class PriorityQueue {
 		}
 	}
 	
-	private static void swim(int x) {
-		while(x > 0 && a[x] > a[(x-1)/2]) {
-			swap((x-1)/2, x);
-			x = (x-1)/2;
- 		}
-		lastIndex++;
-		for (int i = 0; i < lastIndex; i++) {
-			System.out.println(" ss s s ss s s   "+a[i]);
+// 	private static void swim(int x) {
+// 		while(x > 0 && a[x] > a[(x-1)/2]) {
+// 			swap((x-1)/2, x);
+// 			x = (x-1)/2;
+//  		}
+// 		lastIndex++;
+// 		for (int i = 0; i < lastIndex; i++) {
+// 			System.out.println(" ss s s ss s s   "+a[i]);
+// 		}
+// 	}
+	
+	//Swim Test Max PQ
+	private static void swim(int index){
+	   // index-1/2 because 0 based index
+		while(index >= 0 || a[index] < a[(index-1)/2]){
+		    swap((index-1)/2, index);
+		    index = (index-1)/2;	
 		}
+	       //increment index for next element to be added
+		lastIndex++;
 	}
+	
+	
+	
 	
 	private static void sink(int x) {
 
