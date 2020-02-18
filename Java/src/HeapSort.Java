@@ -47,7 +47,8 @@ private static void swim(int x) {
 	
 	// refer to priority queue sink for possible exception
 private static void sink(int x) {
-
+     // cosider using  while((2*x+1) <= L) //in some cases we might not have left child. Basically we are 
+     //testing is left child available.
 	while(x <= L) {
 		int left = 2*x+1;
 		int right = 2*x+2;
