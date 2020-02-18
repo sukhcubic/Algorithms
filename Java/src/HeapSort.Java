@@ -1,7 +1,7 @@
 
 
 public class HeapSort {
-
+//https://www.youtube.com/watch?v=B7hVxCmfPtM&t=702s
 
 static int[] a = new int[] { 77, 10, 9, 4, 78, 95, 15, 100, 34, 56, 770, 969};
 static int L = a.length;
