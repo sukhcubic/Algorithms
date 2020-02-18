@@ -72,6 +72,46 @@ public class PriorityQueue {
 
 	}
 	
+	// Test
+	public static void sink1(int index){
+	  while(index < lastIndex){
+	   	int left = 2*index+1;
+		int right = 2*index+2;
+		int selected = left;
+		 if(right<lastIndex && a[left]> a[right]){
+		  selected = right
+		 } 
+		  
+		if(a[selected] > a[index]){
+		   swap(index, selected);
+			index = selected;
+		}else{
+		 break;
+		}
+	   }
+	  lastIndex --;
+	}
+	public static void sink2(int index){
+	  while(true){
+	   	int left = 2*index+1;
+		int right = 2*index+2;
+		int selected = left;
+		 if(right<lastIndex && a[left]> a[right]){
+		  selected = right
+		 } 
+		  
+		if(a[selected] > a[index]){
+		   swap(index, selected);
+			index = selected;
+		}else{
+		 break;
+		}
+	   }
+	  lastIndex --;
+	}
+	
+	
+	
 	private static void delete(int num) {
 		int foundIndex = -1;
 		for(int i = 0; i<lastIndex; i++) {
