@@ -127,6 +127,17 @@ public class PriorityQueue {
 			System.out.println(a[i]);
 		}
 	}
+	// Todo: implement delete
+     private static void delete1(int num) {
+		int foundIndex = -1;
+		for(int i = 0; i<lastIndex; i++) {
+			if(a[i]== num) {
+				foundIndex = i;
+				break;
+			}
+		}
+
+	}
 	
 	private static void swap(int i, int j){
 		int swap = a[i]; 
