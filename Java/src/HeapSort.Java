@@ -5,7 +5,9 @@ public class HeapSort {
 
 static int[] a = new int[] { 77, 10, 9, 4, 78, 95, 15, 100, 34, 56, 770, 969};
 static int L = a.length;
-
+// Heapyfy or MaxHeap
+//https://www.youtube.com/watch?v=HqPJF2L5h9U 41:37
+//The idea is start from last subtree and heapyfy or maxheap (last parent would be L/2 -1, will give ust last parent) and sink it
 private static void maxHeap() {
 	int s = L/2 -1;
 	for(int i = s; i >= 0; i--) {
@@ -42,6 +44,8 @@ private static void swim(int x) {
 //	}
 }
 
+	
+	// refer to priority queue sink for possible exception
 private static void sink(int x) {
 
 	while(x <= L) {
