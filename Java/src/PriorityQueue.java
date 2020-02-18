@@ -79,7 +79,7 @@ public class PriorityQueue {
 		int right = 2*index+2;
 		int selected = left;
 		 if(right<lastIndex && a[left]> a[right]){
-		  selected = right
+		  selected = right;
 		 } 
 		  
 		if(a[selected] > a[index]){
@@ -97,7 +97,7 @@ public class PriorityQueue {
 		int right = 2*index+2;
 		int selected = left;
 		 if(right<lastIndex && a[left]> a[right]){
-		  selected = right
+		  selected = right;
 		 } 
 		  
 		if(a[selected] > a[index]){
@@ -128,16 +128,30 @@ public class PriorityQueue {
 		}
 	}
 	// Todo: implement delete
-     private static void delete1(int num) {
-		int foundIndex = -1;
-		for(int i = 0; i<lastIndex; i++) {
-			if(a[i]== num) {
-				foundIndex = i;
-				break;
-			}
-		}
-
-	}
+           // Todo: implement delete
+    private static void delete1(int num) {
+        int foundIndex = -1;
+        for(int i = 0; i<lastIndex; i++) {
+            if(a[i]== num) {
+                foundIndex = i;
+                break;
+            }
+        }
+        
+        if(foundIndex == -1){
+            throw new IndexOutOfBoundsException();
+        }else{
+            a[foundIndex] = a[lastIndex];
+            a[lastIndex] = -1;
+            
+            sink(foundIndex);
+            
+            if(foundIndex >= 0 && a[(foundIndex-1)/2] < a[foundIndex]){
+                lastIndex--;
+                lastIndex--;
+                swim(foundIndex);
+            }
+        }
 	
 	private static void swap(int i, int j){
 		int swap = a[i]; 
