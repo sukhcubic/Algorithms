@@ -4,4 +4,10 @@
 class BinaryTreeRightSideView{
 // Use BFS
 
+      public List<Integer> rightSideView(){
+        List<Integer> items = new ArrayList<>();
+        
+        
+        return items;
+    }
 }
