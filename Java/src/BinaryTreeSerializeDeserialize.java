@@ -1,15 +1,15 @@
 class BinaryTreeSerializeDeserialize{
 
-  public String Serialize(Node root){
-  
-    if(root == null){
-     return null;
+    StringBuilder sb = new StringBuilder();
+    public String serialize(Node root){
+         if(root == null){
+             return null;
+         }
+         serialize(root.left);
+         serialize(root.right);
+         sb.append(root.key + ",");
+         return sb.toString();
     }
-    
-    Serialize(root.left);
-    Serialize(root.right);
-    
-  }
 
   public Node Deserialize(String tree){
   
