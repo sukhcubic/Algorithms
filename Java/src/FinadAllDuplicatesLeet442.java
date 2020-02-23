@@ -10,6 +10,7 @@ class FinadAllDuplicatesLeet442{
         for(int i = 0; i < nums.length; i++){
             int x = Math.abs(nums[i])-1;
             if(nums[x] <0){
+                // Adding orignal restored value;
                 dups.add(x+1);
             }else{
                  nums[x] = -nums[x];
