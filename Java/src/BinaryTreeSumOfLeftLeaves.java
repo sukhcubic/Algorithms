@@ -2,26 +2,19 @@
 //https://www.youtube.com/watch?v=_gnyuO2uquA
 //https://www.youtube.com/watch?v=TzkfuLgpUxc
 class BinaryTreeSumOfLeftLeaves{
-	
-	public int sumOfLeftLeaves(){
-	
-	  return leftLeaveHelper();
-	}
-	
-	private int leftLeaveHelper(Node node, int sum) {
-
-		// return 0 
-		if(node == null) {
+// Todo: revisit again	
+    public int sumOfLeftLeaves(TreeNode node) {
+	if(node == null) {
 			return 0;
 		}
-
-		if(node.left == null) {
-			return node.key;
+        
+        if(node.left != null && node.left.left == null && node.left.right == null) {
+		// explore right brancg as well and add value from right tree left leaf
+			return node.left.val + sumOfLeftLeaves(node.right);
 		}
-	
-		return leftLeaveHelper(node.left, sum + node.key) + leftLeaveHelper(node.right, sum + node.key);
+		return sumOfLeftLeaves(node.left)+sumOfLeftLeaves(node.right);
+    }
 
-	}
 
 
 // 	public int sumOfLeaves(Node root) {
