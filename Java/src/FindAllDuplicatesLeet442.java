@@ -1,4 +1,4 @@
-class FinadAllDuplicatesLeet442{
+class FindAllDuplicatesLeet442{
 //https://leetcode.com/problems/find-all-duplicates-in-an-array/
       public List<Integer> findDuplicates(int[] nums) {
         List<Integer> dups = new ArrayList<>();
