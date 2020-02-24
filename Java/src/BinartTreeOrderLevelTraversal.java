@@ -34,6 +34,18 @@ class BinartTreeOrderLevelTraversal{
 		return list;
 	}
 	
+	//https://leetcode.com/problems/binary-tree-level-order-traversal-ii/
+	//https://nifannn.github.io/2019/01/06/Algorithm-Notes-Leetcode-107-Binary-Tree-Level-Order-Traversal-II/
+	public List<List<Integer>> levelTraversal2(Node root){
+		List<List<Integer>> list = new ArrayList<List<Integer>>();
+                if(root == null){
+                    return list; 
+                   }
+	
+		
+		return list;
+	}
+	
 	public void print(List<List<Integer>> levelTraversal) {
 		for(List<Integer> list: levelTraversal) {
 		 for (Integer val:list) {
