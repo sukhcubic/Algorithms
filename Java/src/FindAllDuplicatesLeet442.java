@@ -1,5 +1,6 @@
 class FindAllDuplicatesLeet442{
 //https://leetcode.com/problems/find-all-duplicates-in-an-array/
+//https://algorithms.tutorialhorizon.com/find-duplicates-in-an-given-array-in-on-time-and-o1-extra-space/     
       public List<Integer> findDuplicates(int[] nums) {
         List<Integer> dups = new ArrayList<>();
         //Elements are 1 ≤ a[i] ≤ n (n = size of array) there is no zero and max element is <= array.length;
@@ -18,4 +19,9 @@ class FindAllDuplicatesLeet442{
         }
       return dups;
     }
+      
+      //https://medium.com/solvingalgo/solving-algorithmic-problems-find-a-duplicate-in-an-array-3d9edad5ad41
+      //https://www.geeksforgeeks.org/find-duplicates-constant-array-elements-0-n-1-o1-space/
+   //Todo: Implement two pointer solution:
+      
 }
