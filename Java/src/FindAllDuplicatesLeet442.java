@@ -22,8 +22,11 @@ class FindAllDuplicatesLeet442{
       
       //https://medium.com/solvingalgo/solving-algorithmic-problems-find-a-duplicate-in-an-array-3d9edad5ad41
       //https://www.geeksforgeeks.org/find-duplicates-constant-array-elements-0-n-1-o1-space/
+      //Find single duplicate
      public int findDuplicate(int[] nums){
-     
+           if(nums.length < 1){
+            return -1;
+           }
            int slow = nums[0]; 
            int fast = nums[nums[0]]
            while(fast != slow){
