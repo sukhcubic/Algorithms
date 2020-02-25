@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+//https://codingpuzzles.com/an-algorithm-which-creates-a-linked-list-of-all-the-nodes-at-each-depth-of-a-binary-tree-b1066f995c95
+
+
 public class BinaryTreeLinkedLists {
     class Node {
         int key;
