@@ -22,6 +22,22 @@ class FindAllDuplicatesLeet442{
       
       //https://medium.com/solvingalgo/solving-algorithmic-problems-find-a-duplicate-in-an-array-3d9edad5ad41
       //https://www.geeksforgeeks.org/find-duplicates-constant-array-elements-0-n-1-o1-space/
-   //Todo: Implement two pointer solution:
-      
+     public int findDuplicate(int[] nums){
+     
+           int slow = nums[0]; 
+           int fast = nums[nums[0]]
+           while(fast != slow){
+              slow = nums[slow]
+              fast = nums[nums[fast]];
+           }
+     
+           slow = nums[0];
+           
+           while(slow != fast){
+            slow = nums[slow];
+            fast = nums[fast];
+           }
+           
+           return slow;
+     }
 }
