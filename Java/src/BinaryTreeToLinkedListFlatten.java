@@ -55,5 +55,17 @@ class BinaryTreeToLinkedListFlatten{
         return   rightTail == null ? leftTail:rightTail;
     }
 
-
+//Iterative Approach
+  
+  public void flatten(Node root){
+  
+    if(root == null){
+      return null;
+    }
+    
+    while(root.left != null){
+    
+    }
+  }
+  
 }
