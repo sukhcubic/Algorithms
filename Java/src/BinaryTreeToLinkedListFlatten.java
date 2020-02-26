@@ -61,16 +61,29 @@ class BinaryTreeToLinkedListFlatten{
   
     if(root == null){
       return null;
-    }
-    Node curr = root;
+    } 
+     //.            1                    1                     1                         1
+    //           2.   5        =>     2            =>      x.     2        =>           x  2
+    //.        3.  4.    6          3.  4                        3   4                    x  3
+    //                                    5                            5                       4
+    //                                      6                            6                       5
+    //                                                                                             6
+    
+   
+    
+    Node curr = root;                                                                              
     while(curr != null){
+      //If left is not null and right is null then swith node and set left null
       if(curr.left != null){
+        // if right != null set temp node pointing left and get rightmost end and point current node's right to th end/
+        // now eveything shifted to the left then move curret.feft to current .right. Shift everything to right and set current.
+        // left to null
         if(curr.right != null){
-//           Node temp = curr.right;
-//           curr.right = curr.left;
-//           while(curr.left != null){
-          
-//           }
+          Node nd = curr.left;
+          while(nd.right != null){
+             nd = nd.right;
+          }
+          nd.right = curr.right;
         }
         curr.right = curr.left;
         curr.left = null;
