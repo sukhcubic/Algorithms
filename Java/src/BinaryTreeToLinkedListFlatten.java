@@ -77,7 +77,7 @@ class BinaryTreeToLinkedListFlatten{
       if(curr.left != null){
         // if right != null set temp node pointing left and get rightmost end and point current node's right to th end/
         // now eveything shifted to the left then move curret.feft to current .right. Shift everything to right and set current.
-        // left to null
+        // left to null. Loop will run untill everynode is in one line on right side.
         if(curr.right != null){
           Node nd = curr.left;
           while(nd.right != null){
