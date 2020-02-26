@@ -56,16 +56,26 @@ class BinaryTreeToLinkedListFlatten{
     }
 
 //Iterative Approach
-  
+ // https://afteracademy.com/blog/flatten-binary-tree-to-linked-list
   public void flatten(Node root){
   
     if(root == null){
       return null;
     }
-    
-    while(root.left != null){
-    
+    Node curr = root;
+    while(curr != null){
+      if(curr.left != null){
+        if(curr.right != null){
+//           Node temp = curr.right;
+//           curr.right = curr.left;
+//           while(curr.left != null){
+          
+//           }
+        }
+        curr.right = curr.left;
+        curr.left = null;
+      }
+      curr = curr.right;
     }
-  }
-  
+  }  
 }
