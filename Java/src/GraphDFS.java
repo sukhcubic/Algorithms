@@ -3,7 +3,9 @@ import java.util.List;
 import java.util.Stack;
 class GraphDFS{
 //https://www.youtube.com/watch?v=9RHO6jU--GU
-
+//https://www.youtube.com/watch?v=TIbUeeksXcI DFS BFS
+//https://www.youtube.com/watch?v=zaBhtODEL0w DFS BFS
+//https://www.udemy.com/course/datastructurescncpp/learn/lecture/13193676#overview
   static class Node {
         String name;
         List<Node> children = new ArrayList<Node>();
