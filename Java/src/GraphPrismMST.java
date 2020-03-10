@@ -2,6 +2,7 @@
 //https://www.youtube.com/watch?v=oP2-8ysT3QQ&t=88s
 //https://www.cs.princeton.edu/courses/archive/spr02/cs226/lectures/mst-4up.pdf
 //https://algorithms.tutorialhorizon.com/prims-minimum-spanning-tree-mst-using-adjacency-list-and-priority-queue-without-decrease-key-in-oelogv/
+//https://www.coursera.org/learn/algorithms-part2/lecture/HoHKu/prims-algorithm
 class GraphPrismMST{
 	List<Edge<Integer>> resultSet = new ArrayList<>();
 	PriorityQueue<Vertex<Integer>> queue = new PriorityQueue<Vertex<Integer>>();
