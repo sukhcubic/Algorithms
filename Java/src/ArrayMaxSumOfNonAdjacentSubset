@@ -1,0 +1,14 @@
+class ArrayMaxSumOfNonAdjacentSubset {
+
+
+
+    private static int findSum(int[] a) {
+
+        return 0;
+    }
+
+    public static void main(String arg []){
+        int[] a = {-1,5,10,20,28,3};
+        System.out.println("  result = "+findSum(a));
+    }
+}
