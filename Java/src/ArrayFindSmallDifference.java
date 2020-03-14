@@ -1,5 +1,8 @@
+import java.util.Arrays;
+
 class ArrayFindSmallDifference{
 
+ public static int[] find(int[] a, int[] b){
   int[] result = new int[2];
         Arrays.sort(a);
         Arrays.sort(b);
