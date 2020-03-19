@@ -3,8 +3,6 @@
 
 class ArrayMaxSumOfNonAdjacentSubset {
 
-
-
     private static int findSum(int[] nums) {
         int prevInclusive = 0;
         int prevExclusive = 0;
