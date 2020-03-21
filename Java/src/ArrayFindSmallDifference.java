@@ -1,5 +1,4 @@
 import java.util.Arrays;
-
 class ArrayFindSmallDifference{
 
  public static int[] find(int[] a, int[] b){
