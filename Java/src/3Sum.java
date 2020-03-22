@@ -57,5 +57,4 @@ public class ThreeSum {
 		int desiredSum = 20;
 		System.out.println(sumOfThreeNumbers(a, desiredSum));
 	}
-
 }
