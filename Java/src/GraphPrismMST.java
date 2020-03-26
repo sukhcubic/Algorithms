@@ -30,6 +30,7 @@ class GraphPrismMST{
         for(Edge<Integer> edge : edges){
             System.out.println(edge);
         }
+	    
     }
 
 }
