@@ -6,6 +6,7 @@ public class ThreeSum {
 		int x = 0;
 		int y = 0;
 
+		
 		for (int i = 0; i < list.length - 2; i++) {
 			x = i + 1;
 			y = list.length - 1;
