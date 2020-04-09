@@ -8,6 +8,28 @@ import java.util.Map;
 
 
 public class Graph<T>{
+    	// data structure to store graph edges
+	static class Edge {
+		int src, dest, weight;
+
+		Edge(int src, int dest, int weight)
+		{
+			this.src = src;
+			this.dest = dest;
+			this.weight = weight;
+		}
+	};
+
+	// data structure for adjacency list node
+	static class Node {
+		int value, weight;
+
+		Node(int value, int weight)
+		{
+			this.value = value;
+			this.weight = weight;
+		}
+	};
 
 //     private List<Edge<T>> allEdges;
 //     private Map<Long,Vertex<T>> allVertex;
