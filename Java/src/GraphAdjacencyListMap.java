@@ -1,6 +1,8 @@
 
 import java.util.*;
 
+//Credit Tushar Roy. Code taken for Education purpose only. Ref: https://github.com/mission-peace/interview/blob/master/src/com/interview/graph/Graph.java#L132
+
 public class GraphAdjacencyListMap<T> {
 
     private List<Edge<T>> allEdges;
@@ -11,6 +13,35 @@ public class GraphAdjacencyListMap<T> {
         allEdges = new ArrayList<Edge<T>>();
         allVertex = new HashMap<Long,Vertex<T>>();
         this.isDirected = isDirected;
+    }
+    
+      public void addEdge(long id1, long id2){
+        addEdge(id1,id2,0);
+    }
+
+    //This works only for directed graph because for undirected graph we can end up
+    //adding edges two times to allEdges
+    public void addVertex(Vertex<T> vertex){
+        if(allVertex.containsKey(vertex.getId())){
+            return;
+        }
+        allVertex.put(vertex.getId(), vertex);
+        for(Edge<T> edge : vertex.getEdges()){
+            allEdges.add(edge);
+        }
+    }
+
+    public Vertex<T> addSingleVertex(long id){
+        if(allVertex.containsKey(id)){
+            return allVertex.get(id);
+        }
+        Vertex<T> v = new Vertex<T>(id);
+        allVertex.put(id, v);
+        return v;
+    }
+
+    public Vertex<T> getVertex(long id){
+        return allVertex.get(id);
     }
 
     class Vertex<T> {
