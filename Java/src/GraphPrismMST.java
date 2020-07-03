@@ -3,8 +3,7 @@
 //https://www.cs.princeton.edu/courses/archive/spr02/cs226/lectures/mst-4up.pdf
 //https://algorithms.tutorialhorizon.com/prims-minimum-spanning-tree-mst-using-adjacency-list-and-priority-queue-without-decrease-key-in-oelogv/
 //https://www.coursera.org/learn/algorithms-part2/lecture/HoHKu/prims-algorithm
-
-//https://algorithms.tutorialhorizon.com/prims-minimum-spanning-tree-mst-using-adjacency-list-and-priority-queue-without-decrease-key-in-oelogv/
+//https://www.geeksforgeeks.org/prims-mst-for-adjacency-list-representation-greedy-algo-6/
 //ReF: https://github.com/mission-peace/interview/blob/master/src/com/interview/graph/PrimMST.java
 
 class GraphPrismMST{
