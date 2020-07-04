@@ -143,11 +143,11 @@ public class GraphPrimsMST {
 
             mst[dataNode.vertex] = true;
             LinkedList<GraphWeighted.Edge> edgeList = graph.adjacencylist[ dataNode.vertex];
-            for (GraphWeighted.Edge edge: edgeList) {
+             for (GraphWeighted.Edge edge: edgeList) {
                 if(mst[edge.destination] == false && node[edge.destination].key > edge.weight) {
-                    treeSet.remove(dataNode);
-                    treeSet.add(node[edge.destination]);
+                    treeSet.remove(node[edge.destination]);
                     node[edge.destination].key = edge.weight;
+                    treeSet.add(node[edge.destination]);
                     parent[edge.destination] = dataNode.vertex;
                 }
             }
