@@ -6,77 +6,16 @@
 //https://www.geeksforgeeks.org/prims-mst-for-adjacency-list-representation-greedy-algo-6/
 //ReF: https://github.com/mission-peace/interview/blob/master/src/com/interview/graph/PrimMST.java
 
-class GraphPrismMST{
-	
-    public List<Edge<Integer>>findMST(Graph graph){
-        List<Edge<Integer>> result = new ArrayList<>();
-        BinaryMinHeap<Vertex<Integer>> minHeap = new BinaryMinHeap<Vertex<Integer>>();
+import javafx.util.Pair;
 
-        Map<Vertex<Integer>,Edge<Integer>> vertexToEdge = new HashMap<>();
+import java.util.*;
 
-        for(Object v : graph.getAllVertex()){
-            minHeap.add(Integer.MAX_VALUE, (Vertex) v);
-        }
+//
+//import java.util.*;
+//
+public class GraphPrimsMST {
 
-        Vertex<Integer> startVertex = (Vertex<Integer>) graph.getAllVertex().iterator().next();
-
-        //for the start vertex decrease the value in heap + map to 0
-        minHeap.decrease(startVertex, 0);
-
-        //iterate till heap + map has elements in it
-        while(!minHeap.empty()){
-            //extract min value vertex from heap + map
-            Vertex<Integer> current = minHeap.extractMin();
-
-            //get the corresponding edge for this vertex if present and add it to final result.
-            //This edge wont be present for first vertex.
-            Edge<Integer> spanningTreeEdge = vertexToEdge.get(current);
-            if(spanningTreeEdge != null) {
-                result.add(spanningTreeEdge);
-            }
-
-            //iterate through all the adjacent vertices
-            for(Edge<Integer> edge : current.getEdges()){
-                Vertex<Integer> adjacent = getVertexForEdge(current, edge);
-                //check if adjacent vertex exist in heap + map and weight attached with this vertex is greater than this edge weight
-                if(minHeap.containsData(adjacent) && minHeap.getWeight(adjacent) > edge.getWeight()){
-                    //decrease the value of adjacent vertex to this edge weight.
-                    minHeap.decrease(adjacent, edge.getWeight());
-                    //add vertex->edge mapping in the graph.
-                    vertexToEdge.put(adjacent, edge);
-                }
-            }
-        }
-        return result;
-    }
-
-    private Vertex<Integer> getVertexForEdge(Vertex<Integer> v, Edge<Integer> e){
-        return e.getVertex1().equals(v) ? e.getVertex2() : e.getVertex1();
-    }
-
-    public static void main(String args[]){
-        Graph<Integer> graph = new Graph<>(false);
-
-        graph.addEdge(1, 2, 3);
-        graph.addEdge(2, 3, 1);
-        graph.addEdge(3, 1, 1);
-        graph.addEdge(1, 4, 1);
-        graph.addEdge(2, 4, 3);
-        graph.addEdge(4, 5, 6);
-        graph.addEdge(5, 6, 2);
-        graph.addEdge(3, 5, 5);
-        graph.addEdge(3, 6, 4);
-
-        GraphPrimsMST prims = new GraphPrimsMST();
-        Collection<Edge<Integer>> edges = prims.findMST(graph);
-        for(Edge<Integer> edge : edges){
-            System.out.println(edge);
-        }
-
-    }
-	
-	
-	    static class ResultSet {
+    static class ResultSet {
         int parent;
         int weight;
     }
@@ -122,28 +61,107 @@ class GraphPrismMST{
             for (int i = 0; i <list.size() ; i++) {
                 GraphWeighted.Edge edge = list.get(i);
 
-                if(mst[edge.destination]== false){
-                    int destination = edge.destination;
-                    int newKey = edge.weight;
+                if (mst[edge.destination] == false) {
 
-                    if(key[destination]>newKey) {
-                        //add it to the priority queue
-                        Pair<Integer, Integer> p = new Pair<>(newKey, destination);
+                    if (key[edge.destination] > edge.weight) {
+                        Pair<Integer, Integer> p = new Pair<>(edge.weight, edge.destination);
                         pq.offer(p);
-                        //update the resultSet for destination vertex
-                        results[destination].parent = extractedVertex;
-                        results[destination].weight = newKey;
-                        //update the key[]
-                        key[destination] = newKey;
+                        results[edge.destination].parent = extractedVertex;
+                        results[edge.destination].weight = edge.weight;
+                        key[edge.destination] = edge.weight;
                     }
                 }
             }
 
         }
 
+        for (int keys: key
+             ) {
+            System.out.println("a + "+ keys);
+
+        }
      return results;
     }
-    
+
+
+    // class to represent a node in PriorityQueue
+    // Stores a vertex and its corresponding
+    // key value
+    class Node {
+        int vertex;
+        int key;
+    }
+
+
+    public void primMst(GraphWeighted graph){
+
+        int vertices = graph.vertices;
+
+        // Check if vertex is visited or not
+        boolean[] mst = new boolean[vertices];
+
+        //Store parent of a vertex
+        int[] parent = new int[vertices];
+        Node[] node = new Node[vertices];
+
+        for (int i = 0; i<vertices; i++){
+          node[i] = new Node();
+        }
+
+        //Intially set each node value to infinity
+        for (int i = 0; i<vertices; i++){
+
+            node[i].key = Integer.MAX_VALUE;
+            node[i].vertex = i;
+        }
+
+        // Include the source vertex in mstset
+        mst[0] = true;
+
+        // Set key value to 0
+        // so that it is extracted first
+        // out of PriorityQueue
+        node[0].key = 0;
+
+        // Comparator class created for PriorityQueue
+        // returns 1 if node0.key > node1.key
+        // returns 0 if node0.key < node1.key and
+        // returns -1 otherwise
+        // Use TreeSet instead of PriorityQueue as the remove function of the PQ is O(n) in java. Add is same o(logN)time as priority Queue
+        TreeSet<Node> treeSet = new TreeSet<>(new Comparator<Node>() {
+            @Override
+            public int compare(Node o1, Node o2) {
+                return o1.key-o2.key;
+            }
+        });
+
+        treeSet.add(node[0]);
+
+        while(!treeSet.isEmpty()){
+
+            Node dataNode = treeSet.pollFirst();
+
+            mst[dataNode.vertex] = true;
+            LinkedList<GraphWeighted.Edge> edgeList = graph.adjacencylist[ dataNode.vertex];
+
+            for (GraphWeighted.Edge edge: edgeList) {
+                if(mst[edge.destination] == false){
+                    if(node[edge.destination].key > edge.weight){
+                        treeSet.remove(dataNode);
+                        treeSet.add(node[edge.destination]);
+                        node[edge.destination].key = edge.weight;
+                        parent[edge.destination] = dataNode.vertex;
+                    }
+                }
+            }
+        }
+
+        int l = parent.length;
+        for (int i:parent) {
+            System.out.println("result = "+ i);
+        }
+    }
+
     public static void main(String args[]){
         int vertex = 6;
         GraphWeighted graph = new GraphWeighted(vertex);
@@ -157,9 +175,18 @@ class GraphPrismMST{
 
         GraphPrimsMST prims = new GraphPrimsMST();
         ResultSet[] edges = prims.primMST(graph);
+        int i = 0;
         for(ResultSet edge : edges){
+
+            if(i==0){
+                i++;
+                continue;
+            }
             System.out.println(edge.parent);
         }
-   }
 
+        System.out.println("/n");
+
+        prims.primMst(graph);
+   }
 }
