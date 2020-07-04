@@ -146,8 +146,10 @@ public class GraphPrimsMST {
              for (GraphWeighted.Edge edge: edgeList) {
                 if(mst[edge.destination] == false && node[edge.destination].key > edge.weight) {
                     treeSet.remove(node[edge.destination]);
+                    //update weight
                     node[edge.destination].key = edge.weight;
                     treeSet.add(node[edge.destination]);
+                    //set parent
                     parent[edge.destination] = dataNode.vertex;
                 }
             }
