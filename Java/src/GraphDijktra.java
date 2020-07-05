@@ -65,13 +65,16 @@ public class GraphDijkstra {
         //add it to pq
         pq.offer(p0);
         while(!pq.isEmpty()){
-            
-            if(){
+            Pair<Integer, Integer>  pair = pq.poll();
 
+            int extractedVertex = pair.getValue();
 
+            if(visited[extractedVertex] == false){
+                LinkedList<Edge>  nodes = graph.adjacencylist[pair.getValue()];
+                for (Edge edge :nodes) {
+
+                }
             }
-
-
         }
 
 
