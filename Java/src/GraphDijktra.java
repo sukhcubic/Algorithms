@@ -40,11 +40,11 @@ public class GraphDijkstra {
 
     private void shortestPath(Graph graph) {
         int vertices = graph.vertices;
-        boolean[] SPT = new boolean[vertices];
+        boolean[] visited = new boolean[vertices];
         //distance used to store the distance of vertex from a source
         int [] distance = new int[vertices];
 
-        //Initialize all the distance to infinity
+        //Initialize all the distance to infinityOL
         for (int i = 0; i <vertices ; i++) {
             distance[i] = Integer.MAX_VALUE;
         }
@@ -71,18 +71,85 @@ public class GraphDijkstra {
 
             if(visited[extractedVertex] == false){
                 LinkedList<Edge>  nodes = graph.adjacencylist[pair.getValue()];
-                for (Edge edge :nodes) {
+                for (int i = 0; i < nodes.size(); i++) {
+                    Edge edge = nodes.get(i);
+                    int dest = edge.destination;
+                    if(visited[dest] == false){
+                        int newKey = distance[dest] + edge.weight;
+                        int currentkey = distance[extractedVertex];
 
+                        if(currentkey>newKey){
+                            Pair<Integer, Integer> p = new Pair<>(newKey , dest);
+                            pq.offer(p);
+                            distance[dest] = newKey;
+                        }
+                    }
                 }
             }
         }
-
 
 //        for (int i:path) {
 //            System.out.println("result = "+ i);
 //        }
 //
 //        System.out.println(" Total cost = "+ cost);
+    }
+
+    class Node {
+        int vertex;
+        int key;
+    }
+
+    private void shortestPath2(Graph graph) {
+        int vertices = graph.vertices;
+        boolean[] visited = new boolean[vertices];
+        int[] distance = new int[vertices];
+        Node[] node = new Node[vertices];
+
+        for (int i = 0; i<vertices; i++){
+            node[i] = new Node();
+        }
+
+        for (int i = 0; i < node.length; i++){
+            node[i].key = Integer.MAX_VALUE;
+            node[i].vertex = i;
+        }
+
+        node[0].key = 0;
+        visited[0] = true;
+
+        TreeSet<Node> treeSet = new TreeSet<>(new Comparator<Node>() {
+            @Override
+            public int compare(Node o1, Node o2) {
+                return o1.key - o2.key;
+            }
+        });
+
+        treeSet.add(node[0]);
+
+        while (!treeSet.isEmpty()){
+           Node dataNode = treeSet.pollFirst();
+           if(visited[dataNode.key] == false) {
+               LinkedList<Edge> edges = graph.adjacencylist[dataNode.vertex];
+
+               for (Edge edge : edges) {
+                   int dest = edge.destination;
+                   visited[dest] = true;
+                   if (visited[dest] == false) {
+                       int newkey = dataNode.key + edge.weight;
+                       int curr = dataNode.key;
+                       if (curr > newkey) {
+                           Node node1 = new Node();
+                           node1.vertex = dest;
+                           node1.key = newkey;
+                           treeSet.add(node1);
+                           distance[dest] = newkey;
+                       }
+                   }
+               }
+           }
+
+        }
     }
 
     public static void main(String args[]){
