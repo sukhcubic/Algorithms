@@ -70,13 +70,14 @@ public class GraphDijkstra {
             int extractedVertex = pair.getValue();
 
             if(visited[extractedVertex] == false){
+                visited[extractedVertex] = true;
                 LinkedList<Edge>  nodes = graph.adjacencylist[pair.getValue()];
                 for (int i = 0; i < nodes.size(); i++) {
                     Edge edge = nodes.get(i);
                     int dest = edge.destination;
                     if(visited[dest] == false){
-                        int newKey = distance[dest] + edge.weight;
-                        int currentkey = distance[extractedVertex];
+                        int newKey = distance[extractedVertex] + edge.weight;
+                        int currentkey = distance[dest];
 
                         if(currentkey>newKey){
                             Pair<Integer, Integer> p = new Pair<>(newKey , dest);
@@ -88,11 +89,11 @@ public class GraphDijkstra {
             }
         }
 
-//        for (int i:path) {
-//            System.out.println("result = "+ i);
-//        }
-//
-//        System.out.println(" Total cost = "+ cost);
+        for (int i:distance) {
+            System.out.println("result = "+ i);
+        }
+
+        System.out.println(" Total cost = ");
     }
 
     class Node {
@@ -103,7 +104,7 @@ public class GraphDijkstra {
     private void shortestPath2(Graph graph) {
         int vertices = graph.vertices;
         boolean[] visited = new boolean[vertices];
-        int[] distance = new int[vertices];
+       // int[] distance = new int[vertices];
         Node[] node = new Node[vertices];
 
         for (int i = 0; i<vertices; i++){
@@ -116,8 +117,6 @@ public class GraphDijkstra {
         }
 
         node[0].key = 0;
-        visited[0] = true;
-
         TreeSet<Node> treeSet = new TreeSet<>(new Comparator<Node>() {
             @Override
             public int compare(Node o1, Node o2) {
@@ -129,26 +128,30 @@ public class GraphDijkstra {
 
         while (!treeSet.isEmpty()){
            Node dataNode = treeSet.pollFirst();
-           if(visited[dataNode.key] == false) {
-               LinkedList<Edge> edges = graph.adjacencylist[dataNode.vertex];
-
-               for (Edge edge : edges) {
-                   int dest = edge.destination;
-                   visited[dest] = true;
-                   if (visited[dest] == false) {
-                       int newkey = dataNode.key + edge.weight;
-                       int curr = dataNode.key;
+           int extracted = dataNode.vertex;
+          if(visited[extracted] == false) {
+              visited[extracted] = true;
+               LinkedList<Edge> edges = graph.adjacencylist[extracted];
+              for (int i = 0; i < edges.size(); i++) {
+                  Edge edge = edges.get(i);
+                  int dest = edge.destination;
+                  if (visited[dest] == false) {
+                       int newkey = node[extracted].key + edge.weight;
+                       int curr = node[dest].key;
                        if (curr > newkey) {
                            Node node1 = new Node();
                            node1.vertex = dest;
                            node1.key = newkey;
                            treeSet.add(node1);
-                           distance[dest] = newkey;
+                           node[dest].key = newkey;
                        }
                    }
                }
            }
 
+        }
+        for (Node i:node) {
+            System.out.println("result = "+ i.key);
         }
     }
 
@@ -165,5 +168,6 @@ public class GraphDijkstra {
 
         GraphDijkstra path = new GraphDijkstra();
         path.shortestPath(graph);
+        path.shortestPath2(graph);
     }
 }
