@@ -16,20 +16,23 @@ public class GraphClone {
     }
 
     public Node cloneBFS(Node node){
+        if (node == null) {
+            return node;
+        }
         HashMap<Node, Node> visited = new HashMap<>();
         Queue<Node> q = new LinkedList<>();
-
         q.add(node);
+        //clone new node and added cloned elements later to list
+        visited.put(node, new Node(node.val, new ArrayList<>()));
 
         while(!q.isEmpty()){
-            Node node1 = q.remove();
-
-            for (Node node2:node1.neighbors){
-                if(!visited.containsKey(node2)){
-                    visited.put(node2, new Node(node2.val, new ArrayList()));
-                    q.add(node2);
+            Node node1 = q.poll();
+            List<Node> list = node1.neighbors;
+            for(Node node2:node1.neighbors) {
+                if (!visited.containsKey(node2)) {
+                    visited.put(node2, new Node(node2.val, new ArrayList<>()));
                 }
-                visited.get(node2).neighbors.add(node2);
+                visited.get(node1).neighbors.add(node2);
             }
         }
         return visited.get(node);
