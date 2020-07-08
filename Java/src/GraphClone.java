@@ -51,8 +51,12 @@ public class GraphClone {
         visited.put(node, node2);
         for (Node node1:node.neighbors) {
             if(!visited.containsKey(node1)){
+               //add to stack with new node created
+
                 visited.get(node).neighbors.add(cloneGraph(node1));
             }else{
+               //since undirected need to add neighbor to make excat deep copy(clone) for undirected
+
                 visited.get(node).neighbors.add(visited.get(node1));
             }
         }
