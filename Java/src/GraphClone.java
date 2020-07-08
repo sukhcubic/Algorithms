@@ -40,9 +40,23 @@ public class GraphClone {
 
     
     //DFS
-    public Node cloneDFS(Node node){
-        return null;
-    
+    HashMap<Node, Node> visited = new HashMap<>();
+    public Node cloneGraph(Node node){
+
+        if(node == null){
+            return node;
+        }
+
+        Node node2 = new Node(node.val , new ArrayList<>());
+        visited.put(node, node2);
+        for (Node node1:node.neighbors) {
+            if(!visited.containsKey(node1)){
+                visited.get(node).neighbors.add(cloneGraph(node1));
+            }else{
+                visited.get(node).neighbors.add(visited.get(node1));
+            }
+        }
+        return visited.get(node);
     }
 
     
