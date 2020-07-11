@@ -31,7 +31,10 @@ public class NumberOfIslands {
 
 	public static void main(String args[]) {
 
-		int[][] matrix = { { 0, 1, 0, 0, 0 }, { 0, 1, 1, 1, 0 }, { 1, 0, 0, 0, 1 }, { 0, 1, 0, 0, 1 } };
+		int[][] matrix = { { 0, 1, 0, 0, 0 }, 
+				   { 0, 1, 1, 1, 0 }, 
+				   { 1, 0, 0, 0, 1 }, 
+				   { 0, 1, 0, 0, 1 } };
 		System.out.print(NumberOfIslands.numberOfIsland(matrix));
 	}
 
