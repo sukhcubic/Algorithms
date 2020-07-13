@@ -57,6 +57,35 @@ public class MazeProblem {
 
         return false;
     }
+    
+        //BFS LeetCode 490
+    public boolean hasPath(int[][] maze, int[] start, int[] destination) {
+
+        int[][] dirs={{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
+
+        Queue<int[]> queue = new LinkedList<>();
+
+        queue.add(start);
+
+        while (!queue.isEmpty()){
+
+            int[] point = queue.remove();
+
+            if (point[0] == destination[0] && point[1] == destination[1])
+                return true;
+
+            for(int[] dir: dirs){
+                int row = point[0]+dir[0];
+                int col = point[1]+dir[1];
+               if(hasPath(maze, row, col)){
+                   queue.add(new int[] {row, col});
+                   maze[row][col] = 0;
+               }
+            }
+        }
+
+        return false;
+    }
 
     private boolean hasPath(int[][] maze, int row, int column){
         if (row < 0 || column < 0 || row >= maze.length || column >= maze[row].length || maze[row][column] == 0) return false;
