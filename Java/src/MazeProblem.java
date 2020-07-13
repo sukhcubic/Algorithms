@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 //https://medium.com/@codingfreak/maze-problems-in-data-structures-8530af4d6c8
+//https://www.youtube.com/watch?v=rop0W4QDOUI   Visual
 
 public class MazeProblem {
 
