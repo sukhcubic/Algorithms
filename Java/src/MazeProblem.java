@@ -14,7 +14,13 @@ public class MazeProblem {
     private void findPath(int[][] maze) {
         int row = 0, col = 0;
         Map<String, Boolean> path = new HashMap();
-        boolean haspath = helper(maze, row, col, path);
+       //boolean haspath = helper(maze, row, col, path);
+
+        //BFS
+        int[] start = {0,4};
+        int[] dest = {4,4};
+        boolean haspath = hasPath(maze, start, dest);
+        System.out.println( "Has path = " + haspath);
         System.out.println( "Has path = " + haspath);
         //return path;
     }
