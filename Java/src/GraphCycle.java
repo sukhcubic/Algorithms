@@ -1,7 +1,12 @@
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
+
 //https://www.youtube.com/watch?v=n_t0a_8H8VY&feature=emb_rel_pause
 public class GraphCycle {
 
+    Map<Integer, Boolean> visit = new HashMap<>();
     static class Edge {
         int source;
         int destination;
@@ -16,7 +21,7 @@ public class GraphCycle {
 
     static class Graph {
         int vertices;
-        LinkedList<GraphDijkstra.Edge>[] adjacencylist;
+        LinkedList<Edge>[] adjacencylist;
 
         Graph(int vertices) {
             this.vertices = vertices;
@@ -28,19 +33,36 @@ public class GraphCycle {
         }
 
         public void addEdge(int source, int destination, int weight) {
-            GraphDijkstra.Edge edge = new GraphDijkstra.Edge(source, destination, weight);
+            Edge edge = new Edge(source, destination, weight);
             adjacencylist[source].addFirst(edge);
 
-            edge = new GraphDijkstra.Edge(destination, source, weight);
+            edge = new Edge(destination, source, weight);
             adjacencylist[destination].addFirst(edge); //for undirected graph
         }
     }
 
     //DFS
-    private void findCycle(Graph graph) {
-
+    private boolean findCycle(Graph graph) {
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(0);
+        visit.put(0, true);
+        while (!queue.isEmpty()){
+            int vertex = queue.poll();
+            LinkedList<Edge> list = graph.adjacencylist[vertex];
+            for (Edge edge:list) {
+                if (visited(edge.source)) {
+                    return true;
+                } else {
+                    queue.add(edge.source);
+                }
+            }
+        }
+        return false;
     }
 
+    private boolean visited(Integer edge){
+        return visit.containsKey(edge);
+    }
 
     //
     private void detectCycle(Graph graph) {
@@ -59,6 +81,6 @@ public class GraphCycle {
         graph.addEdge(4, 5, 6);
 
         GraphCycle path = new GraphCycle();
-        path.findCycle(graph);
+        System.out.println(path.findCycle(graph));
     }
 }
