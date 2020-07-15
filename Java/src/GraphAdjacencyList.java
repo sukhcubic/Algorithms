@@ -13,7 +13,7 @@ public class GraphAdjacencyList {
     private void addEdge(int a, int b) {
         value.get(a).add(b);
         //Because undirected graph
-        value.get(a).add(b);
+        value.get(b).add(a);
     }
 
 
