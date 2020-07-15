@@ -73,9 +73,23 @@ public class GraphCycle {
         return visit.containsKey(edge);
     }
 
-    //
-    private void detectCycle(Graph graph) {
+    //DFS
+    private boolean detectCycle(Graph graph) {
+        return detect(graph, 0, -1);
+    }
 
+    private boolean detect(Graph graph, int curr, int parent ){
+        visit.put(curr, true);
+        for (int val: graph.adjacencylist[curr]) {
+            if(!visit.containsKey(val)){
+                if(detect(graph, val, curr )){
+                    return true;
+                };
+            }else if(val != parent){
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void main(String args[]){
@@ -86,6 +100,7 @@ public class GraphCycle {
         graph.addEdge(2, 3);
 
         GraphCycle path = new GraphCycle();
-        System.out.println(path.findCycle(graph));
+        // System.out.println(path.findCycle(graph));
+        System.out.println(path.detectCycle(graph));
     }
 }
