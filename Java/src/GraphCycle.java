@@ -4,24 +4,23 @@ import java.util.Map;
 import java.util.Queue;
 
 //https://www.youtube.com/watch?v=n_t0a_8H8VY&feature=emb_rel_pause
+
+//https://algotree.org/algorithms/tree_graph_traversal/dfs_detecting_cycles_in_graphs/cycle_detection_in_undirected_graphs/
+/**
+ * Cycle in undirected graphs can be detected easily using a depth-first search traversal.
+ * While doing a depth-first search traversal, we keep track of the visited node’s parent along with the list of visited nodes.
+ * During the traversal, if an adjacent node is found visited that is not the parent of the source node,
+ * then we have found a cycle in the current path.
+ */
+
+//https://www.techiedelight.com/check-undirected-graph-contains-cycle-not/  DFS and BFS both
 public class GraphCycle {
 
     Map<Integer, Boolean> visit = new HashMap<>();
-    static class Edge {
-        int source;
-        int destination;
-        int weight;
-
-        public Edge(int source, int destination, int weight) {
-            this.source = source;
-            this.destination = destination;
-            this.weight = weight;
-        }
-    }
 
     static class Graph {
         int vertices;
-        LinkedList<Edge>[] adjacencylist;
+        LinkedList<Integer>[] adjacencylist;
 
         Graph(int vertices) {
             this.vertices = vertices;
@@ -32,28 +31,38 @@ public class GraphCycle {
             }
         }
 
-        public void addEdge(int source, int destination, int weight) {
-            Edge edge = new Edge(source, destination, weight);
-            adjacencylist[source].addFirst(edge);
-
-            edge = new Edge(destination, source, weight);
-            adjacencylist[destination].addFirst(edge); //for undirected graph
+        public void addEdge(int a, int b) {
+            adjacencylist[a].add(b);
+            adjacencylist[b].add(a); //for undirected graph
         }
     }
 
-    //DFS
+    // Node to store vertex and its parent info in BFS
+    class Node
+    {
+        int v, parent;
+
+        Node(int v, int parent) {
+            this.v = v;
+            this.parent = parent;
+        }
+    }
+
+    //BFS
     private boolean findCycle(Graph graph) {
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(0);
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(new Node(0, -1));
         visit.put(0, true);
         while (!queue.isEmpty()){
-            int vertex = queue.poll();
-            LinkedList<Edge> list = graph.adjacencylist[vertex];
-            for (Edge edge:list) {
-                if (visited(edge.source)) {
+            Node vertex = queue.remove();
+            LinkedList<Integer> list = graph.adjacencylist[vertex.v];
+            for (int edge:list) {
+                if (!visited(edge)) {
+                    queue.add(new Node(edge, vertex.v));
+                    visit.put(edge, true);
+                } else if(edge != vertex.parent){
+                    //parent is different we have detected a cycle
                     return true;
-                } else {
-                    queue.add(edge.source);
                 }
             }
         }
@@ -70,15 +79,11 @@ public class GraphCycle {
     }
 
     public static void main(String args[]){
-        int vertex = 6;
+        int vertex = 4;
         Graph graph = new Graph(vertex);
-        graph.addEdge(0, 1, 4);
-        graph.addEdge(0, 2, 3);
-        graph.addEdge(1, 2, 1);
-        graph.addEdge(1, 3, 2);
-        graph.addEdge(2, 3, 4);
-        graph.addEdge(3, 4, 2);
-        graph.addEdge(4, 5, 6);
+        graph.addEdge(0, 1);
+        graph.addEdge(1, 2);
+        graph.addEdge(2, 3);
 
         GraphCycle path = new GraphCycle();
         System.out.println(path.findCycle(graph));
