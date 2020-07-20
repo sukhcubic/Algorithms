@@ -5,6 +5,8 @@ class GraphFloodFill-BooleanPaintMatrix{
    //sr = 1
    //sc = 1
    //newColor = 1
+   
+   //BFS
     public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
         Queue<int[]> queue = new LinkedList<>();
         boolean[][] visited = new boolean[image.length][image[0].length];
@@ -40,6 +42,18 @@ class GraphFloodFill-BooleanPaintMatrix{
         else return true;
     }
     
+   //DFS:
+    public int[][] floodFillDFS(int[][] image, int sr, int sc, int newColor) {
+    //TODO:
+       
+       
+       return image;
+    }
+   
+   private void helperDFS(){
+   
+   }
+   
     public static void main(String args[]){
         GraphFloodFill-BooleanPaintMatrix maze = new GraphFloodFill-BooleanPaintMatrix();
         int [][] mz = {{1,1,0,1,1},
