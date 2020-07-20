@@ -1,6 +1,10 @@
 import java.util.*;
 class GraphFloodFill-BooleanPaintMatrix{
-   //Be careful ask questions. New color can be same color
+   //Be careful ask questions in interview about edge cases. Like new color can be same color as old color. Ex. 
+   //image = [[0,0,0],[0,1,1]]
+   //sr = 1
+   //sc = 1
+   //newColor = 1
     public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
         Queue<int[]> queue = new LinkedList<>();
         boolean[][] visited = new boolean[image.length][image[0].length];
@@ -43,11 +47,6 @@ class GraphFloodFill-BooleanPaintMatrix{
                        {1,1,1,0,1},
                        {0,0,0,0,0},
                        {1,1,1,1,1}};
-  //      maze.findPath(mz);
-//        Iterable<String> path = maze.findPath(mz);
-//        for (String p: path) {
-//            System.out.println( p + " ");
-
 
         for (int[] val :maze.floodFill(mz, 0, 0 , 2)) {
             for (int v:
