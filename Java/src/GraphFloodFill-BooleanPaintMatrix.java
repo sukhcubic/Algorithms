@@ -42,26 +42,28 @@ class GraphFloodFill-BooleanPaintMatrix{
         else return true;
     }
     
-    //DFS:
+ //DFS:
     public int[][] floodFillDFS(int[][] image, int sr, int sc, int newColor) {
         if(!isValid(image, sr,sc)){
             return image;
         }
-        helperDFS(image, sr, sc, newColor, image[sr][sc]);
+        boolean[][] visited = new boolean[image.length][image[0].length];
+        helperDFS(image, sr, sc, newColor, image[sr][sc], visited);
         return image;
     }
 
-    private void helperDFS(int[][] image, int sr, int sc, int newColor, int given){
+    private void helperDFS(int[][] image, int sr, int sc, int newColor, int given,  boolean[][] visited){
 
-        if(isValid(image, sr, sc) && image[sr][sc] == given ){
+        if(isValid(image, sr, sc) && image[sr][sc] == given && visited[sr][sc] == false ){
+            visited[sr][sc] = true;
             image[sr][sc] = newColor;
-            helperDFS(image, sr+1, sc, newColor, given );
-            helperDFS(image, sr, sc +1, newColor, given);
-            helperDFS(image, sr-1, sc, newColor, given );
-            helperDFS(image, sr, sc-1, newColor, given );
+            helperDFS(image, sr+1, sc, newColor, given, visited );
+            helperDFS(image, sr, sc +1, newColor, given, visited);
+            helperDFS(image, sr-1, sc, newColor, given, visited );
+            helperDFS(image, sr, sc-1, newColor, given, visited );
         }
     }
-   
+
     public static void main(String args[]){
         GraphFloodFill-BooleanPaintMatrix maze = new GraphFloodFill-BooleanPaintMatrix();
         int [][] mz = {{1,1,0,1,1},
