@@ -42,17 +42,25 @@ class GraphFloodFill-BooleanPaintMatrix{
         else return true;
     }
     
-   //DFS:
+    //DFS:
     public int[][] floodFillDFS(int[][] image, int sr, int sc, int newColor) {
-    //TODO:
-       
-       
-       return image;
+        if(!isValid(image, sr,sc)){
+            return image;
+        }
+        helperDFS(image, sr, sc, newColor, image[sr][sc]);
+        return image;
     }
-   
-   private void helperDFS(){
-   
-   }
+
+    private void helperDFS(int[][] image, int sr, int sc, int newColor, int given){
+
+        if(isValid(image, sr, sc) && image[sr][sc] == given ){
+            image[sr][sc] = newColor;
+            helperDFS(image, sr+1, sc, newColor, given );
+            helperDFS(image, sr, sc +1, newColor, given);
+            helperDFS(image, sr-1, sc, newColor, given );
+            helperDFS(image, sr, sc-1, newColor, given );
+        }
+    }
    
     public static void main(String args[]){
         GraphFloodFill-BooleanPaintMatrix maze = new GraphFloodFill-BooleanPaintMatrix();
