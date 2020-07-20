@@ -1,7 +1,9 @@
 import java.util.*;
 class GraphFloodFill-BooleanPaintMatrix{
+   //Be careful ask questions. New color can be same color
     public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
         Queue<int[]> queue = new LinkedList<>();
+        boolean[][] visited = new boolean[image.length][image[0].length];
         if(!isValid(image, sr,sc)){
             return image;
         }
@@ -10,14 +12,16 @@ class GraphFloodFill-BooleanPaintMatrix{
         queue.add(pos);
 
         int[][] dirs={{0, 1}, {0, -1}, {-1, 0}, {1, 0}};
-
+        visited[sr][sc] = true;
+        image[sr][sc] = newColor;
         while(!queue.isEmpty()){
             int[] ps = queue.remove();
             for(int[] i : dirs) {
                 int row = ps[0] + i[0];
                 int col = ps[1] + i[1];
                 if (isValid(image, row, col)) {
-                    if(image[row][col] == 1) {
+                    if(image[row][col] == color && !visited[row][col]) {
+                        visited[row][col] = true;
                         image[row][col] = newColor;
                         queue.add(new int[]{row, col});
                     }
@@ -31,8 +35,7 @@ class GraphFloodFill-BooleanPaintMatrix{
         if (row < 0 || column < 0 || row >= image.length || column >= image[row].length ) return false;
         else return true;
     }
-
-
+    
     public static void main(String args[]){
         GraphFloodFill-BooleanPaintMatrix maze = new GraphFloodFill-BooleanPaintMatrix();
         int [][] mz = {{1,1,0,1,1},
