@@ -42,7 +42,7 @@ class GraphFloodFill-BooleanPaintMatrix{
         else return true;
     }
     
- //DFS:
+ //DFS: This is Fast
     public int[][] floodFillDFS(int[][] image, int sr, int sc, int newColor) {
         if(!isValid(image, sr,sc)){
             return image;
