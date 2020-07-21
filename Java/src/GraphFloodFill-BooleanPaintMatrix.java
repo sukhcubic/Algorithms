@@ -1,5 +1,5 @@
 import java.util.*;
-class GraphFloodFill-BooleanPaintMatrix{
+class GraphFloodFillBooleanPaintMatrix{
    //Be careful ask questions in interview about edge cases. Like new color can be same color as old color. Ex. 
    //image = [[0,0,0],[0,1,1]]
    //sr = 1
@@ -65,7 +65,7 @@ class GraphFloodFill-BooleanPaintMatrix{
     }
 
     public static void main(String args[]){
-        GraphFloodFill-BooleanPaintMatrix maze = new GraphFloodFill-BooleanPaintMatrix();
+        GraphFloodFillBooleanPaintMatrix maze = new GraphFloodFillBooleanPaintMatrix();
         int [][] mz = {{1,1,0,1,1},
                        {1,1,1,1,1},
                        {1,1,1,0,1},
