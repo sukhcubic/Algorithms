@@ -2,10 +2,9 @@
 //Explanation: https://www.youtube.com/watch?v=0XgVhsMOcQM&list=PLI1t_8YX-ApvMthLj56t1Rf-Buio5Y8KL&index=4
 //https://medium.com/better-programming/5-ways-to-find-the-shortest-path-in-a-graph-88cfefd0030f
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+//Explanation: https://www.youtube.com/watch?v=0XgVhsMOcQM&list=PLI1t_8YX-ApvMthLj56t1Rf-Buio5Y8KL&index=4
+//Best Example: https://www.geeksforgeeks.org/shortest-path-unweighted-graph/
+import java.util.*;
 
 public class GraphShortestPath {
 
@@ -31,24 +30,43 @@ public class GraphShortestPath {
     List<Integer> shortestReach(Graph graph, int start, int target){
         List<Integer> result = new ArrayList<>();
         Queue<Integer> queue = new LinkedList<>();
+        Set<Integer> visited = new HashSet<>();
         queue.add(start);
         result.add(start);
+        visited.add(start);
+        // Pred stores previous node location so we can list path. Initially set to -1.
+        int[] pred = new int[graph.vertices];
+        Arrays.fill(pred, -1);
+
         while (!queue.isEmpty()){
             int val  = queue.remove();
             LinkedList<Integer> list = graph.adjacencylist[val];
             for (int node:list) {
-                if(node){
+                if(!visited.contains(node)){
                     queue.add(node);
+                    visited.add(node);
+                    //store parent of current node
+                    pred[node] = val;
+                    if(node == target){
+                        break;
+                    }
                 }
             }
 
+        }
+        //Loop through found destination to track all parents
+        int dest = target;
+        result.add(dest);
+        while (pred[dest]  != -1){
+            result.add(pred[dest]);
+            dest = pred[dest];
         }
 
         return result;
     }
 
     public static void main(String args[]){
-        int vertex = 4;
+        int vertex = 7;
         Graph graph = new Graph(vertex);
         graph.addEdge(0, 1);
         graph.addEdge(1, 2);
@@ -65,3 +83,4 @@ public class GraphShortestPath {
         }
     }
 }
+
