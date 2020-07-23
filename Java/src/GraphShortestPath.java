@@ -23,7 +23,7 @@ public class GraphShortestPath {
 
         public void addEdge(int a, int b) {
             adjacencylist[a].add(b);
-            adjacencylist[b].add(a); //for undirected graph
+          //  adjacencylist[b].add(a); //for undirected graph
         }
     }
     //Using BFS
@@ -32,7 +32,6 @@ public class GraphShortestPath {
         Queue<Integer> queue = new LinkedList<>();
         Set<Integer> visited = new HashSet<>();
         queue.add(start);
-        result.add(start);
         visited.add(start);
         // Pred stores previous node location so we can list path. Initially set to -1.
         int[] pred = new int[graph.vertices];
@@ -70,12 +69,11 @@ public class GraphShortestPath {
         Graph graph = new Graph(vertex);
         graph.addEdge(0, 1);
         graph.addEdge(1, 2);
-        graph.addEdge(2, 3);
-        graph.addEdge(3, 2);
+        graph.addEdge(2, 5);
+        graph.addEdge(1, 5);
         graph.addEdge(4, 5);
         graph.addEdge(5, 6);
         graph.addEdge(6, 3);
-        graph.addEdge(2, 4);
 
         GraphShortestPath path = new GraphShortestPath();
         for (Integer list:path.shortestReach(graph, 0, 6)) {
