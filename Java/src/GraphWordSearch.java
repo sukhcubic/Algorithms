@@ -20,11 +20,6 @@ class GraphWordSearch{
             return true;
         }
 
-//        if (row < 0 || row == board.length || col < 0 || col == board[0].length
-//                || board[row][col] != word.charAt(index)) {
-//            return false;
-//        }
-
         if(isValid(board, row, col, word, index)) {
             //Choose/visited
             board[row][col] = '#';
@@ -61,6 +56,43 @@ class GraphWordSearch{
         }
         return true;
     }
+        //Other way of doing it
+//      private boolean searchHelper(char[][] board, int row, int col, String word, int index){
+
+//         //we found a match
+//         if(index == word.length()){
+//             return true;
+//         }
+
+//         //Out of bound or mismatch so stop
+//         if (row < 0 || row == board.length || col < 0 || col == board[0].length
+//                 || board[row][col] != word.charAt(index)) {
+//             return false;
+//         }
+
+//         //Choose/visited
+//         board[row][col] = '#';
+
+//         //Explore
+//         if(searchHelper(board, row, col + 1, word, index + 1)){
+//             return true;
+//         };
+//         if(searchHelper(board, row, col - 1, word, index + 1)){
+//             return true;
+//         };
+//         if(searchHelper(board, row + 1, col, word, index + 1)){
+//             return true;
+//         };
+//         if(searchHelper(board, row - 1, col, word, index + 1)){
+//             return true;
+//         };
+
+//         //Un-choose/unvisited
+//         board[row][col] = word.charAt(index);
+
+//         return false;
+//     }    
+        
     public static void main(String args[]){
         char board[][] = {{'a', 's', 'c'},
                           {'a', 'o', 'c' },
