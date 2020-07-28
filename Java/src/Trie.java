@@ -52,4 +52,21 @@ public class Trie {
         }
         insertHelper(nod, word, index+1);
     }
+    
+    //iterative    
+    public boolean search(String word){
+        TrieNode node = rootNode;
+
+        for(int i = 0; i<word.length(); i++){
+            char ch = word.charAt(i);
+            TrieNode nod = node.children.get(ch);
+            if(nod.endOfWord){
+                return true;
+            }
+            node = nod;
+        }
+        return false;
+    }
+    
+    //recursive
 }
