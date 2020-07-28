@@ -39,7 +39,17 @@ public class Trie {
         insertHelper(rootNode,  s,  0);
     }
     
-    void insertHelper(TrieNode node, String word, int index){
-        
+      void insertHelper(TrieNode node, String word, int index){
+        if(index == word.length()){
+            node.endOfWord = true;
+            return;
+        }
+        char ch = word.charAt(index);
+        TrieNode nod = node.children.get(ch);
+        if(nod == null){
+            nod = new TrieNode();
+            nod.children.put(ch, nod);
+        }
+        insertHelper(nod, word, index+1);
     }
 }
