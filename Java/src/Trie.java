@@ -2,6 +2,9 @@ import java.util.HashMap;
 import java.util.Map;
 //Ref:https://github.com/mission-peace/interview/blob/master/src/com/interview/suffixprefix/Trie.java
 //Expplanation: https://www.youtube.com/watch?v=AXjmTQ8LEoI
+//https://www.youtube.com/channel/UC1KViVs3h7Y1ZqyxRbS8rUg/videos. TRIE
+//https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/TrieSET.java.html
+
 public class Trie {
 
     class TrieNode{
@@ -70,4 +73,21 @@ public class Trie {
     }
     
     //recursive
+    boolean searchRecurively(String word){
+        return searchelper(rootNode, word, 0);
+    }
+
+    boolean searchelper(TrieNode node, String word, int index){
+
+        if(word.length() == index){
+            return node.endOfWord;
+        }
+        char ch = word.charAt(index);
+        TrieNode nod = node.children.get(ch);
+
+        if(nod == null){
+            return false;
+        }
+        return searchelper(nod, word, index+1);
+    }
 }
