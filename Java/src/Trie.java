@@ -92,4 +92,48 @@ public class Trie {
     }
     
     //Delete
+        /**
+     * Returns true if parent should delete the mapping
+     */
+    boolean deleteHelper(TrieNode node, String word, int index){
+
+        if(word.length() == index){
+            if (!node.endOfWord) {
+                return false;
+            }
+            node.endOfWord = false;
+            //Check if node has more char if not return true so we can delete node
+            if(node.children.size()>0){
+                return false;
+            }
+            return true;
+        }
+        char ch = word.charAt(index);
+        TrieNode nod = node.children.get(ch);
+        if (node == null) {
+            return false;
+        }
+        boolean deleteNode = deleteHelper(nod, word,   index+1);
+        //if true is returned then delete the mapping of character and trienode reference from map.
+        if (deleteNode) {
+            // This removes node and char from map because node is mapped as key:value pair
+            node.children.remove(ch);
+            //Check if node has more char if not return true so we can delete node from stack
+            if(node.children.size()>0){
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public static void main(String arge[]){
+        Trie trie = new Trie();
+        trie.insertWord("hello");
+        trie.insertWord("world");
+        trie.insertWord("hi");
+        System.out.println(trie.search("world"));
+        System.out.println(trie.deleteWord("world"));
+        System.out.println(trie.search("world"));
+    }
 }
