@@ -127,6 +127,24 @@ public class Trie {
         return false;
     }
 
+        
+    boolean searchPrefix(String prefix){
+        TrieNode node = rootNode;
+        for (int i = 0; i<prefix.length(); i++){
+            char ch = prefix.charAt(i);
+            TrieNode nod = node.children.get(ch);
+            if(nod == null){
+                return false;
+            }
+            if(i == prefix.length()-1){
+                return true;
+            }
+            node = nod;
+        }
+
+        return false;
+    }
+    
     public static void main(String arge[]){
         Trie trie = new Trie();
         trie.insertWord("hello");
@@ -135,5 +153,7 @@ public class Trie {
         System.out.println(trie.search("world"));
         System.out.println(trie.deleteWord("world"));
         System.out.println(trie.search("world"));
+        System.out.println(trie.searchPrefix("yell"));
+
     }
 }
