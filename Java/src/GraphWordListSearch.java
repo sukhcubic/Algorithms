@@ -15,6 +15,7 @@ public class GraphWordListSearch {
         }
         return existedList;
     }
+    
     public void helper(char[][] board, int row, int col, Set<String> wordSet,  Set<String> foundWords,  String word ){
         if(wordSet.contains(word)){
             foundWords.add(word);
@@ -36,6 +37,9 @@ public class GraphWordListSearch {
         }
         return true;
     }
+    
+    // Second method using Trie data structure
+    
     public static void main(String args[]){
         char board[][] = {{'a', 's', 'c'},
                           {'a', 'o', 'c' },
