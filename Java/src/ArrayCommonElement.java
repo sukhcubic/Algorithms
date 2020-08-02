@@ -30,14 +30,32 @@ public class ArrayCommonElements {
     }
     
     //Optimal Solution
+        public void findNums(int[]a, int[]b){
+        int i = 0;
+        int j = 0;
+        int a1 = a.length;
+        int b1 = b.length;
 
+        while(i<a1 && j<b1){
+           if(a[i]== b[j]){
+               System.out.println(a[i]);
+           }
+           if(a[i]>b[j]){
+               j++;
+           }else {
+               i++;
+           }
+        }
+    }
     public static void main(String args[]){
         ArrayCommonElements commonElements = new ArrayCommonElements();
 
-        int[] a = {1,2,3,5,6,7,9};
-        int[] b = {1,4,8,9,10,11,12};
+        int[] a = {1,2,3,5,6,7,9, 11, 12};
+        int[] b = {1,4,8,9,10,11,12, 13, 14};
         for (int val :commonElements.find(a,b)) {
-            System.out.print(val + "\n");
+           // System.out.print(val + "\n");
         }
+
+        commonElements.findNums(a,b);
     }
 }
