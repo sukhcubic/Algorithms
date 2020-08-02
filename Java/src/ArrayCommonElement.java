@@ -2,9 +2,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+//https://www.geeksforgeeks.org/union-and-intersection-of-two-sorted-arrays-2/
 
-//Basic solution with HashMap
 public class ArrayCommonElements {
+    
+    //Basic solution with HashMap
     List<Integer> find(int[]a, int[]b){
         List<Integer> elements = new ArrayList<>();
         Map<Integer, Integer> map = new HashMap<>();
