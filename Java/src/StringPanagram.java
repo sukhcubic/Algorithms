@@ -22,7 +22,7 @@ public class StringPanagram {
         return true;
     }
 
-    
+    //Generate panagram string from text
     static String pangrams(String s) {
 
 
