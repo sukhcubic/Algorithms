@@ -22,14 +22,24 @@ public class StringPanagram {
         return true;
     }
 
-    //Generate panagram string from text
+
     static String pangrams(String s) {
 
-
-        return " ";
+        // It can be a text file or just one string. If one string do not use below regex code.
+        String s1[] = s.split("\\?|\\.|\\!");
+        String found = "";
+        for (String s2: s1) {
+            if(isPanagram(s2)){
+                found = s2;
+                break;
+            }
+        }
+        return found;
     }
     public static void main(String args[]){
-        String s1 = "The quick brown fox jumps over the lazy dog";
-        System.out.println(isPanagram(s1));
+        String s1 = "Bkakakakakkakakakkas sksaksa;sads. The quick brown fox jumps over the lazy dog. skks ksksk ksksk ksksk ksksksdk ksdfsdklfklsdvksn. askdkasfnldsafsdlkfsdkfksdfnkklkdsk ";
+       // System.out.println(isPanagram(s1));
+        System.out.println(pangrams(s1));
     }
 }
+
