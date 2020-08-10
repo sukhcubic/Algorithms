@@ -1,6 +1,7 @@
 import java.util.*;
 //Problem: https://leetcode.com/problems/word-search-ii/
 //Exp: https://www.programcreek.com/2014/06/leetcode-word-search-ii-java/
+
 public class GraphWordListSearch {
 
     private Set<String> exist(char[][] board, String[] list) {
@@ -16,7 +17,6 @@ public class GraphWordListSearch {
         }
         return existedList;
     }
-    
     public void helper(char[][] board, int row, int col, Set<String> wordSet,  Set<String> foundWords,  String word ){
         if(wordSet.contains(word)){
             foundWords.add(word);
@@ -38,10 +38,9 @@ public class GraphWordListSearch {
         }
         return true;
     }
-    
-    // Second method using Trie data structure
-    
- List<String> wordSearch(char[][] board,  String[] list){
+
+    //Second way using tries
+    List<String> wordSearch(char[][] board,  String[] list){
         List<String> words = new ArrayList<>();
         int row = board.length;
         int col = board[0].length;
@@ -68,7 +67,7 @@ public class GraphWordListSearch {
             return;
         }
         word += board[r][c];
-        if(search(word,node)){
+        if(searchelper(node, word,0)){
             words.add(word);
         }
 
@@ -95,13 +94,13 @@ public class GraphWordListSearch {
 
     void addWord(String[] words, TrieNode node){
         for (String word: words){
-            char[] chars = word.toCharArray();
             TrieNode trieNode = node;
-            for (int i =0; i< words.length; i++){
-                char ch = chars[i];
+            for (int i =0; i< word.length(); i++){
+                char ch = word.charAt(i);
                 TrieNode node1 = trieNode.children.get(ch);
                 if(node1 == null){
-                    trieNode.children.put(ch, new TrieNode());
+                    node1 = new TrieNode();
+                    trieNode.children.put(ch, node1);
                 }
                 trieNode = node1;
                 //or put end of word outside loop
@@ -130,6 +129,20 @@ public class GraphWordListSearch {
         return false;
     }
 
+    boolean searchelper(TrieNode node, String word, int index){
+
+        if(word.length() == index){
+            return node.endOfWord;
+        }
+        char ch = word.charAt(index);
+        TrieNode nod = node.children.get(ch);
+
+        if(nod == null){
+            return false;
+        }
+        return searchelper(nod, word, index+1);
+    }
+
     boolean searchPrefix(String prefix, TrieNode rootNode){
         TrieNode node = rootNode;
         for (int i = 0; i<prefix.length(); i++){
@@ -154,7 +167,6 @@ public class GraphWordListSearch {
 
         String[] words = {"hi", "aou", "aoc", "aaa", "sonu", "nos"};
         GraphWordListSearch graphWordSearch = new GraphWordListSearch();
-        System.out.println("Word list exited in board: ");
 //        for (String word:graphWordSearch.exist(board, words)) {
 //            System.out.println(word);
 //        }
