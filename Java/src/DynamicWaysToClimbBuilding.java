@@ -1,3 +1,4 @@
+//Explanation: https://www.youtube.com/watch?v=sF7hzgUW5uY&t=5s
 public class DynamicWaysToClimbBuilding {
 
     int ways(int totalSteps){
@@ -6,6 +7,7 @@ public class DynamicWaysToClimbBuilding {
          }
          return ways(totalSteps-1)+ ways(totalSteps-1);
     }
+    
     public static void main(String args[]){
         DynamicWaysToClimbBuilding steps = new DynamicWaysToClimbBuilding();
         System.out.println(steps.ways(31));
