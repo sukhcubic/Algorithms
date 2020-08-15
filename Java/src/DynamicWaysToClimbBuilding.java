@@ -5,7 +5,8 @@ public class DynamicWaysToClimbBuilding {
          if(totalSteps<= 1){
              return 1;
          }
-         return ways(totalSteps-1)+ ways(totalSteps-1);
+        // How many ways i can reach at top. 1 step or 2 steps have totalSteps-1 or totalSteps-2 ways to climb to last step
+         return ways(totalSteps-1)+ ways(totalSteps-2);
     }
     
     public static void main(String args[]){
