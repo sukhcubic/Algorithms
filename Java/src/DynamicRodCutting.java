@@ -26,6 +26,14 @@ public class DynamicRodCutting {
 
         return maxVal;
     }
+   
+   //Optimal solution memoization
+   
+   
+   
+   
+   
+   //Optimal solution bottom up
 
     public static void main(String args[]){
 
