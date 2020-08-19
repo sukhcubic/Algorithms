@@ -1,5 +1,5 @@
 public class DynamicRodCutting {
-//Ref:https://www.geeksforgeeks.org/cutting-a-rod-dp-13/
+//Ref: https://www.geeksforgeeks.org/cutting-a-rod-dp-13/
 //Exp: https://www.youtube.com/watch?v=RYPsOJmhwgE
 //https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture12.pdf
 //https://www.codesdope.com/course/algorithms-rod-cutting/
