@@ -8,16 +8,28 @@ public class DynamicRodCutting {
 //https://www.youtube.com/watch?v=XGeEPYFmJeA&list=PLpO3gASfJEIJRnNG4q6QoHAYAATo466a_&index=11
 //https://www.youtube.com/watch?v=WL_oRZdh8M0
 //https://www.youtube.com/watch?v=SZqAQLjDsag&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=14
+   
+    //price array and length of rod
     static int cutRod(int[] price, int len){
-        if (len <= 0)
+        // if length less than 0
+        if (len <= 0) {
             return 0;
+        }
+        // set default max value to -ve infinity
         int maxVal = Integer.MIN_VALUE;
+
+        //now calculate price for each section
+        for(int i = 1; i<len; i++){
+           //now find max profit of cut and remaining cut recursively
+            maxVal =  Math.max(maxVal, price[i]+cutRod(price, len-i-1));
+        }
+
         return maxVal;
     }
-    
+
     public static void main(String args[]){
 
-        int arr[] = new int[] {1, 5, 8, 9, 10, 17, 17, 20};
+        int arr[] = new int[] {0, 5, 8, 9, 10, 17, 17, 20};
         int size = arr.length;
         System.out.println(cutRod(arr, size));
     }
