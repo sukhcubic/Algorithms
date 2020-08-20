@@ -34,6 +34,47 @@ public class DynamicRodCutting {
    
    
    //Optimal solution bottom up
+   //TODO: need more work
+     static int cutRod1(int price[],int n)
+    {
+        int val[] = {1,1,1,1,1,1,1,1,1};
+        int len[] = new int[n+1];
+        val[0] = 0;
+
+        // Build the table val[] in bottom up manner and return
+        // the last entry from the table
+        for (int i = 1; i<=n; i++)
+        {
+            int max_val = Integer.MIN_VALUE;
+
+            for (int j = 1; j < i; j++) {
+                int temp  = price[j] + val[i - j - 1];
+                if(temp>max_val){
+                    max_val = temp;
+                    len[i] = j;
+                }
+
+            }
+            val[i] = max_val;
+        }
+
+        for (int a:len
+             ) {
+            System.out.println(" a="+ a);
+        }
+        Set<Integer> set = new HashSet<>();
+
+         while (n > 1){
+             set.add(len[n]);
+             n = n - len[n];
+         }
+        System.out.println(" assww=");
+        for (int a:set
+        ) {
+            System.out.println(" aww="+ a);
+        }
+        return val[n];
+    }
 
     public static void main(String args[]){
 
