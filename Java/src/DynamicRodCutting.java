@@ -10,6 +10,7 @@ public class DynamicRodCutting {
 //https://www.youtube.com/watch?v=SZqAQLjDsag&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=14
    
     //price array and length of rod
+   //Another way of thinkis is binary array 0 represents no cot 1 represents cut.
     static int cutRod(int[] price, int len){
         // if length less than 0
         if (len <= 0) {
@@ -28,7 +29,28 @@ public class DynamicRodCutting {
     }
    
    //Optimal solution memoization
-   
+    static Map<Integer, Integer> cache = new HashMap<>();
+    static int cutRod0(int[] price, int len){
+        // if length less than 0
+        if (len <= 0) {
+            return 0;
+        }
+        if(cache.containsKey(len)){
+            return cache.get(len);
+        }
+        // set default max value to -ve infinity
+        int maxVal = Integer.MIN_VALUE;
+
+        //now calculate price for each section
+        for(int i = 1; i<len; i++){
+           //now find max profit of cut and remaining cut recursively
+            int value = price[i]+cutRod(price, len-i-1);
+            maxVal =  Math.max(maxVal, value);
+        }
+
+        cache.put(len, maxVal);
+        return maxVal;
+    }
    
    
    
