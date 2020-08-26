@@ -76,6 +76,13 @@ class DynamicKnapsack{
         }
     }
 
+    //https://www.youtube.com/watch?v=ntCGbPMeqgg
+    //Top Down knapsack
+    private static int knapSackTopDown(int target, int[] wt, int[] val, int len){
+        
+    }
+    
+    
     private static int knapSackUnbounded(){
        return 0;
     }
