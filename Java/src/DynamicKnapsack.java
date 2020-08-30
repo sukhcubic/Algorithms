@@ -81,38 +81,45 @@ class DynamicKnapsack{
     //https://medium.com/@fabianterh/how-to-solve-the-knapsack-problem-with-dynamic-programming-eb88c706d3cf
        // 0/1 Knapsack  Top Down
 
-    private static int knapSackTopDown(int[] wt, int[] val, int target,  int len){
-        int[][] wVal = new int[val.length+1][target+1];
 
-        //initilize
-//        for (int i= 0; i <= val.length; i++ ){
-//            for(int j= 0; j <= wt.length; j++){
-//                if(i == 0 || j == 0){
-//                    wVal[i][j] = -1;
-//                }
-//            }
-//        }
-       // printVal(wVal);
+    private static int knapSackTopDown(int[] wt, int[] val, int W){
+        int[][] K = new int[val.length+1][W+1];
 
-
-        for (int i= 1; i <= val.length; i++ ){
-            for(int j= 1; j <= target; j++){
-                if(val[i-1] <= j){
-                    wVal[i][j] =Math.max(val[i-1]+wVal[i-1][j-wt[i-1]], wVal[i-1][j] );
+//https://www.youtube.com/watch?v=nLmhmB6NzcM&t=828s
+        for (int i= 0; i <= val.length; i++ ){
+            for(int j= 0; j <= W; j++){
+                if(i == 0 || j == 0){
+                    K[i][j] = 0;
+                    continue;
+                }
+                if(j-wt[i-1] >= 0){
+                    K[i][j] =Math.max(val[i-1]+K[i-1][j-wt[i-1]], K[i-1][j] );
                 }else{
-                    wVal[i][j] = wVal[i-1][j];
+                    K[i][j] = K[i-1][j];
                 }
             }
         }
-
-        //printVal(wVal);
-
-        return wVal[val.length][target];
+        printVal(K);
+        return K[val.length][W];
     }
 
-
-
-
+    public static  int bottomUpDP(int val[], int wt[], int W){
+        int K[][] = new int[val.length+1][W+1];
+        for(int i=0; i <= val.length; i++){
+            for(int j=0; j <= W; j++){
+                if(i == 0 || j == 0){
+                    K[i][j] = 0;
+                    continue;
+                }
+                if(j - wt[i-1] >= 0){
+                    K[i][j] = Math.max(val[i-1]+K[i-1][j-wt[i-1]], K[i-1][j] );
+                }else{
+                    K[i][j] = K[i-1][j];
+                }
+            }
+        }
+        return K[val.length][W];
+    }
 
     static void  printVal(int[][] val){
         for (int i= 0; i < val.length; i++ ){
@@ -124,22 +131,26 @@ class DynamicKnapsack{
         }
     }
 
-    
-    
     private static int knapSackUnbounded(){
        return 0;
     }
 
     public static void main(String[] args){
-        int val[] = { 60, 100, 120, 90, 100, 500, 600, 450 };
-        int wt[] =  { 10, 20,  30,  30, 40,  50 , 60,  70  };
-        int W = 100;
-        int n = val.length;
-        System.out.println(knapSack(W, wt, val, n ));
-        for (Map.Entry<String, Integer> in:set.entrySet()
-             ) {
-            System.out.println(in.getValue());
+        int wt[] =  { 10, 20,  30,  30};
+        int val[] = { 6, 10, 12, 9};
 
-        }
+        int W = 20;
+        int n = val.length;
+ //       System.out.println(knapSack(W, wt, val, n ));
+//        for (Map.Entry<String, Integer> in:set.entrySet()
+//             ) {
+//            System.out.println(in.getValue());
+//
+//        }
+
+        System.out.println(knapSackTopDown(wt, val, W));
+
+        System.out.println(bottomUpDP(val, wt, W));
+
     }
 }
