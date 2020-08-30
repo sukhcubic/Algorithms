@@ -112,8 +112,11 @@ class DynamicKnapsack01{
                     continue;
                 }
                 if(j - wt[i-1] >= 0){
+                    //https://www.youtube.com/watch?v=nLmhmB6NzcM&t=609s
                     K[i][j] = Math.max(val[i-1]+K[i-1][j-wt[i-1]], K[i-1][j] );
                 }else{
+                    //fill previous object while j < wt or until j(bag capacity is reached to hold wt[i-1])
+                    //https://www.youtube.com/watch?v=nLmhmB6NzcM&t=938s
                     K[i][j] = K[i-1][j];
                 }
             }
