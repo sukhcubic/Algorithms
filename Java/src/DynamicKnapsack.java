@@ -77,9 +77,53 @@ class DynamicKnapsack{
 
     //https://www.youtube.com/watch?v=ntCGbPMeqgg
     //Top Down knapsack
-    private static int knapSackTopDown(int target, int[] wt, int[] val, int len){
-        
+    //https://github.com/mission-peace/interview/blob/master/src/com/interview/dynamic/Knapsack01.java
+    //https://medium.com/@fabianterh/how-to-solve-the-knapsack-problem-with-dynamic-programming-eb88c706d3cf
+       // 0/1 Knapsack  Top Down
+
+    private static int knapSackTopDown(int[] wt, int[] val, int target,  int len){
+        int[][] wVal = new int[val.length+1][target+1];
+
+        //initilize
+//        for (int i= 0; i <= val.length; i++ ){
+//            for(int j= 0; j <= wt.length; j++){
+//                if(i == 0 || j == 0){
+//                    wVal[i][j] = -1;
+//                }
+//            }
+//        }
+       // printVal(wVal);
+
+
+        for (int i= 1; i <= val.length; i++ ){
+            for(int j= 1; j <= target; j++){
+                if(val[i-1] <= j){
+                    wVal[i][j] =Math.max(val[i-1]+wVal[i-1][j-wt[i-1]], wVal[i-1][j] );
+                }else{
+                    wVal[i][j] = wVal[i-1][j];
+                }
+            }
+        }
+
+        //printVal(wVal);
+
+        return wVal[val.length][target];
     }
+
+
+
+
+
+    static void  printVal(int[][] val){
+        for (int i= 0; i < val.length; i++ ){
+            String s= "";
+            for(int j= 0; j < val[0].length; j++){
+                s+=String.valueOf(val[i][j])+" ";
+            }
+            System.out.println(s);
+        }
+    }
+
     
     
     private static int knapSackUnbounded(){
