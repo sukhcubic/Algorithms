@@ -1,4 +1,4 @@
-class DynamicKnapsack{
+class DynamicKnapsack01{
     //Types of Knapsack: https://www.youtube.com/watch?v=l02UxPYRmCQ
     //1. 0/1 full item
     //2. Fraction
