@@ -111,6 +111,8 @@ class DynamicKnapsack01{
                     K[i][j] = 0;
                     continue;
                 }
+                 //if weight less than equal to 
+                //https://www.youtube.com/watch?v=iBnWHZmlIyY&list=PL_z_8
                 if(j - wt[i-1] >= 0){
                     //https://www.youtube.com/watch?v=nLmhmB6NzcM&t=609s
                     K[i][j] = Math.max(val[i-1]+K[i-1][j-wt[i-1]], K[i-1][j] );
