@@ -4,6 +4,7 @@ class DynamicKnapsack01{
     //2. Fraction
     //3. Unbounded  same item can be added multiple times
     //DP: https://atcoder.jp/contests/dp/tasks
+    //https://www.techiedelight.com/0-1-knapsack-problem/
 
     public static void main(String[] args){
         int val[] = new int[] { 60, 100, 120 };
