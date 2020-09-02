@@ -13,8 +13,8 @@ class DynamicPartitionEqualSum{
 
         return canPartitionRecursive(num, sum/2, 0);
     }
-
-    private static  boolean canPartitionRecursive(int[] num, int sum, int currentIndex) {
+//Brute force
+ private static  boolean canPartitionRecursive(int[] num, int sum, int currentIndex) {
         // base check
         if (sum == 0)
             return true;
@@ -24,15 +24,18 @@ class DynamicPartitionEqualSum{
 
         //include
 
-        if(sum-num[currentIndex]> 0){
-            canPartitionRecursive(num, sum-num[currentIndex], currentIndex-1);
-            return true;
+        if(sum-num[currentIndex] >= 0){
+            if(canPartitionRecursive(num, sum-num[currentIndex], currentIndex+1)) {
+                return true;
+            }
         }
 
         // exclude
-       return canPartitionRecursive(num, sum, currentIndex-1);
+       return canPartitionRecursive(num, sum, currentIndex+1);
 
     }
+  
+  //
 
     public static void main(String[] args) {
         int[] num = {1, 2, 3, 4};
