@@ -1,0 +1,33 @@
+import java.util.PriorityQueue;
+
+public class GreedyMinCostRopConnection {
+    public static int connectSticks(int[] sticks) {
+            PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+
+            //add all elements in min heap
+            for (int i=0; i<sticks.length; i++) {
+                minHeap.add(sticks[i]);
+            }
+
+            int finalCost = 0;
+
+            // Add two elements while size is > 1.
+           // We are calculating min cost if we add element 3 + 4 = 7 is total cost now we have size 7 + 2 (remaining) = 9 total cost would
+           // be 7 (came from 4+3) + 9 (7 +2) = 16 which is higher than 2+3 = 5 then 5+4 = 9 final cost is 9+5 = 14
+           // Min heap always give min element and add. If we want Max cost then choose Max heap
+           int runningtotal = 0;
+            while (minHeap.size() > 1) {
+                // Add first two min elements
+                runningtotal = minHeap.poll() + minHeap.poll();
+                //add result to existing result
+                finalCost += runningtotal;
+                //add result to running total until we get one final result
+                minHeap.add(runningtotal);
+            }
+            return finalCost;
+        }
+     public static void main(String arg[]){
+        int[] rops = {2,3,4};
+         System.out.println(connectSticks(rops));
+     }
+}
