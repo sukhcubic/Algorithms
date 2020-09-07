@@ -74,7 +74,8 @@ class DynamicPartitionEqualSum{
         arr[currentIndex][sum] = canPartitionRecursive(num, arr, sum, currentIndex+1);
         return  arr[currentIndex][sum];
     }
-
+//Bottom up iterative approach
+    
     public static void main(String[] args) {
         int[] num = {1, 2, 3, 4, 4};
         System.out.println(canPartition(num));
