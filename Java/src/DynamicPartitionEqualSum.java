@@ -104,10 +104,16 @@ class DynamicPartitionEqualSum{
         // process all subsets for all sums
         for(int i=1; i < n; i++) {
             for(int s=1; s <= sum; s++) {
-                // if we can get the sum 's' without the number at index 'i'
-                if(dp[i-1][s]) {
+//                 // if we can get the sum 's' without the number at index 'i'
+//                 if(dp[i-1][s]) {
+//                     dp[i][s] = dp[i-1][s];
+//                 } else if (s >= num[i]) { // else if we can find a subset to get the remaining sum
+//                     dp[i][s] = dp[i-1][s-num[i]];
+//                 }
+              //or
+                if(num[i] > s) {
                     dp[i][s] = dp[i-1][s];
-                } else if (s >= num[i]) { // else if we can find a subset to get the remaining sum
+                } else{ 
                     dp[i][s] = dp[i-1][s-num[i]];
                 }
             }
