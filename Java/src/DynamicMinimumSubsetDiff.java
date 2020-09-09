@@ -1,5 +1,5 @@
 public class DynamicMinimumSubsetDiff {
-
+//Find min difference between subsets
 
     private static int minSum(int[] num) {
         
