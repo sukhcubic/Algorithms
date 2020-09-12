@@ -56,12 +56,43 @@ public class DynamicCountSubset {
        return suma;
     }
 
-    //DP bottom up 
-      private static int countSubsetSumBottomUp(int[] val, int sum) {
+     //DP bottom up
+    private static int countSubsetSumBottomUp(int[] val, int sum) {
+         //TODO: Fix me
+        int[][] K = new int[val.length + 1][sum + 1];
 
-          //TODO;
-       return suma;
+        for (int i= 0; i <= val.length; i++){
+                K[i][0] = 1;
+        }
+        for (int j= 1; j <= sum; j++){
+                K[0][j] = 0;
+        }
+        //printVal(K);
+
+        for(int i=1; i <= val.length; i++){
+            for(int j=1; j <= sum; j++){
+                if(val[i-1] > j){
+                    K[i][j] = K[i-1][j];
+                }else{
+                    K[i][j] =  K[i-1][j-val[i-1]] + K[i-1][j];
+                }
+            }
+        }
+        printVal(K);
+        return K[val.length][sum];
     }
+
+
+    static void  printVal(int[][] val){
+        for (int i= 0; i < val.length; i++ ){
+            String s= "";
+            for(int j= 0; j < val[0].length; j++){
+                s+=String.valueOf(val[i][j])+" ";
+            }
+            System.out.println(s);
+        }
+    }
+
 
     public static void main(String args[]){
         int items[] = { 1, 2, 5};
