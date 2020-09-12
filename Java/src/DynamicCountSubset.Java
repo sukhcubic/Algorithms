@@ -16,7 +16,7 @@ public class DynamicCountSubset {
 
     public static void main(String args[]){
         int items[] = { 1, 2, 5, 6, 7, 8, 10};
-        int sum = 150;
+        int sum = 15;
 
         System.out.println(countSubsetSum(items, sum));
     }
