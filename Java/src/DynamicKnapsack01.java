@@ -5,6 +5,8 @@ class DynamicKnapsack01{
     //3. Unbounded  same item can be added multiple times
     //DP: https://atcoder.jp/contests/dp/tasks
     //https://www.techiedelight.com/0-1-knapsack-problem/
+    
+    //https://www.youtube.com/watch?v=y6kpGJBI7t0. Explanation
 
     public static void main(String[] args){
         int val[] = new int[] { 60, 100, 120 };
