@@ -1,21 +1,24 @@
 public class DynamicTargetSum {
     //https://leetcode.com/problems/target-sum/
-
+   // https://medium.com/swlh/solving-the-target-sum-problem-with-dynamic-programming-and-more-b76bd2a661f9
 
     private static int targerSum(int[] items, int sum) {
        // return targerSumHelper(items, sum, items.length-1);
-        //another way
+       
 
         
         // Best mathematical explanation
         // This is based on Math equation defined in DynamicSubsetDifferenceCount.java
-        int s = 0;
-        for (int x:items
-             ) {
-            s+=x;
-        }
-        s = (s+sum)/2;
-        return targerSumHelper(items, s, items.length-1);
+//         int s = 0;
+//         for (int x:items
+//              ) {
+//             s+=x;
+//         }
+//         s = (s+sum)/2;
+//         return targerSumHelper(items, s, items.length-1);
+        
+                //another way not efficient
+        return targerSumHelper(items, 0, 0, sum);
     }
 
 //    private static int targerSumHelper(int[] items, int sum, int index) {
@@ -62,6 +65,13 @@ public class DynamicTargetSum {
         }
     }
 
+        
+    private static int targerSumHelper(int[] items, int index, int sum, int SUM) {
+        if(index == items.length){
+            return sum == SUM ? 1:0;
+        }
+        return targerSumHelper(items, index+1, sum-items[index], SUM) + targerSumHelper(items, index+1,sum + items[index], SUM);
+    }
 
     public static void main(String args[]){
         int items[] = { 1, 1, 1, 1, 1};
