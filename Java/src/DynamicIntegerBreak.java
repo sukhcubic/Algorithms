@@ -1,3 +1,7 @@
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class DynamicIntegerBreak {
     //https://leetcode.com/problems/integer-break/
     //Hint: Unbounded knapack
@@ -14,15 +18,35 @@ public class DynamicIntegerBreak {
 //    Output: 36
 //    Explanation: 10 = 3 + 3 + 4, 3 × 3 × 4 = 36.
 
+    static Map<Integer, Integer> cache = new HashMap<>();
 
-    static int maxProduct(int num){
+    static int maxProduct(int len){
+        // if length less than 0
+        if (len <= 0) {
+            return 0;
+        }
+        if(cache.containsKey(len)){
+            return cache.get(len);
+        }
+        // set default max value to -ve infinity
+        int maxVal = Integer.MIN_VALUE;
 
-        return 0;
+        //now calculate price for each section
+        for(int i = 1; i<=len; i++){
+            //now find max profit of cut and remaining cut recursively
+            System.out.println(maxVal);
+
+            maxVal =  Math.max(maxVal, i*maxProduct(len-i));
+        }
+
+        cache.put(len, maxVal);
+        return maxVal;
     }
-    
+
     public static void main(String args[]){
         int num = 10;
         System.out.println(maxProduct(num));
     }
 
 }
+
