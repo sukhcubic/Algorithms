@@ -3,7 +3,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DynamicIntegerBreak {
-    //https://leetcode.com/problems/integer-break/
+  //https://leetcode.com/problems/integer-break/
+    //Exp: https://leetcode.com/problems/integer-break/discuss/843882/Java-Similar-to-Unbounded-Knapsack-(Brute-Force-Recursion-With-Memoization-2D-Dynamic-Programming)
     //Hint: Unbounded knapack
 
 //    Given a positive integer n, break it into the sum of at least two positive
@@ -19,36 +20,47 @@ public class DynamicIntegerBreak {
 //    Explanation: 10 = 3 + 3 + 4, 3 × 3 × 4 = 36.
 
     static Map<Integer, Integer> cache = new HashMap<>();
-    
-    
-//ToDo:
+
     static int maxProduct(int len){
-        // if length less than 0
-        if (len <= 0) {
-            return 0;
-        }
-        if(cache.containsKey(len)){
-            return cache.get(len);
-        }
-        // set default max value to -ve infinity
-        int maxVal = Integer.MIN_VALUE;
+        return maxProductHelper(len, len-1);
+    //No sure how this works. Come back later
+    static int maxProductHelper(int n, int sum) {
+//        // if length less than 0
+//        if (len < 0 || sum < 0) {
+//            return 0;
+//        }
+//
+//        if(len == 0)
+//            return 1;
+//        if(sum == 0)
+//            return 0;
+//
+//        if (len < sum) {
+//           return maxProductHelper(len, sum-1);
+//        } else {
+//            return Math.max(maxProductHelper(len, sum-1), sum * maxProductHelper(len-sum, sum));
+//        }
 
-        //now calculate price for each section
-        for(int i = 1; i<=len; i++){
-            //now find max profit of cut and remaining cut recursively
-            System.out.println(maxVal);
+        if(n <= 2) return 1;
+        if(n == 3) return 2;
 
-            maxVal =  Math.max(maxVal, i*maxProduct(len-i));
+        int[] dp = new int[n+1];
+        dp[0] = 1;
+
+        for(int i = 1; i <= n; i++){            // Cost of breaking integer into parts
+            for(int j = i; j <= n; j++){        // breaking integer, starts from 1 to n
+                dp[j] = Math.max(dp[j], i * dp[j-i]);
+            }
         }
-
-        cache.put(len, maxVal);
-        return maxVal;
+        return dp[n];
     }
+
 
     public static void main(String args[]){
-        int num = 10;
+        int num = 5;
         System.out.println(maxProduct(num));
     }
+
 
 }
 
