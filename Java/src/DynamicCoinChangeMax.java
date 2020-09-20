@@ -48,11 +48,44 @@ public class DynamicCoinChangeMax {
         return map.get(key);
 
     }
+   
+   
+    //https://valizada.com/518-coin-change-2-june-day-7   Dynamic programming - all permutations
+    static int maxCoin(int[] coins, int sum){
+        int max = sum + 1;
+        int[] dp = new int[sum + 1];
+        dp[0] = 1;
+        for (int i = 1; i<=sum; i++) {
+            for (int coin :coins ){
+                if(coin <= i ){
+                    dp[i] =dp[i] + dp[i-coin];
+                }
+            }
+        }
+        return dp[sum];
+    }
+    //https://valizada.com/518-coin-change-2-june-day-7  Dynamic programming - all combinations
+
+    public static int change(int[] coins, int amount) {
+        var dp = new int[amount + 1];
+        dp[0] = 1;
+
+        for(int coin : coins) {
+            for(int i = coin; i <= amount; i++) {
+                dp[i] =dp[i] + dp[i - coin];
+            }
+        }
+
+        return dp[amount];
+    }
 
     public static void main(String args[]){
         int items[] = { 1, 5, 10};
-        int sum = 100;
+        int sum = 10;
 
-        System.out.println(maxSum1(items, sum, 0));
+        System.out.println(maxCoin(items, sum));
+       // System.out.println(maxSum1(items, sum, 0));
+        System.out.println(change(items, sum));
+
     }
 }
