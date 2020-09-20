@@ -3,6 +3,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DynamicIntegerBreak {
+  //https://valizada.com/343-integer-break-leetcode-recursion-memoization
+  //https://valizada.com/343-integer-break-leetcode-dynamic-programming
   //https://leetcode.com/problems/integer-break/
     //Exp: https://leetcode.com/problems/integer-break/discuss/843882/Java-Similar-to-Unbounded-Knapsack-(Brute-Force-Recursion-With-Memoization-2D-Dynamic-Programming)
     //Hint: Unbounded knapack
