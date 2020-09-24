@@ -1,5 +1,6 @@
 class DynamicMaxSubarraySum{
 // Explanation: https://www.youtube.com/watch?v=Id_hZTV7_IA
+    //https://www.youtube.com/watch?v=jnoVtCKECmQ
     private static int maxSum(int[] items) {
         int globalSum = 0;
         int runningSum = 0;
