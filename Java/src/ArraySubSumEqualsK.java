@@ -36,7 +36,7 @@ public class ArraySubSumEqualsK {
         //{1, 1, 1, -1}; k = 2  sum = 0, count = 0 => map {0:1}, 1+1 sum = 2, count = 0 now sum -k = 0 map will check and count becomes 1, next map{0:2. 1:1, 2:1} sum = 3, 3-2 =1 seen count = 2 last
         //map{0:2. 1:1, 2:1, 3:1} sum = 2 (3-1) also (sum =K) 3-2 =1 seen count = 3
         //Finally if we see same sum more than once it means there is another subset which has same sum as K makes subset sum appearing twice or more.int items[] = {3,4,7,2,-3,1,4,2}; ie subset sum 13 (3,4,7,2,-3) so for Where k = 7 then it becomes 20
-        //when 20(3,4,7,2,-3,1,4,2)  -7 (1,4,2) gives 13 again. 1,4,2 is another subset which bring backs sum to 13 again.
+        //when 20(3,4,7,2,-3,1,4,2)  -7 (1,4,2) gives 13 again(There is another subset 7 that brig back sum to 13 again). 1,4,2 is another subset which bring backs sum to 13 again.
         int total = 0, sum = 0;
         Map<Integer, Integer> map = new HashMap<>();
         map.put(0,1);
