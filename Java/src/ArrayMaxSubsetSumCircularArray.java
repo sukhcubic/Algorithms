@@ -1,41 +1,33 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class ArrayMaxSubsetSumCircularArray {
     //https://leetcode.com/problems/maximum-sum-circular-subarray/
     //https://www.youtube.com/watch?v=Q1TYVUEr-wY
     //https://www.youtube.com/watch?v=os4B7MlHAbs
     //https://www.youtube.com/watch?v=CGFohM-BkWM
+    // Best Explanation: https://www.youtube.com/watch?v=s1CYAnJwf50
+    // Code: https://pastebin.com/xPtQRqWD
 
     private static int sum(int[] items) {
-
-        int running = 0;
+        int max = 0;
         int totalSum = 0;
-        int size = items.length;
-
-        for(int i =0; i<=size; i++){
-          //  System.out.println(running);
-
-            if(i<size-1) {
-                if(items[i]<1){
-                    running = 0;
-                }
-               // System.out.println(running);
-
-                running = Math.max(running + items[i], items[i]);
-            }else{
-                if(items[0]<1){
-                    running = 0;
-                }
-               // System.out.println(running);
-                running = Math.max(running + items[0], items[0]);
-            }
-            totalSum = Math.max(running, totalSum);
+        int min = 0; int globalSum = Integer.MIN_VALUE ; int globalMin = Integer.MAX_VALUE;
+        for(int i =0; i<items.length; i++){
+            totalSum += items[i];
+            max = Math.max(max + items[i], items[i]);
+            globalSum = Math.max(globalSum, max);
+            min = Math.min(min+ items[i], items[i]);
+            globalMin = Math.min(min, globalMin);
         }
-        return totalSum;
-
+        return globalSum < 0 ? globalSum:Math.max(globalSum, totalSum-globalMin);
     }
 
     public static void main(String args[]){
-        int items[] = {1,-2,3,-2};
-        System.out.println(sum(items));
+        int items[] = {5,-3,5};
+        System.out.println("Result: "+sum(items));
     }
-
 }
+
