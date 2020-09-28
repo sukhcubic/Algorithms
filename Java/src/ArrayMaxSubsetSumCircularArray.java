@@ -6,8 +6,6 @@ public class ArrayMaxSubsetSumCircularArray {
 
     private static int sum(int[] items) {
 
-
-//TODO:
         int running = 0;
         int totalSum = 0;
         int size = items.length;
