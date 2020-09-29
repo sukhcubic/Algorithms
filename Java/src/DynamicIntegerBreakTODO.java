@@ -57,6 +57,28 @@ public class DynamicIntegerBreak {
         return dp[n];
     }
 
+             //TODO:
+   // https://leetcode.com/problems/integer-break/discuss/869007/java-DP-Time-Beats-100
+    public static int integerBreak1(int n) {
+            if(n < 2) {
+                return 0;
+            }
+
+            int[] dp = new int[n+1];
+            dp[0] = 1;
+            dp[1] = 1;
+            for(int i = 2; i <= n; i++) {
+                int max_value = Integer.MIN_VALUE;
+                for(int j = 1; j <= i/2; j++) {
+                    int curr_value = max(j, dp[j]) * max((i-j), dp[i-j]);
+                    if(curr_value > max_value) {
+                        max_value = curr_value;
+                    }
+                }
+                dp[i] = max_value;
+            }
+            return dp[n];
+        }
 
     public static void main(String args[]){
         int num = 5;
