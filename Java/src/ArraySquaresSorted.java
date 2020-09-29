@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class SquaresSortedArray {
+public class ArraySquaresSorted {
     //https://leetcode.com/problems/squares-of-a-sorted-array/submissions/
     //ingenious solution  https://www.youtube.com/watch?v=4eWKHLSRHPY
 
