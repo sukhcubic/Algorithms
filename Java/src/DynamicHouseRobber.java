@@ -25,7 +25,9 @@ public class DynamicHouseRobber {
 
         for(int i = 0; i<items.length; i++) {
             temp = Math.max(rob1, items[i]+rob2);
+          //this becomes n-2
             rob2 = rob1;
+          //n-1
             rob1 = temp;
         }
         return temp;
