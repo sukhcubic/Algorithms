@@ -1,6 +1,6 @@
 public class LinkedListSwapPairREDO {
 
-     public class ListNode {
+      public class ListNode {
           int val;
           ListNode next;
           ListNode() {}
@@ -12,12 +12,13 @@ public class LinkedListSwapPairREDO {
             if(head == null || head.next == null){
                 return head;
             }
-
+         //Given 1->2->3->4, you should return the list as 2->1->4->3.
 
             ListNode save = head.next.next;
             ListNode ret = head.next;
             head.next.next = head;
             head.next = swapPairs(save);
+            //Because we swapped this became new head
             return ret;
 
         }
