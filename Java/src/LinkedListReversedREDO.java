@@ -55,18 +55,36 @@ Lnode node;
 	 System.out.print(node.next.next.next.next.next.next.next.data + "\n ");
       }
 	
-	 public static void reverseRecursively(Lnode head) {
-	 //Todo: Recursively
-	 //https://www.programcreek.com/2014/05/leetcode-reverse-linked-list-java/
-	 
-	 if(head == null) {
-		return; 
-	 }
-	 reverseRecursively(head.next);
-	 Lnode nxt = head.next;
-	 nxt.next = head;
-	 head.next = null;
-      }
+ //https://javarevisited.blogspot.com/2017/03/how-to-reverse-linked-list-in-java-using-iteration-and-recursion.html
+
+    //https://www.youtube.com/watch?v=O0By4Zq0OFc
+
+    //https://www.youtube.com/watch?v=MRe3UsRadKw
+
+    //Real Explanation: https://youtu.be/S92RuTtt9EE?t=458
+
+    public class ListNode { int val;
+     ListNode next;
+     ListNode() {}
+     ListNode(int val) { this.val = val; }
+     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }
+
+
+    public ListNode reverseList(ListNode head) {
+        if(head == null){
+           return head;
+        }
+
+        if(head.next == null){
+            return head;
+        }
+        ListNode listNode = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+
+       return listNode;
+    }
 
 	public static void main(String[] args) {
 		ReverseLinkedList ll = new ReverseLinkedList();
