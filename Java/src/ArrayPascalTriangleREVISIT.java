@@ -84,6 +84,36 @@ public class ArrayPascalTriangle {
         return listX;
     }
 
+    
+      //Recursive Solution Memoized
+    static Map<String, Integer> map = new HashMap<>();
+    static int getNum(int row, int col){
+        if(row ==0 || col == 0 || row == col){
+            return 1;
+        }
+        String key = String.valueOf(row) + String.valueOf(col);
+        if(map.containsKey(key)){
+            return map.get(key);
+        }
+        // Pascal formula
+        //f(i,j) = f(i−1,j−1) + f(i−1,j)
+        int x = getNum(row-1, col-1);
+        int y = getNum(row-1, col);
+        map.put(key, x+y);
+
+        return x+y;
+    }
+
+    public static List<Integer> getPascal(int rowIndex) {
+        List<Integer> ans = new ArrayList<>();
+
+        for (int i = 0; i <= rowIndex; i++) {
+            ans.add(getNum(rowIndex, i));
+        }
+
+        return ans;
+    }
+
     public static void main(String arg[]){
         for(int x :getRow(5)){
             System.out.println(x);
