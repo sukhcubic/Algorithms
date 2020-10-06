@@ -1,3 +1,4 @@
+//https://www.youtube.com/watch?v=5o-kdjv7FD0  good
 //Explanation: https://www.youtube.com/watch?v=sF7hzgUW5uY&t=5s
 public class DynamicWaysToClimbBuilding {
 
