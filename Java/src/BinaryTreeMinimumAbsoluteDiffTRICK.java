@@ -1,4 +1,14 @@
 public class BinaryTreeMinimumAbsoluteDiff {
+    //https://leetcode.com/problems/minimum-absolute-difference-in-bst/
+    
+    //Write all the values to an array, then sort it. The minimum distance must occur between two adjacent values in the sorted list.
+    //o(nlogn)
+    
+    //or 
+    
+    //Wrire in order traversal
+    //o(n)
+    
 
     Integer sum, prev;
     public int getMinimumDifference(TreeNode root) {
