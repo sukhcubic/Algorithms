@@ -1,4 +1,5 @@
 //https://www.youtube.com/watch?v=U9izQCtpVHc
+//https://www.youtube.com/watch?v=Z_-h_mpDmeg
 //https://www.youtube.com/watch?v=MILxfAbIhrE
 class BstIsValid {
   public static boolean validateBst(BST tree) {
@@ -10,7 +11,7 @@ class BstIsValid {
   }
 	
 	public static boolean isValid(BST tree, int min, int max){
-		
+		//Base case empty tree is valid BST
 		if(tree == null){
 			return true;
 		}
