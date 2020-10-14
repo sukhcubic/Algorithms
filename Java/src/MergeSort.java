@@ -64,6 +64,42 @@ public class MergeSort {
 // 		}
 	}
 	
+	
+	
+	static  int[] mergeSort(int[] elements){
+
+        if(elements.length <= 1){
+           return elements;
+        }
+
+        int pivot = elements.length/2;
+        int[] left = mergeSort(Arrays.copyOfRange(elements, 0, pivot));
+        int[] right = mergeSort(Arrays.copyOfRange(elements, pivot, elements.length));
+        return mergeHelper(left, right);
+    }
+
+    static int[] mergeHelper(int[]a, int [] b){
+        int[] result = new int[a.length+b.length];
+        int i = 0, j = 0, res = 0;
+        while(i<a.length &&j<b.length){
+            if(a[i] > b[j]){
+                result[res++] = b[j++];
+            }else{
+                result[res++] = a[i++];
+            }
+        }
+
+
+        while (i<a.length){
+            result[res++] = a[i++];
+        }
+
+        while (j<b.length){
+            result[res++] = b[j++];
+        }
+        return result;
+    }
+	
 	public static void main(String[] args) {
 		int[] a = new int[] {10, 7, 12, 8, 3, 2, 1, 11, 11};
 		sort(a);
