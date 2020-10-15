@@ -37,6 +37,37 @@ class BstIsValid {
 			 
 // 		return true;
 // 	}
+	
+	
+	//ANOTHER. WAY:          //Inorder traversal of BST always have sorted elements
+
+	List<Integer> list = new ArrayList<>();
+    public boolean isValidBST(TreeNode root) {
+     
+        if(root == null){
+           return true; 
+        }
+        long prev = Long.MIN_VALUE;
+        helper(root);
+        for(int i:list){
+            if(i<= prev){
+               return false; 
+            }
+            prev = i;
+        }
+        
+        return true;
+    }
+    
+    void helper(TreeNode node){
+        if(node == null){
+            return;
+        }
+        //Inorder traversal of BST always have sorted elements
+        helper(node.left);
+        list.add(node.val);
+        helper(node.right);
+    }
 
   static class BST {
     public int value;
