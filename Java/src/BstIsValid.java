@@ -68,6 +68,31 @@ class BstIsValid {
         list.add(node.val);
         helper(node.right);
     }
+	
+	
+	
+	  public boolean isValidBST(TreeNode root) {
+        
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode curr =  root;
+        TreeNode last = null;
+
+        while (!stack.isEmpty() || curr != null ){
+            if(curr != null){
+                stack.push(curr);
+                curr = curr.left;
+
+            }else{
+                curr = stack.pop();
+                if(last != null && last.val >= curr.val){
+                    return false;
+                }
+                last = curr;
+                curr = curr.right;
+            }
+        }
+        return true;
+	  }
 
   static class BST {
     public int value;
