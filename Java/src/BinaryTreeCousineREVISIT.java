@@ -24,10 +24,13 @@ public class BinaryTreeCousine {
         if(node.val == a){
             leftParent = parent;
             levelA = level;
+            return;
         }
         if(node.val == b){
             rightParent = parent;
             levelB = level;
+            return;
+
         }
         parent = node;
         helper(parent, node.left, a, b, level+1 );
