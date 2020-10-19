@@ -37,53 +37,51 @@ public class BinaryTreeCousine {
         helper(parent, node.right, a, b,level+1 );
     }
 
+        
+    static class Pair{
+        TreeNode parent;
+        TreeNode node;
+        public Pair(TreeNode parent, TreeNode node) {
+            this.parent = parent;
+            this.node = node;
+        }
+    }
     
     
-    //BFS
-    static boolean levelOrder(TreeNode root, int a, int b){
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        int level = 0;
-        int size = 0;
-        int leftLevel = 0;
-        TreeNode leftParent = null;
-        TreeNode parent = null;
+  static boolean levelOrder(TreeNode root, int a, int b){
+        Queue<Pair> queue = new LinkedList<>();
+        queue.add(new Pair(null, root));
+        Pair one = null;
+        Pair two = null;
         while (!queue.isEmpty()) {
             int nodesAtDepth = queue.size();
             for(int i=0; i<nodesAtDepth; i++){
-                TreeNode node = queue.remove();
-                System.out.println(node.val);
-                if(node.left!= null){
-                    queue.add(node.left);
+                Pair pair = queue.remove();
+                if(pair.node.val == a || pair.node.val == b) {
+                    if(one==null){
+                       one = pair;
+                    }else{
+                       two = pair;
+                    }
+
+                    if(one != null && two != null && one.parent != two.parent){
+                        return true;
+                    }
+                    System.out.println(pair.node.val);
                 }
-                if(node.right!= null){
-                    queue.add(node.right);
+                if(pair.node.left!= null){
+                    queue.add(new Pair(pair.node, pair.node.left));
+                }
+                if(pair.node.right!= null){
+                    queue.add(new Pair(pair.node, pair.node.right));
                 }
             }
-            System.out.println(" Next Level /n");
-//            if(size<1){
-//              level++;
-//              size= queue.size();
-//            }
-//
-//            if(leftLevel > 0 && level > leftLevel){
-//                return false;
-//            }else if(leftLevel > 0 &&  leftLevel == level && leftParent != null && leftParent.val != parent.val ){
-//                return true;
-//            }
-//            if(leftParent == null && (node.val==a || node.val==b)){
-//                leftParent = node;
-//                leftLevel = level;
-//            }
-//            parent = node;
-//
-//            if(node!= null){
-//                queue.add(node.left);
-//                queue.add(node.right);
-//            }
+            System.out.println(" Next Level ");
         }
         return false;
     }
+    
+    
     // Driver code
     public static void main(String args[]) {
         TreeNode root = new TreeNode(3);
