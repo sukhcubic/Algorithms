@@ -1,4 +1,6 @@
-public class BinarySearch2DMatrix {
+public class BinarySearch2DMatrixTIP {
+     //https://leetcode.com/problems/search-a-2d-matrix-ii/
+     
      static boolean find(int[][] data, int target){
          
          return false;
