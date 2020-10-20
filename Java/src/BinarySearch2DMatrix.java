@@ -1,6 +1,8 @@
 public class BinarySearch2DMatrixTIP {
     //https://leetcode.com/problems/search-a-2d-matrix-ii/
     //https://www.youtube.com/watch?v=Ohke9-qwAKU
+    
+    //TIP: Start from last col and emiminate col if <, eliminate row if >
      static boolean find(int[][] data, int target){
          if(data  == null|| data.length==0 || data[0].length==0){
              return false;
