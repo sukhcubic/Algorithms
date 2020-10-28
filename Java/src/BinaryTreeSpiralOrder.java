@@ -12,15 +12,10 @@ public class BinaryTreeSpiralOrder {
         while (!queue.isEmpty()){
             int size = queue.size();
             for(int i = 0; i<size; i++){
-                //print or add to list
-                TreeNode node = null;
-                if(level%2==0){
-                    node = queue.remove();
-                }else{
-                    node = queue.removeLast();
-                }
-                System.out.println(node.val);
+               
                 if(level%2==0) {
+                    TreeNode node = queue.remove();
+                    //print or add to list
                     if (node.left != null) {
                         queue.add(node.left);
                     }
@@ -29,6 +24,8 @@ public class BinaryTreeSpiralOrder {
                     }
 
                 }else{
+                    TreeNode node = queue.removeLast();
+                    //print or add to list
                     if (node.right != null) {
                         queue.addFirst(node.right);
                     }
