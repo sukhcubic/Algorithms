@@ -41,8 +41,18 @@ public class RecusionBacktrackingSudokuREVISIT {
         for (int i=0; i<9; i++) {
              if(board[row][i].equals(String.valueOf(val))) return false;
              if(board[i][col].equals(String.valueOf(val))) return false;
-             if(board[3*(row/3) + i/3][3*(col/3) + i%3].equals(String.valueOf(val))) return false;
+            // if(board[3*(row/3) + i/3][3*(col/3) + i%3].equals(String.valueOf(val))) return false;
          }
+                
+        int r = row-row%3;
+        int c = col-col%3;
+        for(int i=r;i<r+3;i++){
+            for(int j=c;j<c+3;j++){
+                if(board[i][j].equals(String.valueOf(val))){
+                    return false;
+                }
+            }
+        }
         return true;
     }
 
