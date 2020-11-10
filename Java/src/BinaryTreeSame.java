@@ -43,6 +43,9 @@ public class BinaryTreeSame {
             if(A.left != null && B.left != null) {
                 queueA.add(A.left);
                 queueB.add(B.left);
+                                
+                // above condition is false. It means one of the node is null
+
             }else if(A.left != null || B.left != null){
                 return false;
             }
