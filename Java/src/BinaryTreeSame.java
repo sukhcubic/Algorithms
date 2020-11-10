@@ -1,3 +1,7 @@
+import java.util.ArrayDeque;
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinaryTreeSame {
 
     //Recursive
@@ -14,12 +18,44 @@ public class BinaryTreeSame {
          return same(a.left, b.left) & same(a.right, b.right);
     }
 
-
     //Iterative
     static boolean sameIterative(TreeNode a, TreeNode b){
+        if(a == null && b == null){
+            return true;
+        }
+        if(a == null || b == null){
+            return false;
+        }
 
 
-        return false;
+        Queue<TreeNode> queueA = new LinkedList<>();
+        Queue<TreeNode> queueB = new LinkedList<>();
+        queueA.add(a);
+        queueB.add(b);
+        while (!queueA.isEmpty()){
+            TreeNode A = queueA.peek();
+            TreeNode B = queueB.peek();
+
+            if (A.val != B.val) return false;
+            queueA.remove();
+            queueB.remove();
+
+            if(A.left != null && B.left != null) {
+                queueA.add(A.left);
+                queueB.add(B.left);
+            }else if(A.left != null || B.left != null){
+                return false;
+            }
+
+            if(A.right != null && B.right != null) {
+                queueA.add(A.right);
+                queueB.add(B.right);
+            }else if(A.right != null || B.right != null){
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public static void main(String args[]) {
@@ -48,7 +84,8 @@ public class BinaryTreeSame {
         rootc.right.right = new TreeNode(7);
         rootc.right.left = new TreeNode(8);
 
-        System.out.println(same(root, rootc));
+       // System.out.println(same(root, rootc));
+        System.out.println(sameIterative(root, rootc));
 
     }
 }
