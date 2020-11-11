@@ -12,33 +12,31 @@ public class RecursionBTGenerateParnthREVISIT {
 //    Input: n = 1
 //    Output: ["()"]
 
-    int len;
-    public List<String> generateParenthesis(int n) {
 
-        this.len = n;
+    // Explanation : https://www.youtube.com/watch?v=sz1qaKt0KGQ
+    public List<String> generateParenthesis(int n) {
         List<String> list = new ArrayList<>();
-        String a = "(";
-        String b = ")";
-        helper(list, a, b, "");
+        helper(list, n, n, "", n);
         return list;
     }
 
-    void helper(List<String> list, String a, String b, String result){
+    void helper(List<String> list, int open, int close, String result, int max){
 
-        if(result.length() == 2*len){
+        if(result.length() == 2*max){
             list.add(result);
             return;
         }
         //choose
-        
-
-        //explore
-
-        //unchoose
+        if(open > 0) {
+            helper(list, open - 1, close, result + "(", max);
+        }
+        if(close > open ){
+            helper(list, open, close-1, result+")", max);
+        }
 
     }
 
-    public static void main(){
+    public static void main(String arg[]){
         RecursionBTGenerateParnthREVISIT generate = new RecursionBTGenerateParnthREVISIT();
 
         for (String s:
