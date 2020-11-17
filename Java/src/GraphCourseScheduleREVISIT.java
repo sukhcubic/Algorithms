@@ -14,9 +14,9 @@ class Solution {
         
         for(int i = 0; i <prerequisites.length; i++){
             
-            int src = prerequisites[i][0];
+            int dest = prerequisites[i][0];
                         
-            int dest = prerequisites[i][1];
+            int src = prerequisites[i][1];
             
             List<Integer> list = adj.getOrDefault(src, new ArrayList<Integer>());
             
@@ -26,7 +26,7 @@ class Solution {
             
             //also since we have src available add indegee here as well
             
-            degree[src] += 1;     
+            degree[dest] += 1;     
             
         }
         
