@@ -17,7 +17,8 @@ public class GraphTopologicalSort {
             value.get(b).add(a);
         }
     }
-
+    //Pick a node from graph and visit all ites cheldern of node does not have any children add to the stack.
+    // While visiting children mark node visited. If explore all childern pick another unvisited.
     private Deque<Integer> sort(Graph graph){
         Deque<Integer> stack = new ArrayDeque<>();
         Set<Integer> visited = new HashSet<>();
