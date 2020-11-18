@@ -20,6 +20,7 @@ public class GraphCourseSched1REVISIT {
             map.add(new ArrayList<Integer>());
         }
 
+       // [0,1]  == 1 -> 0 1 is src 0 is dest. we will increase  indegree of dest
         int[] degree = new int[numCourses];
         for(int  i = 0; i < prerequisites.length; i++){
             map.get(prerequisites[i][0]).add(prerequisites[i][1]);
