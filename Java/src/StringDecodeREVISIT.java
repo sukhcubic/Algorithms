@@ -10,6 +10,7 @@ public class StringDecoder {
         Stack<String> string = new Stack<>();
         Stack<Integer> count = new Stack<>();
         int k = 0;
+        //NOTE: Code runs much g=faster with stringbuilder
         String soFar = "";
         for (char ch : s.toCharArray()) {
             // we need to convert char to digit and also digit can be more than one.i.e 3 or 33 or 333
