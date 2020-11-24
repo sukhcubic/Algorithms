@@ -4,13 +4,13 @@ public class StringDecoder {
 
     // https://leetcode.com/problems/decode-string/
 
+    //https://www.youtube.com/watch?v=CW3ZYAN5Huo
 
     static String decoder(String s){
         Stack<String> string = new Stack<>();
         Stack<Integer> count = new Stack<>();
-        StringBuilder sb = new StringBuilder();
         int k = 0;
-        StringBuilder soFar = new StringBuilder();
+        String soFar = "";
         for (char ch : s.toCharArray()) {
             // we need to convert char to digit and also digit can be more than one.i.e 3 or 33 or 333
             if(Character.isDigit(ch)){
@@ -20,8 +20,8 @@ public class StringDecoder {
             }else if(ch == '['){
                 // This is the main working horse. 1.add K to stack 2.reset k 3. reset sofar string becasue
                 // this will not repeat but next one will and that will go on top of stak and will be popped
-                string.push(soFar.toString());
-                soFar = new StringBuilder();
+                string.push(soFar);
+                soFar = "";
 
                 count.push(k);
                 k = 0;
@@ -32,19 +32,18 @@ public class StringDecoder {
 
                 //NOTE: String builder is better that String when appending large Strings coz string is immutable.
                 int x = count.pop();
-                 String sx = string.pop();
-                 boolean sss  = string.isEmpty();
-                StringBuilder ss = new StringBuilder();
+                StringBuilder ss = new StringBuilder(string.pop());
+
                 for(int i = 0; i<x; i++){
                     ss.append(soFar);
                 }
-                sb.append(ss.toString());
+                soFar = ss.toString();
             }else{
-                soFar.append(ch);
+                soFar += ch;
             }
         }
 
-        return sb.toString();
+        return soFar;
 
     }
 //
@@ -59,11 +58,10 @@ public class StringDecoder {
 //    }
     public static void main(String arg[]){
         //String s = "a3[b2[c]]";
-        //String s = "a3[b]";
+        //String s = "2[abc]3[cd]ef";
 
-        String s = "3[a]2[bc]";
+        String s = "3[a2[c]]";
         System.out.println(decoder(s));
     }
 
 }
-
