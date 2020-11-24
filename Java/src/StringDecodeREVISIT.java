@@ -1,12 +1,16 @@
-class StringDecodeREVISIT{
-//https://leetcode.com/problems/decode-string/
+import java.util.Stack;
+
+public class StringDecoder {
+
+    // https://leetcode.com/problems/decode-string/
+
 
     static String decoder(String s){
         Stack<String> string = new Stack<>();
         Stack<Integer> count = new Stack<>();
         StringBuilder sb = new StringBuilder();
         int k = 0;
-        String soFar = "";
+        StringBuilder soFar = new StringBuilder();
         for (char ch : s.toCharArray()) {
             // we need to convert char to digit and also digit can be more than one.i.e 3 or 33 or 333
             if(Character.isDigit(ch)){
@@ -16,8 +20,8 @@ class StringDecodeREVISIT{
             }else if(ch == '['){
                 // This is the main working horse. 1.add K to stack 2.reset k 3. reset sofar string becasue
                 // this will not repeat but next one will and that will go on top of stak and will be popped
-                string.push(soFar);
-                soFar = "";
+                string.push(soFar.toString());
+                soFar = new StringBuilder();
 
                 count.push(k);
                 k = 0;
@@ -36,7 +40,7 @@ class StringDecodeREVISIT{
                 }
                 sb.append(ss.toString());
             }else{
-                soFar += ch;
+                soFar.append(ch);
             }
         }
 
@@ -62,3 +66,4 @@ class StringDecodeREVISIT{
     }
 
 }
+
