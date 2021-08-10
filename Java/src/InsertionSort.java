@@ -14,6 +14,21 @@ public class InsertionSort {
 				}
 			}
 		}
+	//another version	
+// 	  for(int i = 1; i<x.length; i++){
+//             int data = x[i];
+//             int  index = i-1;
+//             int xx = i;
+//             while(index>=0 && x[index]>data){
+//                 if(x[index]>data){
+//                     int temp = x[index];
+//                     x[index] = data;
+//                     x[xx--] = temp;
+//                     index--;
+//                 }
+//             }
+
+//         }
 		return data;
 	}
 
